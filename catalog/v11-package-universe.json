@@ -23067,7 +23067,7 @@
     {
       "name": "libffi",
       "category": "develop",
-      "version": "3.8.1",
+      "version": "3.8.2",
       "license": "MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
@@ -29689,7 +29689,7 @@
     {
       "name": "mbedtls",
       "category": "security",
-      "version": "3.6.8",
+      "version": "4.3.0",
       "license": "APL",
       "mode": "v11-cas-cross",
       "tarballs": [
@@ -29839,7 +29839,7 @@
     {
       "name": "md4c",
       "category": "textproc",
-      "version": "0.5.3",
+      "version": "0.6.0",
       "license": "MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
@@ -50878,5 +50878,5 @@
     }
   ],
   "maxPinBumpedAt": "2026-11-26T08:06:34.163Z",
-  "liveUpstreamSyncedAt": "2026-11-26T09:19:15.974Z"
+  "liveUpstreamSyncedAt": "2026-11-26T09:23:07.414Z"
 }

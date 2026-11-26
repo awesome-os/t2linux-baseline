@@ -1,8 +1,8 @@
 {
   "schema": "awesome-os.live-upstream-tracker.v1",
-  "checkedAt": "2026-11-26T09:19:15.978Z",
-  "totalTracked": 21,
-  "bumpedCount": 0,
+  "checkedAt": "2026-11-26T09:23:07.418Z",
+  "totalTracked": 44,
+  "bumpedCount": 3,
   "libraries": [
     {
       "pkg": "libuv",
@@ -21,12 +21,12 @@
       "bumped": false
     },
     {
-      "pkg": "harfbuzz",
-      "repo": "harfbuzz/harfbuzz",
-      "upstreamTag": "15.2.0",
-      "upstreamVersion": "15.2.0",
-      "previousV11": null,
-      "bumped": false
+      "pkg": "mbedtls",
+      "repo": "Mbed-TLS/mbedtls",
+      "upstreamTag": "mbedtls-4.3.0",
+      "upstreamVersion": "4.3.0",
+      "previousV11": "3.6.8",
+      "bumped": true
     },
     {
       "pkg": "zstd",
@@ -37,11 +37,11 @@
       "bumped": false
     },
     {
-      "pkg": "mimalloc",
-      "repo": "microsoft/mimalloc",
-      "upstreamTag": "v3.7.1",
-      "upstreamVersion": "3.7.1",
-      "previousV11": "3.7.1",
+      "pkg": "zlib",
+      "repo": "madler/zlib",
+      "upstreamTag": "v1.4",
+      "upstreamVersion": "1.4",
+      "previousV11": "1.4",
       "bumped": false
     },
     {
@@ -53,11 +53,107 @@
       "bumped": false
     },
     {
-      "pkg": "expat",
-      "repo": "libexpat/libexpat",
-      "upstreamTag": "R_2_11_0",
-      "upstreamVersion": "2.11.0",
-      "previousV11": "2.11.0",
+      "pkg": "brotli",
+      "repo": "google/brotli",
+      "upstreamTag": "v1.2.1",
+      "upstreamVersion": "1.2.1",
+      "previousV11": "1.2.1",
+      "bumped": false
+    },
+    {
+      "pkg": "lz4",
+      "repo": "lz4/lz4",
+      "upstreamTag": "v1.11.1",
+      "upstreamVersion": "1.11.1",
+      "previousV11": "1.11.1",
+      "bumped": false
+    },
+    {
+      "pkg": "libdeflate",
+      "repo": "ebiggers/libdeflate",
+      "upstreamTag": "v1.26",
+      "upstreamVersion": "1.26",
+      "previousV11": "1.26",
+      "bumped": false
+    },
+    {
+      "pkg": "libarchive",
+      "repo": "libarchive/libarchive",
+      "upstreamTag": "v3.8.11",
+      "upstreamVersion": "3.8.11",
+      "previousV11": "3.8.11",
+      "bumped": false
+    },
+    {
+      "pkg": "mimalloc",
+      "repo": "microsoft/mimalloc",
+      "upstreamTag": "v3.7.1",
+      "upstreamVersion": "3.7.1",
+      "previousV11": "3.7.1",
+      "bumped": false
+    },
+    {
+      "pkg": "liburing",
+      "repo": "axboe/liburing",
+      "upstreamTag": "liburing-2.15",
+      "upstreamVersion": "2.15",
+      "previousV11": "2.15",
+      "bumped": false
+    },
+    {
+      "pkg": "libffi",
+      "repo": "libffi/libffi",
+      "upstreamTag": "v3.8.2",
+      "upstreamVersion": "3.8.2",
+      "previousV11": "3.8.1",
+      "bumped": true
+    },
+    {
+      "pkg": "curl",
+      "repo": "curl/curl",
+      "upstreamTag": "curl-8_23_0",
+      "upstreamVersion": "8.23.0",
+      "previousV11": "8.23.0",
+      "bumped": false
+    },
+    {
+      "pkg": "nghttp2",
+      "repo": "nghttp2/nghttp2",
+      "upstreamTag": "v1.71.0",
+      "upstreamVersion": "1.71.0",
+      "previousV11": "1.71.0",
+      "bumped": false
+    },
+    {
+      "pkg": "nghttp3",
+      "repo": "ngtcp2/nghttp3",
+      "upstreamTag": "v1.19.0",
+      "upstreamVersion": "1.19.0",
+      "previousV11": "1.19.0",
+      "bumped": false
+    },
+    {
+      "pkg": "ngtcp2",
+      "repo": "ngtcp2/ngtcp2",
+      "upstreamTag": "v1.26.0",
+      "upstreamVersion": "1.26.0",
+      "previousV11": null,
+      "bumped": false
+    },
+    {
+      "pkg": "c-ares",
+      "repo": "c-ares/c-ares",
+      "upstreamTag": "v1.34.9",
+      "upstreamVersion": "1.34.9",
+      "previousV11": "1.34.9",
+      "bumped": false
+    },
+    {
+      "pkg": "llhttp",
+      "repo": "nodejs/llhttp",
+      "upstreamTag": "release/v9.4.4",
+      "upstreamVersion": "9.4.4",
+      "previousV11": "9.4.4",
       "bumped": false
     },
     {
@@ -69,43 +165,11 @@
       "bumped": false
     },
     {
-      "pkg": "curl",
-      "repo": "curl/curl",
-      "upstreamTag": "curl-8_23_0",
-      "upstreamVersion": "8.23.0",
-      "previousV11": "8.23.0",
-      "bumped": false
-    },
-    {
-      "pkg": "vulkan-headers",
-      "repo": "KhronosGroup/Vulkan-Headers",
-      "upstreamTag": "vulkan-sdk-1.4.363.0",
-      "upstreamVersion": "1.4.363.0",
-      "previousV11": "1.4.369",
-      "bumped": false
-    },
-    {
-      "pkg": "vulkan-loader",
-      "repo": "KhronosGroup/Vulkan-Loader",
-      "upstreamTag": "vulkan-sdk-1.4.363.0",
-      "upstreamVersion": "1.4.363.0",
-      "previousV11": "1.4.369",
-      "bumped": false
-    },
-    {
-      "pkg": "glslang",
-      "repo": "KhronosGroup/glslang",
-      "upstreamTag": "16.6.0",
-      "upstreamVersion": "16.6.0",
-      "previousV11": "16.6.0",
-      "bumped": false
-    },
-    {
-      "pkg": "brotli",
-      "repo": "google/brotli",
-      "upstreamTag": "v1.2.1",
-      "upstreamVersion": "1.2.1",
-      "previousV11": "1.2.1",
+      "pkg": "expat",
+      "repo": "libexpat/libexpat",
+      "upstreamTag": "R_2_11_0",
+      "upstreamVersion": "2.11.0",
+      "previousV11": "2.11.0",
       "bumped": false
     },
     {
@@ -125,6 +189,30 @@
       "bumped": false
     },
     {
+      "pkg": "fast_float",
+      "repo": "fastfloat/fast_float",
+      "upstreamTag": "v8.4.0",
+      "upstreamVersion": "8.4.0",
+      "previousV11": "8.4.0",
+      "bumped": false
+    },
+    {
+      "pkg": "re2",
+      "repo": "google/re2",
+      "upstreamTag": "2025-11-05",
+      "upstreamVersion": "2025-11-05",
+      "previousV11": "2025-11-05",
+      "bumped": false
+    },
+    {
+      "pkg": "md4c",
+      "repo": "mity/md4c",
+      "upstreamTag": "v0.6.0",
+      "upstreamVersion": "0.6.0",
+      "previousV11": "0.5.3",
+      "bumped": true
+    },
+    {
       "pkg": "protobuf",
       "repo": "protocolbuffers/protobuf",
       "upstreamTag": "v36.2",
@@ -133,11 +221,107 @@
       "bumped": false
     },
     {
-      "pkg": "liburing",
-      "repo": "axboe/liburing",
-      "upstreamTag": "liburing-2.15",
-      "upstreamVersion": "2.15",
-      "previousV11": "2.15",
+      "pkg": "icu4c",
+      "repo": "unicode-org/icu",
+      "upstreamTag": "release-79.1",
+      "upstreamVersion": "79.1",
+      "previousV11": "79.1",
+      "bumped": false
+    },
+    {
+      "pkg": "sqlite",
+      "repo": "sqlite/sqlite",
+      "upstreamTag": "version-3.54.1",
+      "upstreamVersion": "3.54.1",
+      "previousV11": "3.54.1",
+      "bumped": false
+    },
+    {
+      "pkg": "harfbuzz",
+      "repo": "harfbuzz/harfbuzz",
+      "upstreamTag": "15.2.0",
+      "upstreamVersion": "15.2.0",
+      "previousV11": null,
+      "bumped": false
+    },
+    {
+      "pkg": "woff2",
+      "repo": "google/woff2",
+      "upstreamTag": "v1.0.2",
+      "upstreamVersion": "1.0.2",
+      "previousV11": "1.0.2",
+      "bumped": false
+    },
+    {
+      "pkg": "vulkan-headers",
+      "repo": "KhronosGroup/Vulkan-Headers",
+      "upstreamTag": "v1.4.369",
+      "upstreamVersion": "1.4.369",
+      "previousV11": "1.4.369",
+      "bumped": false
+    },
+    {
+      "pkg": "vulkan-loader",
+      "repo": "KhronosGroup/Vulkan-Loader",
+      "upstreamTag": "v1.4.369",
+      "upstreamVersion": "1.4.369",
+      "previousV11": "1.4.369",
+      "bumped": false
+    },
+    {
+      "pkg": "glslang",
+      "repo": "KhronosGroup/glslang",
+      "upstreamTag": "16.6.0",
+      "upstreamVersion": "16.6.0",
+      "previousV11": "16.6.0",
+      "bumped": false
+    },
+    {
+      "pkg": "libsdl3",
+      "repo": "libsdl-org/SDL",
+      "upstreamTag": "release-3.4.20",
+      "upstreamVersion": "3.4.20",
+      "previousV11": "3.4.20",
+      "bumped": false
+    },
+    {
+      "pkg": "libjpeg-turbo",
+      "repo": "libjpeg-turbo/libjpeg-turbo",
+      "upstreamTag": "3.2.1",
+      "upstreamVersion": "3.2.1",
+      "previousV11": "3.2.1",
+      "bumped": false
+    },
+    {
+      "pkg": "libwebp",
+      "repo": "webmproject/libwebp",
+      "upstreamTag": "v1.6.0",
+      "upstreamVersion": "1.6.0",
+      "previousV11": "1.6.0",
+      "bumped": false
+    },
+    {
+      "pkg": "libavif",
+      "repo": "AOMediaCodec/libavif",
+      "upstreamTag": "v1.4.2",
+      "upstreamVersion": "1.4.2",
+      "previousV11": "1.4.2",
+      "bumped": false
+    },
+    {
+      "pkg": "dav1d",
+      "repo": "videolan/dav1d",
+      "upstreamTag": "1.5.5",
+      "upstreamVersion": "1.5.5",
+      "previousV11": "1.5.5",
+      "bumped": false
+    },
+    {
+      "pkg": "ffmpeg",
+      "repo": "FFmpeg/FFmpeg",
+      "upstreamTag": "n9.1",
+      "upstreamVersion": "9.1",
+      "previousV11": "9.1",
       "bumped": false
     },
     {
@@ -165,11 +349,11 @@
       "bumped": false
     },
     {
-      "pkg": "nghttp2",
-      "repo": "nghttp2/nghttp2",
-      "upstreamTag": "v1.71.0",
-      "upstreamVersion": "1.71.0",
-      "previousV11": "1.71.0",
+      "pkg": "meson",
+      "repo": "mesonbuild/meson",
+      "upstreamTag": "1.12.1",
+      "upstreamVersion": "1.12.1",
+      "previousV11": "1.12.1",
       "bumped": false
     }
   ]

@@ -19,27 +19,55 @@ interface UpstreamTarget {
 }
 
 const UPSTREAMS: readonly UpstreamTarget[] = [
+  // Core Runtimes, Async I/O, Crypto & Compression
   { pkg: 'libuv', repo: 'libuv/libuv' },
   { pkg: 'openssl', repo: 'openssl/openssl' },
-  { pkg: 'harfbuzz', repo: 'harfbuzz/harfbuzz' },
+  { pkg: 'mbedtls', repo: 'Mbed-TLS/mbedtls' },
   { pkg: 'zstd', repo: 'facebook/zstd' },
-  { pkg: 'mimalloc', repo: 'microsoft/mimalloc' },
+  { pkg: 'zlib', repo: 'madler/zlib' },
   { pkg: 'zlib-ng', repo: 'zlib-ng/zlib-ng' },
-  { pkg: 'expat', repo: 'libexpat/libexpat' },
-  { pkg: 'ada', repo: 'ada-url/ada' },
+  { pkg: 'brotli', repo: 'google/brotli' },
+  { pkg: 'lz4', repo: 'lz4/lz4' },
+  { pkg: 'libdeflate', repo: 'ebiggers/libdeflate' },
+  { pkg: 'libarchive', repo: 'libarchive/libarchive' },
+  { pkg: 'mimalloc', repo: 'microsoft/mimalloc' },
+  { pkg: 'liburing', repo: 'axboe/liburing' },
+  { pkg: 'libffi', repo: 'libffi/libffi' },
+  // Networking, URL, Parsing & Data
   { pkg: 'curl', repo: 'curl/curl' },
+  { pkg: 'nghttp2', repo: 'nghttp2/nghttp2' },
+  { pkg: 'nghttp3', repo: 'ngtcp2/nghttp3' },
+  { pkg: 'ngtcp2', repo: 'ngtcp2/ngtcp2' },
+  { pkg: 'c-ares', repo: 'c-ares/c-ares' },
+  { pkg: 'llhttp', repo: 'nodejs/llhttp' },
+  { pkg: 'ada', repo: 'ada-url/ada' },
+  { pkg: 'expat', repo: 'libexpat/libexpat' },
+  { pkg: 'simdjson', repo: 'simdjson/simdjson' },
+  { pkg: 'simdutf', repo: 'simdutf/simdutf' },
+  { pkg: 'fast_float', repo: 'fastfloat/fast_float' },
+  { pkg: 're2', repo: 'google/re2' },
+  { pkg: 'md4c', repo: 'mity/md4c' },
+  { pkg: 'protobuf', repo: 'protocolbuffers/protobuf' },
+  { pkg: 'icu4c', repo: 'unicode-org/icu' },
+  { pkg: 'sqlite', repo: 'sqlite/sqlite' },
+  // Graphics, Fonts, Media & GPU (Browsers + Desktop + Colibri)
+  { pkg: 'harfbuzz', repo: 'harfbuzz/harfbuzz' },
+  { pkg: 'woff2', repo: 'google/woff2' },
   { pkg: 'vulkan-headers', repo: 'KhronosGroup/Vulkan-Headers' },
   { pkg: 'vulkan-loader', repo: 'KhronosGroup/Vulkan-Loader' },
   { pkg: 'glslang', repo: 'KhronosGroup/glslang' },
-  { pkg: 'brotli', repo: 'google/brotli' },
-  { pkg: 'simdjson', repo: 'simdjson/simdjson' },
-  { pkg: 'simdutf', repo: 'simdutf/simdutf' },
-  { pkg: 'protobuf', repo: 'protocolbuffers/protobuf' },
-  { pkg: 'liburing', repo: 'axboe/liburing' },
+  { pkg: 'libsdl3', repo: 'libsdl-org/SDL' },
+  { pkg: 'libpng', repo: 'pnggroup/libpng' },
+  { pkg: 'libjpeg-turbo', repo: 'libjpeg-turbo/libjpeg-turbo' },
+  { pkg: 'libwebp', repo: 'webmproject/libwebp' },
+  { pkg: 'libavif', repo: 'AOMediaCodec/libavif' },
+  { pkg: 'dav1d', repo: 'videolan/dav1d' },
+  { pkg: 'ffmpeg', repo: 'FFmpeg/FFmpeg' },
+  // AI/Math & Build Toolchains
   { pkg: 'openblas', repo: 'OpenMathLib/OpenBLAS' },
   { pkg: 'cmake', repo: 'Kitware/CMake' },
   { pkg: 'ninja', repo: 'ninja-build/ninja' },
-  { pkg: 'nghttp2', repo: 'nghttp2/nghttp2' },
+  { pkg: 'meson', repo: 'mesonbuild/meson' },
 ];
 
 function normalizeTag(raw: string): string {
@@ -74,6 +102,23 @@ function fetchLatestGithubVersion(repo: string): { tag: string; version: string 
     }
   } catch {
     // ignore
+  }
+  // For KhronosGroup Vulkan repos, also check weekly v1.* spec tags directly
+  if (repo.startsWith('KhronosGroup/Vulkan-')) {
+    try {
+      const out = execFileSync('gh', ['api', `repos/${repo}/git/matching-refs/tags/v1.`, '--jq', '.[-5:][].ref'], {
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'ignore'],
+      }).trim();
+      for (const line of out.split(/\r?\n/)) {
+        const t = line.replace('refs/tags/', '').trim();
+        if (!t) continue;
+        const v = normalizeTag(t);
+        if (/^\d+\.\d+/.test(v)) candidates.push({ tag: t, version: v });
+      }
+    } catch {
+      // ignore
+    }
   }
   if (candidates.length === 0) return null;
   candidates.sort((a, b) => compareVersions(b.version, a.version));
