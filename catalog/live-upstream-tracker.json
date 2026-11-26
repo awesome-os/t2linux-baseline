@@ -1,9 +1,25 @@
 {
   "schema": "awesome-os.live-upstream-tracker.v1",
-  "checkedAt": "2026-11-26T09:47:01.854Z",
-  "totalTracked": 54,
-  "bumpedCount": 1,
+  "checkedAt": "2026-11-26T09:55:44.225Z",
+  "totalTracked": 56,
+  "bumpedCount": 0,
   "libraries": [
+    {
+      "pkg": "linux",
+      "repo": "torvalds/linux",
+      "upstreamTag": "v7.3",
+      "upstreamVersion": "7.3",
+      "previousV11": "7.3.6",
+      "bumped": false
+    },
+    {
+      "pkg": "limine",
+      "repo": "limine-bootloader/limine",
+      "upstreamTag": "v12.11.1",
+      "upstreamVersion": "12.11.1",
+      "previousV11": "12.11.1",
+      "bumped": false
+    },
     {
       "pkg": "libuv",
       "repo": "libuv/libuv",
@@ -393,8 +409,8 @@
       "repo": "KhronosGroup/SPIRV-Tools",
       "upstreamTag": "v2026.4",
       "upstreamVersion": "2026.4",
-      "previousV11": "1.4.363.0",
-      "bumped": true
+      "previousV11": "2026.4",
+      "bumped": false
     },
     {
       "pkg": "spirv-headers",

@@ -257,6 +257,15 @@ const BIG_BOYS: readonly RuntimeSpec[] = [
       'zstd', 'zlib', 'openssl', 'cmake', 'ninja',
     ],
   },
+  {
+    id: 'linux-kernel-boot',
+    name: 'Linux Kernel & Bare-Metal Boot (torvalds/linux + Limine + musl)',
+    standaloneDiskMb: 195,
+    libs: [
+      'linux', 'limine', 'musl', 'busybox', 'kmod', 'elfutils', 'liburing',
+      'zstd', 'zlib', 'lz4', 'openssl', 'xz', 'bzip2', 'bison', 'flex',
+    ],
+  },
 ];
 
 const ALIASES: Readonly<Record<string, readonly string[]>> = {

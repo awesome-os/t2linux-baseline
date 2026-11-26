@@ -19,6 +19,9 @@ interface UpstreamTarget {
 }
 
 const UPSTREAMS: readonly UpstreamTarget[] = [
+  // OS Kernel & Bare-Metal Boot
+  { pkg: 'linux', repo: 'torvalds/linux' },
+  { pkg: 'limine', repo: 'limine-bootloader/limine' },
   // Core Runtimes, Async I/O, Crypto & Compression
   { pkg: 'libuv', repo: 'libuv/libuv' },
   { pkg: 'openssl', repo: 'openssl/openssl' },

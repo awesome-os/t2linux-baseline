@@ -2,8 +2,8 @@
   "schema": "awesome-os.big-boys-v11-overlap.v1",
   "abiMagic": "0x33564742",
   "casLayout": "v11",
-  "totalStandaloneMb": 13792,
-  "uniqueLibsAnalyzed": 127,
+  "totalStandaloneMb": 13987,
+  "uniqueLibsAnalyzed": 135,
   "sharedAcrossMultipleRuntimes": 74,
   "runtimes": [
     {
@@ -219,12 +219,23 @@
       "coveragePercent": 100,
       "missing": [],
       "standaloneDiskMb": 4800
+    },
+    {
+      "id": "linux-kernel-boot",
+      "name": "Linux Kernel & Bare-Metal Boot (torvalds/linux + Limine + musl)",
+      "totalLibs": 15,
+      "coveredInV11": 14,
+      "coveragePercent": 93.3,
+      "missing": [
+        "elfutils"
+      ],
+      "standaloneDiskMb": 195
     }
   ],
   "sharedLibraries": [
     {
       "lib": "zlib",
-      "sharedByCount": 21,
+      "sharedByCount": 22,
       "runtimes": [
         "chromium",
         "firefox",
@@ -246,13 +257,14 @@
         "vcpkg-top100",
         "npm-top-native",
         "pypi-top-wheels",
-        "gpu-compute-stack"
+        "gpu-compute-stack",
+        "linux-kernel-boot"
       ],
       "v11MaxVersion": "1.4"
     },
     {
       "lib": "openssl",
-      "sharedByCount": 20,
+      "sharedByCount": 21,
       "runtimes": [
         "chromium",
         "electron",
@@ -273,13 +285,14 @@
         "vcpkg-top100",
         "npm-top-native",
         "pypi-top-wheels",
-        "gpu-compute-stack"
+        "gpu-compute-stack",
+        "linux-kernel-boot"
       ],
       "v11MaxVersion": "4.1.0 (ahead-of-chrome upstream max)"
     },
     {
       "lib": "zstd",
-      "sharedByCount": 19,
+      "sharedByCount": 20,
       "runtimes": [
         "chromium",
         "firefox",
@@ -299,7 +312,8 @@
         "vcpkg-top100",
         "npm-top-native",
         "pypi-top-wheels",
-        "gpu-compute-stack"
+        "gpu-compute-stack",
+        "linux-kernel-boot"
       ],
       "v11MaxVersion": "1.6.0 (ahead-of-chrome upstream max)"
     },
@@ -662,6 +676,19 @@
       "v11MaxVersion": "1.4.2"
     },
     {
+      "lib": "lz4",
+      "sharedByCount": 6,
+      "runtimes": [
+        "lo",
+        "rust-cargo",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels",
+        "linux-kernel-boot"
+      ],
+      "v11MaxVersion": "1.11.1"
+    },
+    {
       "lib": "mimalloc",
       "sharedByCount": 6,
       "runtimes": [
@@ -711,18 +738,6 @@
         "pypi-top-wheels"
       ],
       "v11MaxVersion": "1.34.9"
-    },
-    {
-      "lib": "lz4",
-      "sharedByCount": 5,
-      "runtimes": [
-        "lo",
-        "rust-cargo",
-        "vcpkg-top100",
-        "npm-top-native",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "1.11.1"
     },
     {
       "lib": "protobuf",
@@ -784,6 +799,17 @@
       "v11MaxVersion": "4.1.1 (ahead-of-chrome upstream max)"
     },
     {
+      "lib": "bzip2",
+      "sharedByCount": 4,
+      "runtimes": [
+        "rust-cargo",
+        "vcpkg-top100",
+        "pypi-top-wheels",
+        "linux-kernel-boot"
+      ],
+      "v11MaxVersion": "1.0.8"
+    },
+    {
       "lib": "dbus",
       "sharedByCount": 4,
       "runtimes": [
@@ -839,6 +865,17 @@
       "v11MaxVersion": "4.7.2"
     },
     {
+      "lib": "liburing",
+      "sharedByCount": 4,
+      "runtimes": [
+        "colibri",
+        "rust-cargo",
+        "vcpkg-top100",
+        "linux-kernel-boot"
+      ],
+      "v11MaxVersion": "2.15"
+    },
+    {
       "lib": "openblas",
       "sharedByCount": 4,
       "runtimes": [
@@ -872,6 +909,17 @@
       "v11MaxVersion": "1.26.0"
     },
     {
+      "lib": "xz",
+      "sharedByCount": 4,
+      "runtimes": [
+        "rust-cargo",
+        "vcpkg-top100",
+        "pypi-top-wheels",
+        "linux-kernel-boot"
+      ],
+      "v11MaxVersion": "5.8.4"
+    },
+    {
       "lib": "aom",
       "sharedByCount": 3,
       "runtimes": [
@@ -880,16 +928,6 @@
         "vcpkg-top100"
       ],
       "v11MaxVersion": "3.15.2"
-    },
-    {
-      "lib": "bzip2",
-      "sharedByCount": 3,
-      "runtimes": [
-        "rust-cargo",
-        "vcpkg-top100",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "1.0.8"
     },
     {
       "lib": "libarchive",
@@ -910,16 +948,6 @@
         "vcpkg-top100"
       ],
       "v11MaxVersion": "1.6.1"
-    },
-    {
-      "lib": "liburing",
-      "sharedByCount": 3,
-      "runtimes": [
-        "colibri",
-        "rust-cargo",
-        "vcpkg-top100"
-      ],
-      "v11MaxVersion": "2.15"
     },
     {
       "lib": "libvpx",
@@ -980,16 +1008,6 @@
         "hyprland-omarchy"
       ],
       "v11MaxVersion": "1.50"
-    },
-    {
-      "lib": "xz",
-      "sharedByCount": 3,
-      "runtimes": [
-        "rust-cargo",
-        "vcpkg-top100",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "5.8.4"
     },
     {
       "lib": "cairo",
