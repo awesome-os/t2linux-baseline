@@ -18,12 +18,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Cache ccache kernel objects
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ccache
+          key: holo-linux-ccache-${{ hashFiles('kernel/awesome-os-7.3.config') }}
+          restore-keys: |
+            holo-linux-ccache-
+
       - name: Install LLVM/Clang kernel toolchain & QEMU
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-            clang lld llvm bc bison flex libssl-dev libelf-dev pahole \
-            cpio zstd busybox-static qemu-system-x86 xz-utils curl
+            ccache clang lld llvm bc bison flex libssl-dev libelf-dev pahole \
+            cpio zstd busybox-static qemu-system-x86 xz-utils curl kmod
 
       - name: Fetch kernel source & merge awesome-os-7.3.config
         run: |
@@ -43,8 +51,9 @@ jobs:
           export KBUILD_BUILD_TIMESTAMP="1970-01-01 00:00:00 UTC"
           export KBUILD_BUILD_USER="holo-compiler"
           export KBUILD_BUILD_HOST="awesomeos"
-          make -C /tmp/ksrc -j"$(nproc)" LLVM=1 LLVM_IAS=1 bzImage modules
-          make -C /tmp/ksrc M="$PWD/kernel/b8g_abi" LLVM=1 LLVM_IAS=1 modules
+          ccache -M 2G
+          make -C /tmp/ksrc -j"$(nproc)" LLVM=1 LLVM_IAS=1 CC="ccache clang" bzImage modules
+          make -C /tmp/ksrc M="$PWD/kernel/b8g_abi" LLVM=1 LLVM_IAS=1 CC="ccache clang" modules
           mkdir -p dist
           cp /tmp/ksrc/arch/x86/boot/bzImage dist/vmlinuz-7.3.6-x86_64
           cp kernel/b8g_abi/b8g_abi.ko dist/b8g_abi.ko
