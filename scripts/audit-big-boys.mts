@@ -246,6 +246,17 @@ const BIG_BOYS: readonly RuntimeSpec[] = [
       'libyaml', 'libxslt', 'libxml2', 'zeromq', 'postgresql', 'cmake', 'ninja',
     ],
   },
+  {
+    id: 'gpu-compute-stack',
+    name: 'GPU Compute & AI Accelerators (CUDA / NCCL / ROCm / Triton / XDNA)',
+    standaloneDiskMb: 4800,
+    libs: [
+      'cuda-toolkit', 'cudnn', 'nccl', 'cutlass', 'cccl', 'triton',
+      'flash-attention', 'rocm', 'onednn', 'vulkan-headers', 'vulkan-loader',
+      'glslang', 'spirv-tools', 'spirv-headers', 'xdna-driver', 'openblas',
+      'zstd', 'zlib', 'openssl', 'cmake', 'ninja',
+    ],
+  },
 ];
 
 const ALIASES: Readonly<Record<string, readonly string[]>> = {
@@ -283,6 +294,19 @@ function main(): void {
   v11Map.set('zstd', '1.6.0 (ahead-of-chrome upstream max)');
   v11Map.set('mimalloc', '3.7.1 (ahead-of-chrome upstream max)');
   v11Map.set('zlib-ng', '2.3.3 (ahead-of-chrome upstream max)');
+  // GPU Compute & AI Accelerator v11 CAS tracks (system://driver-set/proprietary & open-foss)
+  v11Map.set('cuda-toolkit', '13.x (system://driver-set/proprietary)');
+  v11Map.set('cudnn', '9.x (system://driver-set/proprietary)');
+  v11Map.set('nccl', 'tracked live (NVIDIA/nccl)');
+  v11Map.set('cutlass', 'tracked live (NVIDIA/cutlass)');
+  v11Map.set('cccl', 'tracked live (NVIDIA/cccl)');
+  v11Map.set('triton', 'tracked live (triton-lang/triton)');
+  v11Map.set('flash-attention', 'tracked live (Dao-AILab/flash-attention)');
+  v11Map.set('rocm', 'tracked live (ROCm/ROCm)');
+  v11Map.set('onednn', 'tracked live (oneapi-src/oneDNN)');
+  v11Map.set('spirv-tools', 'tracked live (KhronosGroup/SPIRV-Tools)');
+  v11Map.set('spirv-headers', 'tracked live (KhronosGroup/SPIRV-Headers)');
+  v11Map.set('xdna-driver', 'tracked live (amd/xdna-driver)');
   v11Map.set('ada', '4.1.1 (ahead-of-chrome upstream max)');
 
   const libUsage = new Map<string, { runtimes: string[]; version: string | null }>();

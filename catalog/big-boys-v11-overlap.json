@@ -2,8 +2,8 @@
   "schema": "awesome-os.big-boys-v11-overlap.v1",
   "abiMagic": "0x33564742",
   "casLayout": "v11",
-  "totalStandaloneMb": 8992,
-  "uniqueLibsAnalyzed": 115,
+  "totalStandaloneMb": 13792,
+  "uniqueLibsAnalyzed": 127,
   "sharedAcrossMultipleRuntimes": 74,
   "runtimes": [
     {
@@ -210,12 +210,21 @@
         "zeromq"
       ],
       "standaloneDiskMb": 1480
+    },
+    {
+      "id": "gpu-compute-stack",
+      "name": "GPU Compute & AI Accelerators (CUDA / NCCL / ROCm / Triton / XDNA)",
+      "totalLibs": 21,
+      "coveredInV11": 21,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 4800
     }
   ],
   "sharedLibraries": [
     {
       "lib": "zlib",
-      "sharedByCount": 20,
+      "sharedByCount": 21,
       "runtimes": [
         "chromium",
         "firefox",
@@ -236,13 +245,14 @@
         "dotnet-11",
         "vcpkg-top100",
         "npm-top-native",
-        "pypi-top-wheels"
+        "pypi-top-wheels",
+        "gpu-compute-stack"
       ],
       "v11MaxVersion": "1.4"
     },
     {
       "lib": "openssl",
-      "sharedByCount": 19,
+      "sharedByCount": 20,
       "runtimes": [
         "chromium",
         "electron",
@@ -262,9 +272,36 @@
         "dotnet-11",
         "vcpkg-top100",
         "npm-top-native",
-        "pypi-top-wheels"
+        "pypi-top-wheels",
+        "gpu-compute-stack"
       ],
       "v11MaxVersion": "4.1.0 (ahead-of-chrome upstream max)"
+    },
+    {
+      "lib": "zstd",
+      "sharedByCount": 19,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "colibri",
+        "llama-cpp",
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels",
+        "gpu-compute-stack"
+      ],
+      "v11MaxVersion": "1.6.0 (ahead-of-chrome upstream max)"
     },
     {
       "lib": "sqlite",
@@ -292,33 +329,8 @@
       "v11MaxVersion": "3.54.1"
     },
     {
-      "lib": "zstd",
-      "sharedByCount": 18,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "bun",
-        "colibri",
-        "llama-cpp",
-        "vllm",
-        "gnome-wayland",
-        "kde-plasma",
-        "hyprland-omarchy",
-        "rust-cargo",
-        "dotnet-11",
-        "vcpkg-top100",
-        "npm-top-native",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "1.6.0 (ahead-of-chrome upstream max)"
-    },
-    {
       "lib": "vulkan-loader",
-      "sharedByCount": 15,
+      "sharedByCount": 16,
       "runtimes": [
         "chromium",
         "firefox",
@@ -334,7 +346,8 @@
         "rust-cargo",
         "dotnet-11",
         "vcpkg-top100",
-        "npm-top-native"
+        "npm-top-native",
+        "gpu-compute-stack"
       ],
       "v11MaxVersion": "1.4.369"
     },
@@ -541,7 +554,7 @@
     },
     {
       "lib": "vulkan-headers",
-      "sharedByCount": 8,
+      "sharedByCount": 9,
       "runtimes": [
         "chromium",
         "electron",
@@ -550,7 +563,8 @@
         "colibri",
         "llama-cpp",
         "hyprland-omarchy",
-        "vcpkg-top100"
+        "vcpkg-top100",
+        "gpu-compute-stack"
       ],
       "v11MaxVersion": "1.4.369"
     },
@@ -583,6 +597,19 @@
       "v11MaxVersion": "16.0.88+ (awesome-os/libv8_monolith / Chromium 160 Canary)"
     },
     {
+      "lib": "cmake",
+      "sharedByCount": 6,
+      "runtimes": [
+        "llama-cpp",
+        "vllm",
+        "rust-cargo",
+        "vcpkg-top100",
+        "pypi-top-wheels",
+        "gpu-compute-stack"
+      ],
+      "v11MaxVersion": "4.5.1"
+    },
+    {
       "lib": "dav1d",
       "sharedByCount": 6,
       "runtimes": [
@@ -607,6 +634,19 @@
         "pypi-top-wheels"
       ],
       "v11MaxVersion": "2.13.3"
+    },
+    {
+      "lib": "glslang",
+      "sharedByCount": 6,
+      "runtimes": [
+        "ladybird",
+        "colibri",
+        "llama-cpp",
+        "hyprland-omarchy",
+        "vcpkg-top100",
+        "gpu-compute-stack"
+      ],
+      "v11MaxVersion": "16.6.0"
     },
     {
       "lib": "libavif",
@@ -635,6 +675,19 @@
       "v11MaxVersion": "3.7.1 (ahead-of-chrome upstream max)"
     },
     {
+      "lib": "ninja",
+      "sharedByCount": 6,
+      "runtimes": [
+        "llama-cpp",
+        "vllm",
+        "rust-cargo",
+        "vcpkg-top100",
+        "pypi-top-wheels",
+        "gpu-compute-stack"
+      ],
+      "v11MaxVersion": "1.13.2"
+    },
+    {
       "lib": "python",
       "sharedByCount": 6,
       "runtimes": [
@@ -660,30 +713,6 @@
       "v11MaxVersion": "1.34.9"
     },
     {
-      "lib": "cmake",
-      "sharedByCount": 5,
-      "runtimes": [
-        "llama-cpp",
-        "vllm",
-        "rust-cargo",
-        "vcpkg-top100",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "4.5.1"
-    },
-    {
-      "lib": "glslang",
-      "sharedByCount": 5,
-      "runtimes": [
-        "ladybird",
-        "colibri",
-        "llama-cpp",
-        "hyprland-omarchy",
-        "vcpkg-top100"
-      ],
-      "v11MaxVersion": "16.6.0"
-    },
-    {
       "lib": "lz4",
       "sharedByCount": 5,
       "runtimes": [
@@ -694,18 +723,6 @@
         "pypi-top-wheels"
       ],
       "v11MaxVersion": "1.11.1"
-    },
-    {
-      "lib": "ninja",
-      "sharedByCount": 5,
-      "runtimes": [
-        "llama-cpp",
-        "vllm",
-        "rust-cargo",
-        "vcpkg-top100",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "1.13.2"
     },
     {
       "lib": "protobuf",
@@ -822,6 +839,17 @@
       "v11MaxVersion": "4.7.2"
     },
     {
+      "lib": "openblas",
+      "sharedByCount": 4,
+      "runtimes": [
+        "llama-cpp",
+        "vcpkg-top100",
+        "pypi-top-wheels",
+        "gpu-compute-stack"
+      ],
+      "v11MaxVersion": "0.3.34"
+    },
+    {
       "lib": "pipewire",
       "sharedByCount": 4,
       "runtimes": [
@@ -932,16 +960,6 @@
         "vcpkg-top100"
       ],
       "v11MaxVersion": "4.3.0"
-    },
-    {
-      "lib": "openblas",
-      "sharedByCount": 3,
-      "runtimes": [
-        "llama-cpp",
-        "vcpkg-top100",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "0.3.34"
     },
     {
       "lib": "postgresql",

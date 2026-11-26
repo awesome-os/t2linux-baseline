@@ -1,8 +1,8 @@
 {
   "schema": "awesome-os.live-upstream-tracker.v1",
-  "checkedAt": "2026-11-26T09:23:07.418Z",
-  "totalTracked": 44,
-  "bumpedCount": 3,
+  "checkedAt": "2026-11-26T09:47:01.854Z",
+  "totalTracked": 54,
+  "bumpedCount": 1,
   "libraries": [
     {
       "pkg": "libuv",
@@ -25,8 +25,8 @@
       "repo": "Mbed-TLS/mbedtls",
       "upstreamTag": "mbedtls-4.3.0",
       "upstreamVersion": "4.3.0",
-      "previousV11": "3.6.8",
-      "bumped": true
+      "previousV11": "4.3.0",
+      "bumped": false
     },
     {
       "pkg": "zstd",
@@ -105,8 +105,8 @@
       "repo": "libffi/libffi",
       "upstreamTag": "v3.8.2",
       "upstreamVersion": "3.8.2",
-      "previousV11": "3.8.1",
-      "bumped": true
+      "previousV11": "3.8.2",
+      "bumped": false
     },
     {
       "pkg": "curl",
@@ -209,8 +209,8 @@
       "repo": "mity/md4c",
       "upstreamTag": "v0.6.0",
       "upstreamVersion": "0.6.0",
-      "previousV11": "0.5.3",
-      "bumped": true
+      "previousV11": "0.6.0",
+      "bumped": false
     },
     {
       "pkg": "protobuf",
@@ -330,6 +330,86 @@
       "upstreamTag": "v0.3.34",
       "upstreamVersion": "0.3.34",
       "previousV11": "0.3.34",
+      "bumped": false
+    },
+    {
+      "pkg": "nccl",
+      "repo": "NVIDIA/nccl",
+      "upstreamTag": "v2.32.7-1",
+      "upstreamVersion": "2.32.7",
+      "previousV11": null,
+      "bumped": false
+    },
+    {
+      "pkg": "cutlass",
+      "repo": "NVIDIA/cutlass",
+      "upstreamTag": "v4.9.0dev",
+      "upstreamVersion": "4.9.0",
+      "previousV11": null,
+      "bumped": false
+    },
+    {
+      "pkg": "cccl",
+      "repo": "NVIDIA/cccl",
+      "upstreamTag": "v3.5.0",
+      "upstreamVersion": "3.5.0",
+      "previousV11": null,
+      "bumped": false
+    },
+    {
+      "pkg": "triton",
+      "repo": "triton-lang/triton",
+      "upstreamTag": "v3.9.0",
+      "upstreamVersion": "3.9.0",
+      "previousV11": "3.9.0",
+      "bumped": false
+    },
+    {
+      "pkg": "flash-attention",
+      "repo": "Dao-AILab/flash-attention",
+      "upstreamTag": "v2.8.3.post2",
+      "upstreamVersion": "2.8.3",
+      "previousV11": null,
+      "bumped": false
+    },
+    {
+      "pkg": "rocm",
+      "repo": "ROCm/ROCm",
+      "upstreamTag": "rocm-7.14.0",
+      "upstreamVersion": "7.14.0",
+      "previousV11": null,
+      "bumped": false
+    },
+    {
+      "pkg": "onednn",
+      "repo": "oneapi-src/oneDNN",
+      "upstreamTag": "v3.15-pc",
+      "upstreamVersion": "3.15",
+      "previousV11": null,
+      "bumped": false
+    },
+    {
+      "pkg": "spirv-tools",
+      "repo": "KhronosGroup/SPIRV-Tools",
+      "upstreamTag": "v2026.4",
+      "upstreamVersion": "2026.4",
+      "previousV11": "1.4.363.0",
+      "bumped": true
+    },
+    {
+      "pkg": "spirv-headers",
+      "repo": "KhronosGroup/SPIRV-Headers",
+      "upstreamTag": "vulkan-sdk-1.4.363.0",
+      "upstreamVersion": "1.4.363.0",
+      "previousV11": "1.4.363.0",
+      "bumped": false
+    },
+    {
+      "pkg": "xdna-driver",
+      "repo": "amd/xdna-driver",
+      "upstreamTag": "2.21.75",
+      "upstreamVersion": "2.21.75",
+      "previousV11": null,
       "bumped": false
     },
     {

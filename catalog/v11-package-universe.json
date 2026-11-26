@@ -43919,7 +43919,7 @@
     {
       "name": "spirv-tools",
       "category": "develop",
-      "version": "1.4.363.0",
+      "version": "2026.4",
       "license": "GPL3",
       "mode": "v11-cas-cross",
       "tarballs": [
@@ -51000,6 +51000,6 @@
     }
   ],
   "maxPinBumpedAt": "2026-11-26T08:06:34.163Z",
-  "liveUpstreamSyncedAt": "2026-11-26T09:23:07.414Z",
+  "liveUpstreamSyncedAt": "2026-11-26T09:47:01.850Z",
   "tarballReplacementAt": "2026-11-26T09:25:11.700Z"
 }
