@@ -1,0 +1,86 @@
+name: Release — Compile & QEMU-Boot Real Holo-Linux 7.3 Kernel + b8g_abi.ko
+
+on:
+  workflow_dispatch:
+    inputs:
+      kernel_tarball_url:
+        description: 'Upstream kernel.org tarball URL (defaults to latest stable 6.12+/7.x mainline)'
+        required: false
+        default: 'https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.6.tar.xz'
+
+permissions:
+  contents: write
+
+jobs:
+  compile-and-boot-holo-linux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install LLVM/Clang kernel toolchain & QEMU
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            clang lld llvm bc bison flex libssl-dev libelf-dev pahole \
+            cpio zstd busybox-static qemu-system-x86 xz-utils curl
+
+      - name: Fetch kernel source & merge awesome-os-7.3.config
+        run: |
+          mkdir -p /tmp/ksrc
+          URL="${{ inputs.kernel_tarball_url }}"
+          if curl -fsSLI "https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.3.6.tar.xz" >/dev/null 2>&1; then
+            URL="https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.3.6.tar.xz"
+          fi
+          echo "Downloading $URL ..."
+          curl -fsSL "$URL" | tar -xJ -C /tmp/ksrc --strip-components=1
+          make -C /tmp/ksrc LLVM=1 LLVM_IAS=1 x86_64_defconfig
+          /tmp/ksrc/scripts/kconfig/merge_config.sh -m -O /tmp/ksrc /tmp/ksrc/.config "$PWD/kernel/awesome-os-7.3.config"
+          make -C /tmp/ksrc LLVM=1 LLVM_IAS=1 olddefconfig
+
+      - name: Compile bzImage & out-of-tree b8g_abi.ko (/dev/b8g-arena)
+        run: |
+          export KBUILD_BUILD_TIMESTAMP="1970-01-01 00:00:00 UTC"
+          export KBUILD_BUILD_USER="holo-compiler"
+          export KBUILD_BUILD_HOST="awesomeos"
+          make -C /tmp/ksrc -j"$(nproc)" LLVM=1 LLVM_IAS=1 bzImage modules
+          make -C /tmp/ksrc M="$PWD/kernel/b8g_abi" LLVM=1 LLVM_IAS=1 modules
+          mkdir -p dist
+          cp /tmp/ksrc/arch/x86/boot/bzImage dist/vmlinuz-7.3.6-x86_64
+          cp kernel/b8g_abi/b8g_abi.ko dist/b8g_abi.ko
+          ls -lh dist/
+
+      - name: Boot-verify vmlinuz + insmod b8g_abi.ko (/dev/b8g-arena) in headless QEMU
+        run: |
+          RFS=/tmp/initrd
+          mkdir -p "$RFS"/{bin,dev,proc,sys,lib/modules}
+          cp /bin/busybox "$RFS/bin/busybox"
+          ln -sf busybox "$RFS/bin/sh"
+          cp dist/b8g_abi.ko "$RFS/lib/modules/b8g_abi.ko"
+          cat << 'EOF' > "$RFS/init"
+          #!/bin/busybox sh
+          /bin/busybox mount -t proc proc /proc
+          /bin/busybox mount -t sysfs sys /sys
+          /bin/busybox mount -t devtmpfs dev /dev
+          /bin/busybox insmod /lib/modules/b8g_abi.ko
+          ls -l /dev/b8g-arena
+          echo "[HOLO-LINUX] /dev/b8g-arena LIVE (B8G_ABI_MAGIC_V3=0x33564742)"
+          /bin/busybox poweroff -f
+          EOF
+          chmod +x "$RFS/init"
+          (cd "$RFS" && find . -print0 | cpio --null -ov --format=newc | zstd -19) > dist/holo-selftest-initrd.cpio.zst
+
+          timeout 60s qemu-system-x86_64 \
+            -kernel dist/vmlinuz-7.3.6-x86_64 \
+            -initrd dist/holo-selftest-initrd.cpio.zst \
+            -append "console=ttyS0,115200 panic=-1" \
+            -nographic -m 512 -no-reboot | tee /tmp/qemu-holo.log
+          grep -F "[HOLO-LINUX] /dev/b8g-arena LIVE" /tmp/qemu-holo.log
+
+      - name: Upload compiled Holo-Linux kernel & b8g_abi.ko artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: holo-linux-x86_64
+          path: |
+            dist/vmlinuz-7.3.6-x86_64
+            dist/b8g_abi.ko
