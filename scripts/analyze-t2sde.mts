@@ -15,6 +15,7 @@ interface PackageRecord {
   readonly license: string;
   readonly flags: readonly string[];
   readonly downloads: number;
+  readonly tarballs: readonly string[];
   readonly classification: 'excluded-legacy' | 'remapped-awesome-os' | 'v11-cas-modern' | 'legacy-autotools-review';
   readonly remappedTo?: string;
 }
@@ -36,15 +37,19 @@ function parseDesc(filePath: string, category: string, name: string): Omit<Packa
   let version = '';
   let license = '';
   const flags: string[] = [];
-  let downloads = 0;
+  const tarballs: string[] = [];
 
   for (const line of raw.split(/\r?\n/)) {
     if (line.startsWith('[V] ')) version = line.slice(4).trim();
     else if (line.startsWith('[L] ')) license = line.slice(4).trim();
     else if (line.startsWith('[F] ')) flags.push(...line.slice(4).trim().split(/\s+/).filter(Boolean));
-    else if (line.startsWith('[D] ')) downloads++;
+    else if (line.startsWith('[D] ')) {
+      const parts = line.slice(4).trim().split(/\s+/);
+      if (parts.length >= 3) tarballs.push(`${parts[2]}${parts[1]}`);
+      else if (parts.length >= 2) tarballs.push(parts[1]);
+    }
   }
-  return { name, category, version, license, flags, downloads };
+  return { name, category, version, license, flags, downloads: tarballs.length, tarballs };
 }
 
 function main(): void {
@@ -125,7 +130,84 @@ function main(): void {
   };
 
   mkdirSync(join(repoRoot, 'dist'), { recursive: true });
+  mkdirSync(join(repoRoot, 'catalog'), { recursive: true });
   writeFileSync(join(repoRoot, 'dist', 't2sde-ecosystem-analysis.json'), `${JSON.stringify(summary, null, 2)}\n`, 'utf8');
+
+  // 1. Export unified v11-package-universe.json (all modern CROSS-ready + remapped packages)
+  const universe = {
+    schema: 'awesome-os.v11-package-universe.v1',
+    abiMagic: '0x33564742',
+    casLayout: 'v11',
+    source: 'https://github.com/rxrbln/t2sde',
+    totalPackages: byClass['v11-cas-modern'] + byClass['remapped-awesome-os'],
+    packages: records
+      .filter((r) => r.classification === 'v11-cas-modern' || r.classification === 'remapped-awesome-os')
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map((r) => ({
+        name: r.name,
+        category: r.category,
+        version: r.version,
+        license: r.license,
+        mode: r.classification === 'remapped-awesome-os' ? 'remapped' : 'v11-cas-cross',
+        ...(r.remappedTo ? { remappedTo: r.remappedTo } : {}),
+        tarballs: r.tarballs,
+      })),
+  };
+  writeFileSync(join(repoRoot, 'catalog', 'v11-package-universe.json'), `${JSON.stringify(universe, null, 2)}\n`, 'utf8');
+
+  // 2. Export constructive Upstream T2 SDE Modernization & Debloat Wishlist
+  const excludedPkgs = records.filter((r) => r.classification === 'excluded-legacy');
+  const nonCrossPkgs = records.filter((r) => r.classification === 'legacy-autotools-review');
+  const exclByCat: Record<string, string[]> = {};
+  for (const p of excludedPkgs) {
+    (exclByCat[p.category] ??= []).push(p.name);
+  }
+  const nonCrossByCat: Record<string, string[]> = {};
+  for (const p of nonCrossPkgs) {
+    (nonCrossByCat[p.category] ??= []).push(p.name);
+  }
+  const topExclCats = Object.entries(exclByCat).sort((a, b) => b[1].length - a[1].length).slice(0, 12);
+  const topNonCrossCats = Object.entries(nonCrossByCat).sort((a, b) => b[1].length - a[1].length).slice(0, 12);
+
+  const wishlistMd = [
+    '# T2 SDE Modernization & Debloat Wishlist',
+    '',
+    `> Generated automatically from **${summary.scannedPackages}** upstream \`rxrbln/t2sde\` package recipes across **${summary.totalCategories}** categories.`,
+    '> Designed as a constructive, data-driven checklist for both Awesome-OS `v11` CAS builds and upstream T2 SDE modernization.',
+    '',
+    '## Summary',
+    '',
+    `- **Modern \`[F] CROSS\` + \`v11\` CAS Ready:** \`${byClass['v11-cas-modern']}\` packages (\`${((byClass['v11-cas-modern'] / summary.scannedPackages) * 100).toFixed(1)}%\`) — exported to [\`catalog/v11-package-universe.json\`](v11-package-universe.json).`,
+    `- **Excluded Legacy Bloat Candidates:** \`${excludedPkgs.length}\` packages (legacy Xorg/X11, GTK2, Qt5, Python2, Perl legacy, SysV/Groff/Texinfo).`,
+    `- **Non-\`CROSS\` Packages Needing Build-Script / Path Modernization:** \`${nonCrossPkgs.length}\` packages.`,
+    '',
+    '## 1. Legacy Bloat & Archive-Overlay Candidates (Top Categories)',
+    '',
+    'Moving these into an opt-in legacy overlay (e.g., `target/x11-legacy` / `attic`) keeps modern Wayland/musl targets fast and clean:',
+    '',
+    '| Category | Excluded Count | Sample Packages |',
+    '| :--- | ---: | :--- |',
+    ...topExclCats.map(([c, list]) => `| \`${c}\` | ${list.length} | ${list.slice(0, 8).map((x) => `\`${x}\``).join(', ')}${list.length > 8 ? ', …' : ''} |`),
+    '',
+    '## 2. Non-`CROSS` Packages Wishlist (Sysroot & Path Fixes)',
+    '',
+    'Adding `[F] CROSS` + sysroot-relative `pkg-config` / removing hardcoded `/usr/lib64` & `.la` paths unlocks native cross-compilation:',
+    '',
+    '| Category | Non-CROSS Count | Sample Packages |',
+    '| :--- | ---: | :--- |',
+    ...topNonCrossCats.map(([c, list]) => `| \`${c}\` | ${list.length} | ${list.slice(0, 8).map((x) => `\`${x}\``).join(', ')}${list.length > 8 ? ', …' : ''} |`),
+    '',
+    '## 3. High-Leverage Upstream Wins',
+    '',
+    '1. **Split Legacy X11 (`xorg` + `x11` = `' + ((byCategory.xorg ?? 0) + (byCategory.x11 ?? 0)) + '` packages)** into an optional overlay so Wayland workstations (`GNOME`, `KDE`, `Omarchy`, `Noctalia`, `ChonkStep`) never touch X11.',
+    '2. **Eliminate `.la` libtool & hardcoded `/usr/lib64` paths** by routing `pkg-config` and `CC`/`CXX` through a single sysroot-relative wrapper (`holo-compiler` / `zig cc`).',
+    '3. **Pin `[D]` tarballs by `sha512` in a `v11` CAS mirror** so upstream mirror 404s never break builds.',
+    '',
+  ].join('\n');
+
+  writeFileSync(join(repoRoot, 'catalog', 'T2SDE-MODERNIZATION-WISHLIST.md'), wishlistMd, 'utf8');
+  console.log(`Exported catalog/v11-package-universe.json (${universe.totalPackages} packages)`);
+  console.log(`Exported catalog/T2SDE-MODERNIZATION-WISHLIST.md (${excludedPkgs.length} legacy + ${nonCrossPkgs.length} non-CROSS)`);
 
   console.log(`\n=== AWESOME-OS T2 SDE FULL-ECOSYSTEM BATTLE-TEST ANALYSIS (${elapsedMs} ms) ===`);
   console.log(`Scanned Packages       : ${summary.scannedPackages} across ${summary.totalCategories} categories`);
