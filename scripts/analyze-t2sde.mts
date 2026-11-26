@@ -155,8 +155,29 @@ function main(): void {
   };
   writeFileSync(join(repoRoot, 'catalog', 'v11-package-universe.json'), `${JSON.stringify(universe, null, 2)}\n`, 'utf8');
 
-  // 2. Export constructive Upstream T2 SDE Modernization & Debloat Wishlist
+  // 1b. Export frozen opt-in catalog/packages-legacy.json (X11, Xorg, SysV, GTK2, Qt5 — build once, freeze in v11 CAS forever!)
   const excludedPkgs = records.filter((r) => r.classification === 'excluded-legacy');
+  const legacyCatalog = {
+    schema: 'awesome-os.packages-legacy.v1',
+    abiMagic: '0x33564742',
+    casLayout: 'v11',
+    policy: 'frozen-opt-in-overlay',
+    notes: 'Frozen legacy packages (Xorg/X11, SysV, GTK2, Qt5, retro stacks). Opt-in via --overlay packages-legacy; zero impact on modern Wayland/musl builds.',
+    totalPackages: excludedPkgs.length,
+    packages: excludedPkgs
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map((r) => ({
+        name: r.name,
+        category: r.category,
+        version: r.version,
+        license: r.license,
+        crossCapable: r.flags.includes('CROSS'),
+        tarballs: r.tarballs,
+      })),
+  };
+  writeFileSync(join(repoRoot, 'catalog', 'packages-legacy.json'), `${JSON.stringify(legacyCatalog, null, 2)}\n`, 'utf8');
+
+  // 2. Export constructive Upstream T2 SDE Modernization & Debloat Wishlist
   const nonCrossPkgs = records.filter((r) => r.classification === 'legacy-autotools-review');
   const exclByCat: Record<string, string[]> = {};
   for (const p of excludedPkgs) {
