@@ -1,0 +1,18 @@
+name: Holo-CI Autoroll
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  autoroll:
+    uses: awesome-os/maintenance-workflows/.github/workflows/reusable-holo-autoroll.yml@v1
+    with:
+      config-path: holo-ci.json
+      tracking-issue: 'awesome-os/awesome-os#5'
+      auto-merge: false
