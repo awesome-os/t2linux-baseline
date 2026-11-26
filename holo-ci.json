@@ -1,0 +1,15 @@
+{
+  "schema": "holo-ci.v1",
+  "name": "t2linux-baseline",
+  "kind": "monorepo",
+  "tests": [
+    "node --test kernel/holo-kbuild.test.mts"
+  ],
+  "docs": [
+    "README.md"
+  ],
+  "guards": {
+    "zeroGhost": true,
+    "zeroCasV1": true
+  }
+}
