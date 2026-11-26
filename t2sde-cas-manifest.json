@@ -17,5 +17,13 @@
   "target": "t2linux-baseline",
   "architectures": ["x86_64", "aarch64"],
   "compilers": ["musl-gcc", "zig cc", "gcc"],
-  "casRoot": "/var/lib/b8g/cas/v11"
+  "casRoot": "/var/lib/b8g/cas/v11",
+  "baseHoloStack": {
+    "coreutils": "repository://github.com/awesome-os/coreutils@main",
+    "holoPm": "repository://github.com/awesome-os/holo-pm@main",
+    "holoCompiler": "repository://github.com/awesome-os/holo-compiler@main",
+    "wasiHost": "repository://github.com/awesome-os/wasi-host@main",
+    "hostManager": "repository://github.com/awesome-os/host-manager@main",
+    "v11Registry": "repository://github.com/awesome-os/holo-v11@main"
+  }
 }

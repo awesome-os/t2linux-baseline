@@ -26,10 +26,25 @@ for script in scripts/Config scripts/Build-Pkg scripts/Build-Target scripts/Emer
 done
 echo "[T2SDE-BASELINE] Verified upstream T2 SDE scripts in $T2_DIR/scripts/"
 
-# Overlay our target/baseline definition into T2 SDE tree
+# Overlay our target/baseline definition & remap policy into T2 SDE tree
 mkdir -p "$T2_DIR/target/t2linux-baseline"
 cp -f "$REPO_ROOT/target/baseline/config.in" "$T2_DIR/target/t2linux-baseline/config.in"
 cp -f "$REPO_ROOT/target/baseline/pkgsel" "$T2_DIR/target/t2linux-baseline/pkgsel"
+cp -f "$REPO_ROOT/target/baseline/t2-remap-policy.json" "$T2_DIR/target/t2linux-baseline/t2-remap-policy.json"
+
+# Enforce Exclusion & Remapping Policy Gate against pkgsel (zero legacy bloat)
+POLICY_FILE="$REPO_ROOT/target/baseline/t2-remap-policy.json"
+if [ -f "$POLICY_FILE" ]; then
+  echo "[T2SDE-BASELINE] Enforcing exclusion/remap/pin policy ($POLICY_FILE)..."
+  EXCLUDED_LIST="$(sed -n '/"exclude"/,/\]/p' "$POLICY_FILE" | grep -oE '"[a-zA-Z0-9._-]+"' | tr -d '"' | grep -v '^exclude$' || true)"
+  for pkg in $EXCLUDED_LIST; do
+    if grep -qE "^X[[:space:]]+${pkg}([[:space:]]|\$)" "$REPO_ROOT/target/baseline/pkgsel"; then
+      echo "ERROR: Policy violation — excluded legacy package '$pkg' is enabled in target/baseline/pkgsel!" >&2
+      exit 1
+    fi
+  done
+  echo "[T2SDE-BASELINE] Policy gate PASS (0 excluded legacy packages enabled; remaps & v11 pins active)"
+fi
 
 echo "[T2SDE-BASELINE] 2/4 Compiling static musl PID 1 (src/t2_mininit.c)..."
 INIT_BIN="$OUT_DIR/t2-mininit-$ARCH"
@@ -50,10 +65,30 @@ echo "[T2SDE-BASELINE] Stored init in v11 CAS: ${INIT_SHA512:0:16}..."
 
 echo "[T2SDE-BASELINE] 3/4 Assembling legacy T2 SDE initramfs (with /opt/t2sde tooling)..."
 rm -rf "$WORK_ROOTFS"
-mkdir -p "$WORK_ROOTFS"/{bin,sbin,proc,sys,dev,tmp,run,root,etc,var/lib/b8g/cas/v11/files,opt/t2sde/scripts,opt/t2sde/target/t2linux-baseline}
+mkdir -p "$WORK_ROOTFS"/{bin,sbin,proc,sys,dev,tmp,run,root,etc/awesome-os,var/lib/b8g/cas/v11/files,opt/t2sde/scripts,opt/t2sde/target/t2linux-baseline}
 
 cp -f "$CAS_DIR/files/${INIT_SHA512:0:2}/${INIT_SHA512}-exec" "$WORK_ROOTFS/init"
 chmod 755 "$WORK_ROOTFS/init"
+cp -f "$REPO_ROOT/target/baseline/t2-remap-policy.json" "$WORK_ROOTFS/etc/awesome-os/t2-remap-policy.json"
+cp -f "$REPO_ROOT/t2sde-cas-manifest.json" "$WORK_ROOTFS/etc/awesome-os/t2sde-cas-manifest.json"
+
+# Hydrate base Holo stack into initramfs (awesome-os/coreutils + holo-pm / holo-compiler console entrypoints)
+COREUTILS_URL="https://github.com/awesome-os/coreutils/releases/latest/download/coreutils-linux-${ARCH}-musl"
+if command -v curl >/dev/null 2>&1; then
+  HTTP_CODE="$(curl -sSL -o "$WORK_ROOTFS/bin/coreutils" -w '%{http_code}' "$COREUTILS_URL" || true)"
+  if [ "$HTTP_CODE" = "200" ] && [ -s "$WORK_ROOTFS/bin/coreutils" ]; then
+    chmod 755 "$WORK_ROOTFS/bin/coreutils"
+    echo "[T2SDE-BASELINE] Base Holo stack: hydrated static musl awesome-os/coreutils"
+  else
+    rm -f "$WORK_ROOTFS/bin/coreutils"
+  fi
+fi
+cat << 'EOF' > "$WORK_ROOTFS/bin/holo-stack"
+#!/bin/sh
+echo "Awesome-OS Base Holo Stack (B8G_ABI_MAGIC_V3=0x33564742, v11 CAS)"
+cat /etc/awesome-os/t2sde-cas-manifest.json
+EOF
+chmod 755 "$WORK_ROOTFS/bin/holo-stack"
 
 # Copy original T2 SDE core scripts & baseline target into /opt/t2sde inside the initramfs
 cp -f "$T2_DIR/scripts/Config" "$T2_DIR/scripts/Build-Pkg" "$T2_DIR/scripts/Build-Target" "$T2_DIR/scripts/Emerge-Pkg" "$WORK_ROOTFS/opt/t2sde/scripts/"

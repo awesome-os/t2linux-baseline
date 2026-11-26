@@ -1,0 +1,33 @@
+{
+  "schema": "awesome-os.t2sde-remap-policy.v1",
+  "abiMagic": "0x33564742",
+  "casLayout": "v11",
+  "requireSha512": true,
+  "allowLegacyUnpinned": false,
+  "exclude": [
+    "sysvinit",
+    "systemd",
+    "xorg-server",
+    "texinfo",
+    "groff",
+    "gettext",
+    "man-db",
+    "linux-firmware",
+    "perl-legacy",
+    "python2",
+    "gtk2"
+  ],
+  "remap": {
+    "gnu-coreutils": "repository://github.com/awesome-os/coreutils@main",
+    "sysvinit": "repository://github.com/awesome-os/posix@main",
+    "xorg-server": "repository://github.com/awesome-os/desktop@main",
+    "linux-firmware": "system://driver-set/hyperv-uefi@pinned-v1",
+    "gcc-bootstrap": "repository://github.com/awesome-os/holo-compiler@main"
+  },
+  "pins": {
+    "target": "t2linux-baseline",
+    "libc": "musl",
+    "compression": "zstd-19",
+    "casPrefix": "/var/lib/b8g/cas/v11/files/"
+  }
+}
