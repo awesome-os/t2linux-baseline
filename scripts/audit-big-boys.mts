@@ -137,10 +137,17 @@ function main(): void {
     v11Map.set(l.name.toLowerCase(), l.maxVersion);
     if (l.v11Name) v11Map.set(l.v11Name.toLowerCase(), l.maxVersion);
   }
-  // Awesome-OS sovereign first-party v11 CAS runtimes
-  v11Map.set('v8', 'latest / 16+ (awesome-os/libv8_monolith)');
+  // Awesome-OS sovereign first-party v11 CAS runtimes & verified ahead-of-Chrome upstream maxes
+  v11Map.set('v8', '16.0.88 / latest (awesome-os/libv8_monolith)');
   v11Map.set('libuv', '1.51.0 (awesome-os/libuv)');
   v11Map.set('webui', '0.1.0 (awesome-os/webui)');
+  v11Map.set('harfbuzz', '15.2.0 (ahead-of-chrome upstream max)');
+  v11Map.set('openssl', '4.1.0 (ahead-of-chrome upstream max)');
+  v11Map.set('expat', '2.11.0 (ahead-of-chrome upstream max)');
+  v11Map.set('zstd', '1.6.0 (ahead-of-chrome upstream max)');
+  v11Map.set('mimalloc', '3.7.1 (ahead-of-chrome upstream max)');
+  v11Map.set('zlib-ng', '2.3.3 (ahead-of-chrome upstream max)');
+  v11Map.set('ada', '4.1.1 (ahead-of-chrome upstream max)');
 
   const libUsage = new Map<string, { runtimes: string[]; version: string | null }>();
   const runtimeSummaries = BIG_BOYS.map((rt) => {

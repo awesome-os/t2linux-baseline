@@ -1,0 +1,15 @@
+{
+  "schema": "awesome-os.ahead-of-chrome-pins.v1",
+  "abiMagic": "0x33564742",
+  "casLayout": "v11",
+  "v8Baseline": "16.0.88 (rolling latest via awesome-os/libv8_monolith)",
+  "aheadOfChromePins": {
+    "harfbuzz": { "version": "15.2.0", "upstream": "harfbuzz/harfbuzz", "tag": "15.2.0" },
+    "openssl": { "version": "4.1.0", "upstream": "openssl/openssl", "tag": "openssl-4.1.0" },
+    "expat": { "version": "2.11.0", "upstream": "libexpat/libexpat", "tag": "R_2_11_0" },
+    "zstd": { "version": "1.6.0", "upstream": "facebook/zstd", "tag": "v1.6.0" },
+    "mimalloc": { "version": "3.7.1", "upstream": "microsoft/mimalloc", "tag": "v3.7.1" },
+    "zlib-ng": { "version": "2.3.3", "upstream": "zlib-ng/zlib-ng", "tag": "2.3.3" },
+    "ada": { "version": "4.1.1", "upstream": "ada-url/ada", "tag": "v4.1.1" }
+  }
+}

@@ -39,11 +39,10 @@
       "id": "nodejs",
       "name": "Node.js",
       "totalLibs": 16,
-      "coveredInV11": 14,
-      "coveragePercent": 87.5,
+      "coveredInV11": 15,
+      "coveragePercent": 93.8,
       "missing": [
-        "ngtcp2",
-        "ada"
+        "ngtcp2"
       ],
       "standaloneDiskMb": 115
     },
@@ -78,11 +77,9 @@
       "id": "lo",
       "name": "just-js/lo (lo/lib/*)",
       "totalLibs": 19,
-      "coveredInV11": 18,
-      "coveragePercent": 94.7,
-      "missing": [
-        "ada"
-      ],
+      "coveredInV11": 19,
+      "coveragePercent": 100,
+      "missing": [],
       "standaloneDiskMb": 42
     }
   ],
@@ -100,7 +97,7 @@
         "ladybird",
         "lo"
       ],
-      "v11MaxVersion": "3.6.5"
+      "v11MaxVersion": "4.1.0 (ahead-of-chrome upstream max)"
     },
     {
       "lib": "sqlite",
@@ -184,7 +181,7 @@
         "deno",
         "lo"
       ],
-      "v11MaxVersion": "latest / 16+ (awesome-os/libv8_monolith)"
+      "v11MaxVersion": "16.0.88 / latest (awesome-os/libv8_monolith)"
     },
     {
       "lib": "zstd",
@@ -197,7 +194,7 @@
         "deno",
         "bun"
       ],
-      "v11MaxVersion": "1.5.7"
+      "v11MaxVersion": "1.6.0 (ahead-of-chrome upstream max)"
     },
     {
       "lib": "simdutf",
@@ -349,7 +346,7 @@
         "nodejs",
         "lo"
       ],
-      "v11MaxVersion": "needs-pin"
+      "v11MaxVersion": "4.1.1 (ahead-of-chrome upstream max)"
     },
     {
       "lib": "c-ares",
@@ -385,7 +382,7 @@
         "bun",
         "ladybird"
       ],
-      "v11MaxVersion": "3.7.0"
+      "v11MaxVersion": "3.7.1 (ahead-of-chrome upstream max)"
     }
   ]
 }
