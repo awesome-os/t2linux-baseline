@@ -2,9 +2,9 @@
   "schema": "awesome-os.big-boys-v11-overlap.v1",
   "abiMagic": "0x33564742",
   "casLayout": "v11",
-  "totalStandaloneMb": 1592,
-  "uniqueLibsAnalyzed": 53,
-  "sharedAcrossMultipleRuntimes": 26,
+  "totalStandaloneMb": 1932,
+  "uniqueLibsAnalyzed": 58,
+  "sharedAcrossMultipleRuntimes": 33,
   "runtimes": [
     {
       "id": "chromium",
@@ -16,6 +16,18 @@
         "libxml2"
       ],
       "standaloneDiskMb": 420
+    },
+    {
+      "id": "firefox",
+      "name": "Firefox (Gecko / SpiderMonkey)",
+      "totalLibs": 24,
+      "coveredInV11": 22,
+      "coveragePercent": 91.7,
+      "missing": [
+        "pixman",
+        "cairo"
+      ],
+      "standaloneDiskMb": 340
     },
     {
       "id": "electron",
@@ -85,6 +97,68 @@
   ],
   "sharedLibraries": [
     {
+      "lib": "sqlite",
+      "sharedByCount": 9,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird",
+        "lo"
+      ],
+      "v11MaxVersion": "3.54.1"
+    },
+    {
+      "lib": "zlib",
+      "sharedByCount": 9,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird",
+        "lo"
+      ],
+      "v11MaxVersion": "1.4"
+    },
+    {
+      "lib": "brotli",
+      "sharedByCount": 8,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird"
+      ],
+      "v11MaxVersion": "1.2.1"
+    },
+    {
+      "lib": "icu4c",
+      "sharedByCount": 8,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird"
+      ],
+      "v11MaxVersion": "79.1"
+    },
+    {
       "lib": "openssl",
       "sharedByCount": 8,
       "runtimes": [
@@ -100,62 +174,18 @@
       "v11MaxVersion": "4.1.0 (ahead-of-chrome upstream max)"
     },
     {
-      "lib": "sqlite",
-      "sharedByCount": 8,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "bun",
-        "ladybird",
-        "lo"
-      ],
-      "v11MaxVersion": "3.54.1"
-    },
-    {
-      "lib": "zlib",
-      "sharedByCount": 8,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "bun",
-        "ladybird",
-        "lo"
-      ],
-      "v11MaxVersion": "1.4"
-    },
-    {
-      "lib": "brotli",
+      "lib": "zstd",
       "sharedByCount": 7,
       "runtimes": [
         "chromium",
+        "firefox",
         "electron",
         "nwjs",
         "nodejs",
         "deno",
-        "bun",
-        "ladybird"
+        "bun"
       ],
-      "v11MaxVersion": "1.2.1"
-    },
-    {
-      "lib": "icu4c",
-      "sharedByCount": 7,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "bun",
-        "ladybird"
-      ],
-      "v11MaxVersion": "79.1"
+      "v11MaxVersion": "1.6.0 (ahead-of-chrome upstream max)"
     },
     {
       "lib": "nghttp2",
@@ -184,17 +214,77 @@
       "v11MaxVersion": "16.0.88 / latest (awesome-os/libv8_monolith)"
     },
     {
-      "lib": "zstd",
+      "lib": "vulkan-loader",
       "sharedByCount": 6,
       "runtimes": [
         "chromium",
+        "firefox",
         "electron",
         "nwjs",
-        "nodejs",
         "deno",
-        "bun"
+        "ladybird"
       ],
-      "v11MaxVersion": "1.6.0 (ahead-of-chrome upstream max)"
+      "v11MaxVersion": "1.4.369"
+    },
+    {
+      "lib": "dav1d",
+      "sharedByCount": 5,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird"
+      ],
+      "v11MaxVersion": "1.5.5"
+    },
+    {
+      "lib": "ffmpeg",
+      "sharedByCount": 5,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird"
+      ],
+      "v11MaxVersion": "9.1"
+    },
+    {
+      "lib": "libjpeg-turbo",
+      "sharedByCount": 5,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird"
+      ],
+      "v11MaxVersion": "3.2.1"
+    },
+    {
+      "lib": "libpng",
+      "sharedByCount": 5,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird"
+      ],
+      "v11MaxVersion": "1.6.59"
+    },
+    {
+      "lib": "libwebp",
+      "sharedByCount": 5,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird"
+      ],
+      "v11MaxVersion": "1.6.0"
     },
     {
       "lib": "simdutf",
@@ -209,40 +299,6 @@
       "v11MaxVersion": "9.5.0"
     },
     {
-      "lib": "vulkan-loader",
-      "sharedByCount": 5,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "deno",
-        "ladybird"
-      ],
-      "v11MaxVersion": "1.4.369"
-    },
-    {
-      "lib": "dav1d",
-      "sharedByCount": 4,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "ladybird"
-      ],
-      "v11MaxVersion": "1.5.5"
-    },
-    {
-      "lib": "ffmpeg",
-      "sharedByCount": 4,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "ladybird"
-      ],
-      "v11MaxVersion": "9.1"
-    },
-    {
       "lib": "libavif",
       "sharedByCount": 4,
       "runtimes": [
@@ -254,28 +310,6 @@
       "v11MaxVersion": "1.4.2"
     },
     {
-      "lib": "libjpeg-turbo",
-      "sharedByCount": 4,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "ladybird"
-      ],
-      "v11MaxVersion": "3.2.1"
-    },
-    {
-      "lib": "libpng",
-      "sharedByCount": 4,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "ladybird"
-      ],
-      "v11MaxVersion": "1.6.59"
-    },
-    {
       "lib": "libuv",
       "sharedByCount": 4,
       "runtimes": [
@@ -285,17 +319,6 @@
         "deno"
       ],
       "v11MaxVersion": "1.51.0 (awesome-os/libuv)"
-    },
-    {
-      "lib": "libwebp",
-      "sharedByCount": 4,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "ladybird"
-      ],
-      "v11MaxVersion": "1.6.0"
     },
     {
       "lib": "skia",
@@ -330,6 +353,16 @@
       "v11MaxVersion": "8.23.0"
     },
     {
+      "lib": "libffi",
+      "sharedByCount": 3,
+      "runtimes": [
+        "firefox",
+        "deno",
+        "lo"
+      ],
+      "v11MaxVersion": "3.8.1"
+    },
+    {
       "lib": "simdjson",
       "sharedByCount": 3,
       "runtimes": [
@@ -349,6 +382,15 @@
       "v11MaxVersion": "4.1.1 (ahead-of-chrome upstream max)"
     },
     {
+      "lib": "aom",
+      "sharedByCount": 2,
+      "runtimes": [
+        "chromium",
+        "firefox"
+      ],
+      "v11MaxVersion": "3.15.2"
+    },
+    {
       "lib": "c-ares",
       "sharedByCount": 2,
       "runtimes": [
@@ -356,6 +398,42 @@
         "bun"
       ],
       "v11MaxVersion": "1.34.9"
+    },
+    {
+      "lib": "expat",
+      "sharedByCount": 2,
+      "runtimes": [
+        "chromium",
+        "firefox"
+      ],
+      "v11MaxVersion": "2.11.0 (ahead-of-chrome upstream max)"
+    },
+    {
+      "lib": "fontconfig",
+      "sharedByCount": 2,
+      "runtimes": [
+        "chromium",
+        "firefox"
+      ],
+      "v11MaxVersion": "2.17.1"
+    },
+    {
+      "lib": "freetype",
+      "sharedByCount": 2,
+      "runtimes": [
+        "chromium",
+        "firefox"
+      ],
+      "v11MaxVersion": "2.13.3"
+    },
+    {
+      "lib": "harfbuzz",
+      "sharedByCount": 2,
+      "runtimes": [
+        "chromium",
+        "firefox"
+      ],
+      "v11MaxVersion": "15.2.0 (ahead-of-chrome upstream max)"
     },
     {
       "lib": "libdeflate",
@@ -367,13 +445,22 @@
       "v11MaxVersion": "1.26"
     },
     {
-      "lib": "libffi",
+      "lib": "libopus",
       "sharedByCount": 2,
       "runtimes": [
-        "deno",
-        "lo"
+        "chromium",
+        "firefox"
       ],
-      "v11MaxVersion": "3.8.1"
+      "v11MaxVersion": "1.6.1"
+    },
+    {
+      "lib": "libvpx",
+      "sharedByCount": 2,
+      "runtimes": [
+        "chromium",
+        "firefox"
+      ],
+      "v11MaxVersion": "1.17.0"
     },
     {
       "lib": "mimalloc",

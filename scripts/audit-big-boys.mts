@@ -43,6 +43,17 @@ const BIG_BOYS: readonly RuntimeSpec[] = [
     ],
   },
   {
+    id: 'firefox',
+    name: 'Firefox (Gecko / SpiderMonkey)',
+    standaloneDiskMb: 340,
+    libs: [
+      'nss', 'nspr', 'icu4c', 'sqlite', 'zlib', 'brotli', 'zstd', 'libwebp',
+      'libjpeg-turbo', 'libpng', 'dav1d', 'libvpx', 'libopus', 'aom',
+      'harfbuzz', 'freetype', 'fontconfig', 'expat', 'libffi', 'libevent',
+      'pixman', 'cairo', 'vulkan-loader', 'ffmpeg',
+    ],
+  },
+  {
     id: 'electron',
     name: 'Electron (awesome-os/sectium-electron)',
     standaloneDiskMb: 280,
@@ -207,7 +218,7 @@ function main(): void {
   writeFileSync(join(repoRoot, 'catalog', 'big-boys-v11-overlap.json'), `${JSON.stringify(outJson, null, 2)}\n`, 'utf8');
 
   const md = [
-    '# Big Boys Native Library Overlap — Chromium × Electron × NW.js × Node.js × Deno × Bun × Ladybird × just-js/lo on `v11` CAS',
+    '# Big Boys Native Library Overlap — Chromium × Firefox × Ladybird × Electron × NW.js × Node.js × Deno × Bun × just-js/lo on `v11` CAS',
     '',
     `> Cross-runtime DevOps audit against \`catalog/v11-package-universe.json\` (5,070 packages) + \`catalog/max-version-lock.json\` + Awesome-OS sovereign runtimes (\`libv8_monolith\`, \`libuv\`).`,
     '',
