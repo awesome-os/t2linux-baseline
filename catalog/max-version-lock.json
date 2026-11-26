@@ -1,0 +1,594 @@
+{
+  "schema": "awesome-os.max-version-lock.v1",
+  "abiMagic": "0x33564742",
+  "casLayout": "v11",
+  "generatedAt": "2026-11-26T06:52:07.931Z",
+  "sources": {
+    "v11Universe": "catalog/v11-package-universe.json",
+    "ladybirdVcpkg": "e:\\awesome-os\\github-mirror\\awesome-os\\ladybird\\vcpkg.json",
+    "vcpkgBaseline": "944dee83774536dd280cf459f41989584b9ef86a"
+  },
+  "summary": {
+    "totalLadybirdDeps": 49,
+    "coveredInV11": 33,
+    "overlapPercent": 67.35,
+    "raisedFromV11": 15,
+    "raisedFromLadybird": 2,
+    "equalAtMax": 16,
+    "ladybirdCustomPins": 16
+  },
+  "libraries": [
+    {
+      "name": "angle",
+      "v11Name": null,
+      "ladybirdVersion": "chromium_7258#2",
+      "v11Version": null,
+      "maxVersion": "chromium_7258",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "brotli",
+      "v11Name": "brotli",
+      "ladybirdVersion": "1.2.1#0",
+      "v11Version": "1.2.1",
+      "maxVersion": "1.2.1",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "cpptrace",
+      "v11Name": null,
+      "ladybirdVersion": "1.0.4#2",
+      "v11Version": null,
+      "maxVersion": "1.0.4",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "curl",
+      "v11Name": "curl",
+      "ladybirdVersion": "8.23.0#3",
+      "v11Version": "8.23.0",
+      "maxVersion": "8.23.0",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "dav1d",
+      "v11Name": "dav1d",
+      "ladybirdVersion": "1.5.4#0",
+      "v11Version": "1.5.5",
+      "maxVersion": "1.5.5",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "dbus",
+      "v11Name": "dbus",
+      "ladybirdVersion": "1.16.4#0",
+      "v11Version": "1.16.4",
+      "maxVersion": "1.16.4",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "dirent",
+      "v11Name": null,
+      "ladybirdVersion": "1.26#0",
+      "v11Version": null,
+      "maxVersion": "1.26",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "fast-float",
+      "v11Name": "fast_float",
+      "ladybirdVersion": "8.3.3#0",
+      "v11Version": "8.4.0",
+      "maxVersion": "8.4.0",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "ffmpeg",
+      "v11Name": "ffmpeg",
+      "ladybirdVersion": "9.0.2#1",
+      "v11Version": "9.1",
+      "maxVersion": "9.1",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "ffmpeg-bin2c",
+      "v11Name": null,
+      "ladybirdVersion": "9.0.2#0",
+      "v11Version": null,
+      "maxVersion": "9.0.2",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "fontconfig",
+      "v11Name": null,
+      "ladybirdVersion": "2.17.1#2",
+      "v11Version": null,
+      "maxVersion": "2.17.1",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "freetype",
+      "v11Name": null,
+      "ladybirdVersion": "2.13.3#0",
+      "v11Version": null,
+      "maxVersion": "2.13.3",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "glslang",
+      "v11Name": "glslang",
+      "ladybirdVersion": "16.4.0#0",
+      "v11Version": "16.6.0",
+      "maxVersion": "16.6.0",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "harfbuzz",
+      "v11Name": null,
+      "ladybirdVersion": "10.2.0#0",
+      "v11Version": null,
+      "maxVersion": "10.2.0",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "icu",
+      "v11Name": "icu4c",
+      "ladybirdVersion": "78.3#4",
+      "v11Version": "79.1",
+      "maxVersion": "79.1",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "libavif",
+      "v11Name": "libavif",
+      "ladybirdVersion": "1.4.2#1",
+      "v11Version": "1.4.2",
+      "maxVersion": "1.4.2",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "libdwarf",
+      "v11Name": null,
+      "ladybirdVersion": "2.3.3#0",
+      "v11Version": null,
+      "maxVersion": "2.3.3",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "libedit",
+      "v11Name": "libedit",
+      "ladybirdVersion": "2024-08-08#1",
+      "v11Version": "20260512-3.1",
+      "maxVersion": "20260512-3.1",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "libjpeg-turbo",
+      "v11Name": "libjpeg-turbo",
+      "ladybirdVersion": "3.2.1#0",
+      "v11Version": "3.2.1",
+      "maxVersion": "3.2.1",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "libpng",
+      "v11Name": "libpng",
+      "ladybirdVersion": "1.6.59#0",
+      "v11Version": "1.6.58",
+      "maxVersion": "1.6.59",
+      "winner": "ladybird-vcpkg",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "libpsl",
+      "v11Name": "libpsl",
+      "ladybirdVersion": "0.23.3#1",
+      "v11Version": "0.23.3",
+      "maxVersion": "0.23.3",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "libwebp",
+      "v11Name": "libwebp",
+      "ladybirdVersion": "1.6.0#3",
+      "v11Version": "1.6.0",
+      "maxVersion": "1.6.0",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "llvm-libc",
+      "v11Name": null,
+      "ladybirdVersion": "e54169423e7ee5d8b41c2f1b6f7a59000c901ee0#0",
+      "v11Version": null,
+      "maxVersion": "e54169423e7ee5d8b41c2f1b6f7a59000c901ee0",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "md4c",
+      "v11Name": "md4c",
+      "ladybirdVersion": "0.5.3#0",
+      "v11Version": "0.5.3",
+      "maxVersion": "0.5.3",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "mimalloc",
+      "v11Name": "mimalloc",
+      "ladybirdVersion": "2.2.7#1",
+      "v11Version": "3.7.0",
+      "maxVersion": "3.7.0",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "mman",
+      "v11Name": null,
+      "ladybirdVersion": "git-f5ff813#5",
+      "v11Version": null,
+      "maxVersion": "git-f5ff813",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "nghttp2",
+      "v11Name": "nghttp2",
+      "ladybirdVersion": "1.71.0#0",
+      "v11Version": "1.71.0",
+      "maxVersion": "1.71.0",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "openssl",
+      "v11Name": "openssl",
+      "ladybirdVersion": "3.6.5#1",
+      "v11Version": "3.6.5",
+      "maxVersion": "3.6.5",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "pdfjs",
+      "v11Name": null,
+      "ladybirdVersion": "6.5.438#0",
+      "v11Version": null,
+      "maxVersion": "6.5.438",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "pthread",
+      "v11Name": null,
+      "ladybirdVersion": "3.0.0#2",
+      "v11Version": null,
+      "maxVersion": "3.0.0",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "qtbase",
+      "v11Name": "qt6base",
+      "ladybirdVersion": "6.11.3#1",
+      "v11Version": "6.12.1",
+      "maxVersion": "6.12.1",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "qtpositioning",
+      "v11Name": "qt6positioning",
+      "ladybirdVersion": "6.11.3#0",
+      "v11Version": "6.12.1",
+      "maxVersion": "6.12.1",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "qtserialport",
+      "v11Name": "qt6serialport",
+      "ladybirdVersion": "6.11.3#0",
+      "v11Version": "6.12.1",
+      "maxVersion": "6.12.1",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "qtsvg",
+      "v11Name": "qt6svg",
+      "ladybirdVersion": "6.11.3#0",
+      "v11Version": "6.12.1",
+      "maxVersion": "6.12.1",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "sdl3",
+      "v11Name": "libsdl3",
+      "ladybirdVersion": "3.4.20#0",
+      "v11Version": "3.4.20",
+      "maxVersion": "3.4.20",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "simdjson",
+      "v11Name": "simdjson",
+      "ladybirdVersion": "5.1.1#0",
+      "v11Version": "5.3.0",
+      "maxVersion": "5.3.0",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "simdutf",
+      "v11Name": "simdutf",
+      "ladybirdVersion": "9.5.0#0",
+      "v11Version": "9.4.0",
+      "maxVersion": "9.5.0",
+      "winner": "ladybird-vcpkg",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "skia",
+      "v11Name": "skia",
+      "ladybirdVersion": "148#0",
+      "v11Version": "148",
+      "maxVersion": "148",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "sparkle",
+      "v11Name": null,
+      "ladybirdVersion": "2.10.1#0",
+      "v11Version": null,
+      "maxVersion": "2.10.1",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "sqlite3",
+      "v11Name": "sqlite",
+      "ladybirdVersion": "3.54.1#0",
+      "v11Version": "3.54.1",
+      "maxVersion": "3.54.1",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "tiff",
+      "v11Name": "libtiff",
+      "ladybirdVersion": "4.7.2#0",
+      "v11Version": "4.7.2",
+      "maxVersion": "4.7.2",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "vcpkg-tool-meson",
+      "v11Name": "meson",
+      "ladybirdVersion": "1.9.0#10",
+      "v11Version": "1.12.1",
+      "maxVersion": "1.12.1",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "vulkan",
+      "v11Name": "vulkan-loader",
+      "ladybirdVersion": "2023-12-17#0",
+      "v11Version": "1.4.369",
+      "maxVersion": "1.4.369",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "vulkan-headers",
+      "v11Name": "vulkan-headers",
+      "ladybirdVersion": "1.4.363.0#0",
+      "v11Version": "1.4.369",
+      "maxVersion": "1.4.369",
+      "winner": "v11-universe",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "vulkan-memory-allocator",
+      "v11Name": null,
+      "ladybirdVersion": "3.5.0#0",
+      "v11Version": null,
+      "maxVersion": "3.5.0",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "woff2",
+      "v11Name": "woff2",
+      "ladybirdVersion": "1.0.2#5",
+      "v11Version": "1.0.2",
+      "maxVersion": "1.0.2",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "wuffs",
+      "v11Name": null,
+      "ladybirdVersion": "0.3.5#0",
+      "v11Version": null,
+      "maxVersion": "0.3.5",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    },
+    {
+      "name": "zlib",
+      "v11Name": "zlib",
+      "ladybirdVersion": "1.4#0",
+      "v11Version": "1.4",
+      "maxVersion": "1.4",
+      "winner": "equal",
+      "sharedBy": [
+        "t2linux-v11",
+        "ladybird"
+      ]
+    },
+    {
+      "name": "zmij",
+      "v11Name": null,
+      "ladybirdVersion": "1.2#1",
+      "v11Version": null,
+      "maxVersion": "1.2",
+      "winner": "ladybird-only",
+      "sharedBy": [
+        "ladybird"
+      ]
+    }
+  ]
+}
