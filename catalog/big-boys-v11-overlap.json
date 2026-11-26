@@ -2,9 +2,9 @@
   "schema": "awesome-os.big-boys-v11-overlap.v1",
   "abiMagic": "0x33564742",
   "casLayout": "v11",
-  "totalStandaloneMb": 1932,
-  "uniqueLibsAnalyzed": 58,
-  "sharedAcrossMultipleRuntimes": 33,
+  "totalStandaloneMb": 2597,
+  "uniqueLibsAnalyzed": 64,
+  "sharedAcrossMultipleRuntimes": 37,
   "runtimes": [
     {
       "id": "chromium",
@@ -93,12 +93,39 @@
       "coveragePercent": 100,
       "missing": [],
       "standaloneDiskMb": 42
+    },
+    {
+      "id": "colibri",
+      "name": "Colibri MoE (awesome-os/colibri)",
+      "totalLibs": 11,
+      "coveredInV11": 11,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 65
+    },
+    {
+      "id": "llama-cpp",
+      "name": "llama.cpp (awesome-os/llama.cpp)",
+      "totalLibs": 12,
+      "coveredInV11": 12,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 120
+    },
+    {
+      "id": "vllm",
+      "name": "vLLM (awesome-os/vllm)",
+      "totalLibs": 16,
+      "coveredInV11": 16,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 480
     }
   ],
   "sharedLibraries": [
     {
-      "lib": "sqlite",
-      "sharedByCount": 9,
+      "lib": "zlib",
+      "sharedByCount": 12,
       "runtimes": [
         "chromium",
         "firefox",
@@ -108,13 +135,52 @@
         "deno",
         "bun",
         "ladybird",
-        "lo"
+        "lo",
+        "colibri",
+        "llama-cpp",
+        "vllm"
+      ],
+      "v11MaxVersion": "1.4"
+    },
+    {
+      "lib": "openssl",
+      "sharedByCount": 11,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird",
+        "lo",
+        "colibri",
+        "llama-cpp",
+        "vllm"
+      ],
+      "v11MaxVersion": "4.1.0 (ahead-of-chrome upstream max)"
+    },
+    {
+      "lib": "sqlite",
+      "sharedByCount": 11,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird",
+        "lo",
+        "colibri",
+        "vllm"
       ],
       "v11MaxVersion": "3.54.1"
     },
     {
-      "lib": "zlib",
-      "sharedByCount": 9,
+      "lib": "zstd",
+      "sharedByCount": 10,
       "runtimes": [
         "chromium",
         "firefox",
@@ -123,10 +189,11 @@
         "nodejs",
         "deno",
         "bun",
-        "ladybird",
-        "lo"
+        "colibri",
+        "llama-cpp",
+        "vllm"
       ],
-      "v11MaxVersion": "1.4"
+      "v11MaxVersion": "1.6.0 (ahead-of-chrome upstream max)"
     },
     {
       "lib": "brotli",
@@ -159,33 +226,84 @@
       "v11MaxVersion": "79.1"
     },
     {
-      "lib": "openssl",
+      "lib": "vulkan-loader",
       "sharedByCount": 8,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "bun",
-        "ladybird",
-        "lo"
-      ],
-      "v11MaxVersion": "4.1.0 (ahead-of-chrome upstream max)"
-    },
-    {
-      "lib": "zstd",
-      "sharedByCount": 7,
       "runtimes": [
         "chromium",
         "firefox",
         "electron",
         "nwjs",
-        "nodejs",
         "deno",
-        "bun"
+        "ladybird",
+        "colibri",
+        "llama-cpp"
       ],
-      "v11MaxVersion": "1.6.0 (ahead-of-chrome upstream max)"
+      "v11MaxVersion": "1.4.369"
+    },
+    {
+      "lib": "curl",
+      "sharedByCount": 6,
+      "runtimes": [
+        "chromium",
+        "ladybird",
+        "lo",
+        "colibri",
+        "llama-cpp",
+        "vllm"
+      ],
+      "v11MaxVersion": "8.23.0"
+    },
+    {
+      "lib": "ffmpeg",
+      "sharedByCount": 6,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird",
+        "vllm"
+      ],
+      "v11MaxVersion": "9.1"
+    },
+    {
+      "lib": "libjpeg-turbo",
+      "sharedByCount": 6,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird",
+        "vllm"
+      ],
+      "v11MaxVersion": "3.2.1"
+    },
+    {
+      "lib": "libpng",
+      "sharedByCount": 6,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird",
+        "vllm"
+      ],
+      "v11MaxVersion": "1.6.59"
+    },
+    {
+      "lib": "libwebp",
+      "sharedByCount": 6,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird",
+        "vllm"
+      ],
+      "v11MaxVersion": "1.6.0"
     },
     {
       "lib": "nghttp2",
@@ -214,15 +332,15 @@
       "v11MaxVersion": "16.0.88 / latest (awesome-os/libv8_monolith)"
     },
     {
-      "lib": "vulkan-loader",
+      "lib": "vulkan-headers",
       "sharedByCount": 6,
       "runtimes": [
         "chromium",
-        "firefox",
         "electron",
         "nwjs",
-        "deno",
-        "ladybird"
+        "ladybird",
+        "colibri",
+        "llama-cpp"
       ],
       "v11MaxVersion": "1.4.369"
     },
@@ -239,52 +357,16 @@
       "v11MaxVersion": "1.5.5"
     },
     {
-      "lib": "ffmpeg",
+      "lib": "libuv",
       "sharedByCount": 5,
       "runtimes": [
-        "chromium",
-        "firefox",
         "electron",
         "nwjs",
-        "ladybird"
+        "nodejs",
+        "deno",
+        "vllm"
       ],
-      "v11MaxVersion": "9.1"
-    },
-    {
-      "lib": "libjpeg-turbo",
-      "sharedByCount": 5,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "ladybird"
-      ],
-      "v11MaxVersion": "3.2.1"
-    },
-    {
-      "lib": "libpng",
-      "sharedByCount": 5,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "ladybird"
-      ],
-      "v11MaxVersion": "1.6.59"
-    },
-    {
-      "lib": "libwebp",
-      "sharedByCount": 5,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "ladybird"
-      ],
-      "v11MaxVersion": "1.6.0"
+      "v11MaxVersion": "1.51.0 (awesome-os/libuv)"
     },
     {
       "lib": "simdutf",
@@ -310,15 +392,37 @@
       "v11MaxVersion": "1.4.2"
     },
     {
-      "lib": "libuv",
+      "lib": "libffi",
       "sharedByCount": 4,
       "runtimes": [
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno"
+        "firefox",
+        "deno",
+        "lo",
+        "vllm"
       ],
-      "v11MaxVersion": "1.51.0 (awesome-os/libuv)"
+      "v11MaxVersion": "3.8.1"
+    },
+    {
+      "lib": "mimalloc",
+      "sharedByCount": 4,
+      "runtimes": [
+        "bun",
+        "ladybird",
+        "colibri",
+        "llama-cpp"
+      ],
+      "v11MaxVersion": "3.7.1 (ahead-of-chrome upstream max)"
+    },
+    {
+      "lib": "python",
+      "sharedByCount": 4,
+      "runtimes": [
+        "lo",
+        "colibri",
+        "llama-cpp",
+        "vllm"
+      ],
+      "v11MaxVersion": "3.14.8"
     },
     {
       "lib": "skia",
@@ -332,35 +436,14 @@
       "v11MaxVersion": "148"
     },
     {
-      "lib": "vulkan-headers",
-      "sharedByCount": 4,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "ladybird"
-      ],
-      "v11MaxVersion": "1.4.369"
-    },
-    {
-      "lib": "curl",
+      "lib": "glslang",
       "sharedByCount": 3,
       "runtimes": [
-        "chromium",
         "ladybird",
-        "lo"
+        "colibri",
+        "llama-cpp"
       ],
-      "v11MaxVersion": "8.23.0"
-    },
-    {
-      "lib": "libffi",
-      "sharedByCount": 3,
-      "runtimes": [
-        "firefox",
-        "deno",
-        "lo"
-      ],
-      "v11MaxVersion": "3.8.1"
+      "v11MaxVersion": "16.6.0"
     },
     {
       "lib": "simdjson",
@@ -398,6 +481,15 @@
         "bun"
       ],
       "v11MaxVersion": "1.34.9"
+    },
+    {
+      "lib": "cmake",
+      "sharedByCount": 2,
+      "runtimes": [
+        "llama-cpp",
+        "vllm"
+      ],
+      "v11MaxVersion": "4.5.1"
     },
     {
       "lib": "expat",
@@ -463,13 +555,13 @@
       "v11MaxVersion": "1.17.0"
     },
     {
-      "lib": "mimalloc",
+      "lib": "ninja",
       "sharedByCount": 2,
       "runtimes": [
-        "bun",
-        "ladybird"
+        "llama-cpp",
+        "vllm"
       ],
-      "v11MaxVersion": "3.7.1 (ahead-of-chrome upstream max)"
+      "v11MaxVersion": "1.13.2"
     }
   ]
 }

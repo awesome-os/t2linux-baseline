@@ -10930,7 +10930,7 @@
     {
       "name": "expat",
       "category": "base",
-      "version": "2.8.5",
+      "version": "2.11.0",
       "license": "OpenSource",
       "mode": "v11-cas-cross",
       "tarballs": [
@@ -30250,7 +30250,7 @@
     {
       "name": "mimalloc",
       "category": "develop",
-      "version": "3.7.0",
+      "version": "3.7.1",
       "license": "MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
@@ -33992,7 +33992,7 @@
     {
       "name": "openssl",
       "category": "security",
-      "version": "3.6.5",
+      "version": "4.1.0",
       "license": "OpenSource",
       "mode": "v11-cas-cross",
       "tarballs": [
@@ -50779,7 +50779,7 @@
     {
       "name": "zstd",
       "category": "archiver",
-      "version": "1.5.7",
+      "version": "1.6.0",
       "license": "BSD GPL",
       "mode": "v11-cas-cross",
       "tarballs": [
@@ -50876,5 +50876,6 @@
         "https://github.com/jirutka/zzz/archive/v0.2.0/zzz-0.2.0.tar.gz"
       ]
     }
-  ]
+  ],
+  "maxPinBumpedAt": "2026-11-26T08:06:34.163Z"
 }

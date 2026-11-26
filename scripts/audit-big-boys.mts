@@ -121,6 +121,34 @@ const BIG_BOYS: readonly RuntimeSpec[] = [
       'webui', 'postgresql', 'ada', 'simdutf',
     ],
   },
+  {
+    id: 'colibri',
+    name: 'Colibri MoE (awesome-os/colibri)',
+    standaloneDiskMb: 65,
+    libs: [
+      'vulkan-headers', 'vulkan-loader', 'glslang', 'openssl', 'zstd', 'zlib',
+      'curl', 'python', 'sqlite', 'liburing', 'mimalloc',
+    ],
+  },
+  {
+    id: 'llama-cpp',
+    name: 'llama.cpp (awesome-os/llama.cpp)',
+    standaloneDiskMb: 120,
+    libs: [
+      'vulkan-headers', 'vulkan-loader', 'glslang', 'curl', 'openssl', 'zlib',
+      'zstd', 'openblas', 'cmake', 'ninja', 'python', 'mimalloc',
+    ],
+  },
+  {
+    id: 'vllm',
+    name: 'vLLM (awesome-os/vllm)',
+    standaloneDiskMb: 480,
+    libs: [
+      'python', 'openssl', 'zlib', 'zstd', 'protobuf', 'ninja', 'cmake',
+      'curl', 'libuv', 'sqlite', 'libffi', 'numactl', 'ffmpeg', 'libjpeg-turbo',
+      'libpng', 'libwebp',
+    ],
+  },
 ];
 
 const ALIASES: Readonly<Record<string, readonly string[]>> = {

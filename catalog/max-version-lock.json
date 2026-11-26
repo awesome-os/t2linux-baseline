@@ -2,19 +2,19 @@
   "schema": "awesome-os.max-version-lock.v1",
   "abiMagic": "0x33564742",
   "casLayout": "v11",
-  "generatedAt": "2026-11-26T06:52:07.931Z",
+  "generatedAt": "2026-11-26T08:06:34.244Z",
   "sources": {
     "v11Universe": "catalog/v11-package-universe.json",
-    "ladybirdVcpkg": "e:\\awesome-os\\github-mirror\\awesome-os\\ladybird\\vcpkg.json",
+    "ladybirdVcpkg": "E:\\awesome-os\\github-mirror\\awesome-os\\ladybird\\vcpkg.json",
     "vcpkgBaseline": "944dee83774536dd280cf459f41989584b9ef86a"
   },
   "summary": {
     "totalLadybirdDeps": 49,
     "coveredInV11": 33,
     "overlapPercent": 67.35,
-    "raisedFromV11": 15,
+    "raisedFromV11": 16,
     "raisedFromLadybird": 2,
-    "equalAtMax": 16,
+    "equalAtMax": 15,
     "ladybirdCustomPins": 16
   },
   "libraries": [
@@ -301,8 +301,8 @@
       "name": "mimalloc",
       "v11Name": "mimalloc",
       "ladybirdVersion": "2.2.7#1",
-      "v11Version": "3.7.0",
-      "maxVersion": "3.7.0",
+      "v11Version": "3.7.1",
+      "maxVersion": "3.7.1",
       "winner": "v11-universe",
       "sharedBy": [
         "t2linux-v11",
@@ -336,9 +336,9 @@
       "name": "openssl",
       "v11Name": "openssl",
       "ladybirdVersion": "3.6.5#1",
-      "v11Version": "3.6.5",
-      "maxVersion": "3.6.5",
-      "winner": "equal",
+      "v11Version": "4.1.0",
+      "maxVersion": "4.1.0",
+      "winner": "v11-universe",
       "sharedBy": [
         "t2linux-v11",
         "ladybird"
