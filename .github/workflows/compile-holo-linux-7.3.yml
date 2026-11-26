@@ -18,12 +18,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Cache ccache kernel objects
-        uses: actions/cache@v4
+      - name: Restore ccache kernel objects
+        uses: actions/cache/restore@v4
         with:
           path: ~/.cache/ccache
-          key: holo-linux-ccache-${{ hashFiles('kernel/awesome-os-7.3.config') }}
+          key: holo-linux-ccache-${{ hashFiles('kernel/awesome-os-7.3.config') }}-${{ github.run_id }}
           restore-keys: |
+            holo-linux-ccache-${{ hashFiles('kernel/awesome-os-7.3.config') }}-
             holo-linux-ccache-
 
       - name: Install LLVM/Clang kernel toolchain & QEMU
@@ -59,30 +60,43 @@ jobs:
           cp kernel/b8g_abi/b8g_abi.ko dist/b8g_abi.ko
           ls -lh dist/
 
-      - name: Boot-verify vmlinuz + insmod b8g_abi.ko (/dev/b8g-arena) in headless QEMU
+      - name: Save ccache kernel objects (always)
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: ~/.cache/ccache
+          key: holo-linux-ccache-${{ hashFiles('kernel/awesome-os-7.3.config') }}-${{ github.run_id }}
+
+      - name: Boot-verify vmlinuz + insmod b8g_abi.ko (/dev/b8g-arena) in headless QEMU (-cpu max)
         run: |
+          set -o pipefail
           RFS=/tmp/initrd
+          rm -rf "$RFS"
           mkdir -p "$RFS"/{bin,dev,proc,sys,lib/modules}
           cp /bin/busybox "$RFS/bin/busybox"
-          ln -sf busybox "$RFS/bin/sh"
+          chmod 0755 "$RFS/bin/busybox"
+          for cmd in sh mount insmod ls echo poweroff; do
+            ln -sf busybox "$RFS/bin/$cmd"
+          done
           cp dist/b8g_abi.ko "$RFS/lib/modules/b8g_abi.ko"
-          cat << 'EOF' > "$RFS/init"
-          #!/bin/busybox sh
-          /bin/busybox mount -t proc proc /proc
-          /bin/busybox mount -t sysfs sys /sys
-          /bin/busybox mount -t devtmpfs dev /dev
-          /bin/busybox insmod /lib/modules/b8g_abi.ko
-          ls -l /dev/b8g-arena
-          echo "[HOLO-LINUX] /dev/b8g-arena LIVE (B8G_ABI_MAGIC_V3=0x33564742)"
-          /bin/busybox poweroff -f
-          EOF
-          chmod +x "$RFS/init"
+          printf '%s\n' \
+            '#!/bin/busybox sh' \
+            '/bin/busybox mount -t proc proc /proc' \
+            '/bin/busybox mount -t sysfs sys /sys' \
+            '/bin/busybox mount -t devtmpfs dev /dev' \
+            '/bin/busybox insmod /lib/modules/b8g_abi.ko' \
+            '/bin/busybox ls -l /dev/b8g-arena' \
+            'echo "[HOLO-LINUX] /dev/b8g-arena LIVE (B8G_ABI_MAGIC_V3=0x33564742)"' \
+            '/bin/busybox poweroff -f' \
+            > "$RFS/init"
+          chmod 0755 "$RFS/init"
           (cd "$RFS" && find . -print0 | cpio --null -ov --format=newc | zstd -19) > dist/holo-selftest-initrd.cpio.zst
 
           timeout 60s qemu-system-x86_64 \
+            -cpu max \
             -kernel dist/vmlinuz-7.3.6-x86_64 \
             -initrd dist/holo-selftest-initrd.cpio.zst \
-            -append "console=ttyS0,115200 panic=-1" \
+            -append "console=ttyS0,115200 rdinit=/init panic=-1" \
             -nographic -m 512 -no-reboot | tee /tmp/qemu-holo.log
           grep -F "[HOLO-LINUX] /dev/b8g-arena LIVE" /tmp/qemu-holo.log
 
@@ -93,3 +107,17 @@ jobs:
           path: |
             dist/vmlinuz-7.3.6-x86_64
             dist/b8g_abi.ko
+
+      - name: Publish Holo-Linux 7.3.6 Kernel + b8g_abi.ko to GitHub Releases
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          (cd dist && sha512sum vmlinuz-7.3.6-x86_64 b8g_abi.ko > SHA512SUMS.txt)
+          TAG="holo-linux-7.3.6"
+          if gh release view "$TAG" -R "${{ github.repository }}" >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/vmlinuz-7.3.6-x86_64 dist/b8g_abi.ko dist/SHA512SUMS.txt --clobber -R "${{ github.repository }}"
+          else
+            gh release create "$TAG" dist/vmlinuz-7.3.6-x86_64 dist/b8g_abi.ko dist/SHA512SUMS.txt -R "${{ github.repository }}" \
+              --title "Holo-Linux 7.3.6 Kernel + b8g_abi.ko (/dev/b8g-arena)" \
+              --notes "LLVM/Clang-compiled Holo-Linux kernel with B8G_ABI_MAGIC_V3 (/dev/b8g-arena), io_uring, SimpleDRM, Virtio-Vsock, NBD/UBLK, and Hyper-V Gen-2 keyboard built-in. Boot-verified in headless QEMU."
+          fi

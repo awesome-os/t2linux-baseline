@@ -2,7 +2,7 @@
   "schema": "awesome-os.max-version-lock.v1",
   "abiMagic": "0x33564742",
   "casLayout": "v11",
-  "generatedAt": "2026-11-26T09:54:52.465Z",
+  "generatedAt": "2026-11-26T17:49:57.992Z",
   "sources": {
     "v11Universe": "catalog/v11-package-universe.json",
     "ladybirdVcpkg": "E:\\awesome-os\\github-mirror\\awesome-os\\ladybird\\vcpkg.json",
