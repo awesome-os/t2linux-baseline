@@ -2,9 +2,9 @@
   "schema": "awesome-os.big-boys-v11-overlap.v1",
   "abiMagic": "0x33564742",
   "casLayout": "v11",
-  "totalStandaloneMb": 2597,
-  "uniqueLibsAnalyzed": 64,
-  "sharedAcrossMultipleRuntimes": 37,
+  "totalStandaloneMb": 3582,
+  "uniqueLibsAnalyzed": 76,
+  "sharedAcrossMultipleRuntimes": 41,
   "runtimes": [
     {
       "id": "chromium",
@@ -120,12 +120,39 @@
       "coveragePercent": 100,
       "missing": [],
       "standaloneDiskMb": 480
+    },
+    {
+      "id": "gnome-wayland",
+      "name": "GNOME Wayland (GTK 4.24 / libadwaita 1.10)",
+      "totalLibs": 16,
+      "coveredInV11": 16,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 380
+    },
+    {
+      "id": "kde-plasma",
+      "name": "KDE Plasma 6.8 (KWin 6.8.3 / Qt 6.12.1)",
+      "totalLibs": 17,
+      "coveredInV11": 17,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 460
+    },
+    {
+      "id": "hyprland-omarchy",
+      "name": "Omarchy / Hyprland 0.57 (wlroots 0.20)",
+      "totalLibs": 15,
+      "coveredInV11": 15,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 145
     }
   ],
   "sharedLibraries": [
     {
       "lib": "zlib",
-      "sharedByCount": 12,
+      "sharedByCount": 15,
       "runtimes": [
         "chromium",
         "firefox",
@@ -138,13 +165,16 @@
         "lo",
         "colibri",
         "llama-cpp",
-        "vllm"
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy"
       ],
       "v11MaxVersion": "1.4"
     },
     {
       "lib": "openssl",
-      "sharedByCount": 11,
+      "sharedByCount": 14,
       "runtimes": [
         "chromium",
         "electron",
@@ -156,13 +186,16 @@
         "lo",
         "colibri",
         "llama-cpp",
-        "vllm"
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy"
       ],
       "v11MaxVersion": "4.1.0 (ahead-of-chrome upstream max)"
     },
     {
       "lib": "sqlite",
-      "sharedByCount": 11,
+      "sharedByCount": 13,
       "runtimes": [
         "chromium",
         "firefox",
@@ -174,12 +207,52 @@
         "ladybird",
         "lo",
         "colibri",
-        "vllm"
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma"
       ],
       "v11MaxVersion": "3.54.1"
     },
     {
       "lib": "zstd",
+      "sharedByCount": 13,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "colibri",
+        "llama-cpp",
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy"
+      ],
+      "v11MaxVersion": "1.6.0 (ahead-of-chrome upstream max)"
+    },
+    {
+      "lib": "vulkan-loader",
+      "sharedByCount": 11,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "deno",
+        "ladybird",
+        "colibri",
+        "llama-cpp",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy"
+      ],
+      "v11MaxVersion": "1.4.369"
+    },
+    {
+      "lib": "icu4c",
       "sharedByCount": 10,
       "runtimes": [
         "chromium",
@@ -189,11 +262,43 @@
         "nodejs",
         "deno",
         "bun",
-        "colibri",
-        "llama-cpp",
-        "vllm"
+        "ladybird",
+        "gnome-wayland",
+        "kde-plasma"
       ],
-      "v11MaxVersion": "1.6.0 (ahead-of-chrome upstream max)"
+      "v11MaxVersion": "79.1"
+    },
+    {
+      "lib": "libjpeg-turbo",
+      "sharedByCount": 9,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird",
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy"
+      ],
+      "v11MaxVersion": "3.2.1"
+    },
+    {
+      "lib": "libpng",
+      "sharedByCount": 9,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird",
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy"
+      ],
+      "v11MaxVersion": "1.6.59"
     },
     {
       "lib": "brotli",
@@ -211,32 +316,30 @@
       "v11MaxVersion": "1.2.1"
     },
     {
-      "lib": "icu4c",
-      "sharedByCount": 8,
+      "lib": "libwebp",
+      "sharedByCount": 7,
       "runtimes": [
         "chromium",
         "firefox",
         "electron",
         "nwjs",
-        "nodejs",
-        "deno",
-        "bun",
-        "ladybird"
+        "ladybird",
+        "vllm",
+        "gnome-wayland"
       ],
-      "v11MaxVersion": "79.1"
+      "v11MaxVersion": "1.6.0"
     },
     {
-      "lib": "vulkan-loader",
-      "sharedByCount": 8,
+      "lib": "vulkan-headers",
+      "sharedByCount": 7,
       "runtimes": [
         "chromium",
-        "firefox",
         "electron",
         "nwjs",
-        "deno",
         "ladybird",
         "colibri",
-        "llama-cpp"
+        "llama-cpp",
+        "hyprland-omarchy"
       ],
       "v11MaxVersion": "1.4.369"
     },
@@ -267,45 +370,6 @@
       "v11MaxVersion": "9.1"
     },
     {
-      "lib": "libjpeg-turbo",
-      "sharedByCount": 6,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "ladybird",
-        "vllm"
-      ],
-      "v11MaxVersion": "3.2.1"
-    },
-    {
-      "lib": "libpng",
-      "sharedByCount": 6,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "ladybird",
-        "vllm"
-      ],
-      "v11MaxVersion": "1.6.59"
-    },
-    {
-      "lib": "libwebp",
-      "sharedByCount": 6,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "ladybird",
-        "vllm"
-      ],
-      "v11MaxVersion": "1.6.0"
-    },
-    {
       "lib": "nghttp2",
       "sharedByCount": 6,
       "runtimes": [
@@ -332,19 +396,6 @@
       "v11MaxVersion": "16.0.88+ (awesome-os/libv8_monolith / Chromium 160 Canary)"
     },
     {
-      "lib": "vulkan-headers",
-      "sharedByCount": 6,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "ladybird",
-        "colibri",
-        "llama-cpp"
-      ],
-      "v11MaxVersion": "1.4.369"
-    },
-    {
       "lib": "dav1d",
       "sharedByCount": 5,
       "runtimes": [
@@ -355,6 +406,18 @@
         "ladybird"
       ],
       "v11MaxVersion": "1.5.5"
+    },
+    {
+      "lib": "harfbuzz",
+      "sharedByCount": 5,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy"
+      ],
+      "v11MaxVersion": "15.2.0 (ahead-of-chrome upstream max)"
     },
     {
       "lib": "libuv",
@@ -381,6 +444,17 @@
       "v11MaxVersion": "9.5.0"
     },
     {
+      "lib": "glslang",
+      "sharedByCount": 4,
+      "runtimes": [
+        "ladybird",
+        "colibri",
+        "llama-cpp",
+        "hyprland-omarchy"
+      ],
+      "v11MaxVersion": "16.6.0"
+    },
+    {
       "lib": "libavif",
       "sharedByCount": 4,
       "runtimes": [
@@ -400,7 +474,7 @@
         "lo",
         "vllm"
       ],
-      "v11MaxVersion": "3.8.1"
+      "v11MaxVersion": "3.8.2"
     },
     {
       "lib": "mimalloc",
@@ -436,14 +510,24 @@
       "v11MaxVersion": "148"
     },
     {
-      "lib": "glslang",
+      "lib": "dbus",
       "sharedByCount": 3,
       "runtimes": [
-        "ladybird",
-        "colibri",
-        "llama-cpp"
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy"
       ],
-      "v11MaxVersion": "16.6.0"
+      "v11MaxVersion": "1.16.4"
+    },
+    {
+      "lib": "pipewire",
+      "sharedByCount": 3,
+      "runtimes": [
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy"
+      ],
+      "v11MaxVersion": "1.6.11"
     },
     {
       "lib": "simdjson",
@@ -454,6 +538,26 @@
         "ladybird"
       ],
       "v11MaxVersion": "5.3.0"
+    },
+    {
+      "lib": "wayland",
+      "sharedByCount": 3,
+      "runtimes": [
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy"
+      ],
+      "v11MaxVersion": "1.26.0"
+    },
+    {
+      "lib": "wayland-protocols",
+      "sharedByCount": 3,
+      "runtimes": [
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy"
+      ],
+      "v11MaxVersion": "1.50"
     },
     {
       "lib": "ada",
@@ -517,15 +621,6 @@
         "firefox"
       ],
       "v11MaxVersion": "2.13.3"
-    },
-    {
-      "lib": "harfbuzz",
-      "sharedByCount": 2,
-      "runtimes": [
-        "chromium",
-        "firefox"
-      ],
-      "v11MaxVersion": "15.2.0 (ahead-of-chrome upstream max)"
     },
     {
       "lib": "libdeflate",

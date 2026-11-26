@@ -149,6 +149,36 @@ const BIG_BOYS: readonly RuntimeSpec[] = [
       'libpng', 'libwebp',
     ],
   },
+  {
+    id: 'gnome-wayland',
+    name: 'GNOME Wayland (GTK 4.24 / libadwaita 1.10)',
+    standaloneDiskMb: 380,
+    libs: [
+      'wayland', 'wayland-protocols', 'gtk', 'libadwaita', 'pipewire', 'dbus',
+      'harfbuzz', 'icu4c', 'openssl', 'zlib', 'zstd', 'libpng', 'libjpeg-turbo',
+      'libwebp', 'vulkan-loader', 'sqlite',
+    ],
+  },
+  {
+    id: 'kde-plasma',
+    name: 'KDE Plasma 6.8 (KWin 6.8.3 / Qt 6.12.1)',
+    standaloneDiskMb: 460,
+    libs: [
+      'wayland', 'wayland-protocols', 'kwin', 'plasma-workspace', 'qt6base',
+      'qt6svg', 'pipewire', 'dbus', 'harfbuzz', 'icu4c', 'openssl', 'zlib',
+      'zstd', 'libpng', 'libjpeg-turbo', 'vulkan-loader', 'sqlite',
+    ],
+  },
+  {
+    id: 'hyprland-omarchy',
+    name: 'Omarchy / Hyprland 0.57 (wlroots 0.20)',
+    standaloneDiskMb: 145,
+    libs: [
+      'wayland', 'wayland-protocols', 'hyprland', 'wlroots', 'pipewire', 'dbus',
+      'vulkan-loader', 'vulkan-headers', 'glslang', 'openssl', 'zstd', 'zlib',
+      'libpng', 'libjpeg-turbo', 'harfbuzz',
+    ],
+  },
 ];
 
 const ALIASES: Readonly<Record<string, readonly string[]>> = {
