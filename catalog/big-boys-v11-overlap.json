@@ -8,7 +8,7 @@
   "runtimes": [
     {
       "id": "chromium",
-      "name": "Chromium / Sectium Browser",
+      "name": "Chromium 160 Canary / Sectium Browser",
       "totalLibs": 27,
       "coveredInV11": 26,
       "coveragePercent": 96.3,

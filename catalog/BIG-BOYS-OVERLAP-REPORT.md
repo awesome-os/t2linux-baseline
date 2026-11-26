@@ -6,7 +6,7 @@
 
 | Runtime | Core Native Libs | Covered in `v11` CAS | Coverage | Missing / Custom |
 | :--- | ---: | ---: | ---: | :--- |
-| **Chromium / Sectium Browser** | 27 | 26 | **96.3%** | `libxml2` |
+| **Chromium 160 Canary / Sectium Browser** | 27 | 26 | **96.3%** | `libxml2` |
 | **Firefox (Gecko / SpiderMonkey)** | 24 | 22 | **91.7%** | `pixman`, `cairo` |
 | **Electron (awesome-os/sectium-electron)** | 20 | 20 | **100%** | _(0 — 100% covered)_ |
 | **NW.js (holo-display-nwjs)** | 18 | 18 | **100%** | _(0 — 100% covered)_ |

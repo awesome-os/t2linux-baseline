@@ -33,7 +33,7 @@ interface RuntimeSpec {
 const BIG_BOYS: readonly RuntimeSpec[] = [
   {
     id: 'chromium',
-    name: 'Chromium / Sectium Browser',
+    name: 'Chromium 160 Canary / Sectium Browser',
     standaloneDiskMb: 420,
     libs: [
       'v8', 'skia', 'ffmpeg', 'openssl', 'icu4c', 'zlib', 'brotli', 'zstd',
