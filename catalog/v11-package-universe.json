@@ -3,7 +3,7 @@
   "abiMagic": "0x33564742",
   "casLayout": "v11",
   "source": "https://github.com/rxrbln/t2sde",
-  "totalPackages": 5075,
+  "totalPackages": 5078,
   "packages": [
     {
       "name": "00-dirtree",
@@ -25663,7 +25663,7 @@
     {
       "name": "libpng",
       "category": "graphic",
-      "version": "1.6.58",
+      "version": "1.6.59",
       "license": "OpenSource",
       "mode": "v11-cas-cross",
       "tarballs": [
@@ -51062,9 +51062,48 @@
       ],
       "repositoryUri": "repository://sourceforge.net/projects/giflib@giflib-6.1.3",
       "v11TreeUri": "cas://v11/trees/giflib@6.1.3"
+    },
+    {
+      "name": "freetype",
+      "category": "graphic",
+      "version": "2.15.0",
+      "license": "FTL",
+      "mode": "v11-cas-cross",
+      "tarballs": [
+        "cas://v11/trees/freetype@2.15.0",
+        "repository://github.com/freetype/freetype@VER-2-15-0"
+      ],
+      "repositoryUri": "repository://github.com/freetype/freetype@VER-2-15-0",
+      "v11TreeUri": "cas://v11/trees/freetype@2.15.0"
+    },
+    {
+      "name": "libxslt",
+      "category": "textproc",
+      "version": "1.1.45",
+      "license": "MIT",
+      "mode": "v11-cas-cross",
+      "tarballs": [
+        "cas://v11/trees/libxslt@1.1.45",
+        "repository://github.com/GNOME/libxslt@v1.1.45"
+      ],
+      "repositoryUri": "repository://github.com/GNOME/libxslt@v1.1.45",
+      "v11TreeUri": "cas://v11/trees/libxslt@1.1.45"
+    },
+    {
+      "name": "librdkafka",
+      "category": "network",
+      "version": "2.16.0",
+      "license": "BSD",
+      "mode": "v11-cas-cross",
+      "tarballs": [
+        "cas://v11/trees/librdkafka@2.16.0",
+        "repository://github.com/confluentinc/librdkafka@v2.16.0"
+      ],
+      "repositoryUri": "repository://github.com/confluentinc/librdkafka@v2.16.0",
+      "v11TreeUri": "cas://v11/trees/librdkafka@2.16.0"
     }
   ],
   "maxPinBumpedAt": "2026-11-26T20:04:53.953Z",
-  "liveUpstreamSyncedAt": "2026-11-26T20:04:53.878Z",
+  "liveUpstreamSyncedAt": "2026-11-26T21:17:34.721Z",
   "tarballReplacementAt": "2026-11-26T09:25:11.700Z"
 }

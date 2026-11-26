@@ -266,6 +266,29 @@ const BIG_BOYS: readonly RuntimeSpec[] = [
       'zstd', 'zlib', 'lz4', 'openssl', 'xz', 'bzip2', 'bison', 'flex',
     ],
   },
+  {
+    id: 'php-top-native',
+    name: 'PHP 8.6 / Composer / PECL + PHP-WASI Top Native Extensions',
+    standaloneDiskMb: 780,
+    libs: [
+      'openssl', 'curl', 'sqlite', 'zlib', 'zstd', 'brotli', 'lz4', 'bzip2',
+      'xz', 'oniguruma', 'libgd', 'libpng', 'libjpeg-turbo', 'libwebp',
+      'freetype', 'icu4c', 'libxml2', 'libxslt', 'libzip', 'libsodium', 'gmp',
+      'libffi', 'libuv', 'libvips', 'libyaml', 'libgit2', 'librdkafka',
+      'libevent', 'postgresql', 'mariadb', 'argon2', 'pcre2',
+    ],
+  },
+  {
+    id: 'ruby-top-native',
+    name: 'Ruby 4.0 / RubyGems / Bundler + ruby.wasm Top Native Gems',
+    standaloneDiskMb: 690,
+    libs: [
+      'openssl', 'zlib', 'zstd', 'brotli', 'lz4', 'sqlite', 'curl', 'libxml2',
+      'libxslt', 'libyaml', 'libffi', 'libgit2', 'librdkafka', 'libvips',
+      'icu4c', 'postgresql', 'mariadb', 'hiredis', 're2', 'llhttp',
+      'libsodium', 'argon2', 'readline', 'gmp', 'v8',
+    ],
+  },
 ];
 
 const ALIASES: Readonly<Record<string, readonly string[]>> = {
@@ -280,6 +303,9 @@ const ALIASES: Readonly<Record<string, readonly string[]>> = {
   libsdl3: ['libsdl3', 'sdl3'],
   libtiff: ['libtiff', 'tiff'],
   'vulkan-loader': ['vulkan-loader', 'vulkan'],
+  oniguruma: ['oniguruma', 'onig'],
+  libvips: ['libvips', 'vips'],
+  mariadb: ['mariadb', 'mariadb-connector-c'],
 };
 
 function main(): void {
@@ -376,9 +402,9 @@ function main(): void {
   writeFileSync(join(repoRoot, 'catalog', 'big-boys-v11-overlap.json'), `${JSON.stringify(outJson, null, 2)}\n`, 'utf8');
 
   const md = [
-    '# Big Boys Native Library Overlap — Chromium × Firefox × Ladybird × Electron × NW.js × Node.js × Deno × Bun × just-js/lo on `v11` CAS',
+    '# Big Boys Native Library Overlap — Chromium × Firefox × Ladybird × Electron × NW.js × Node.js × Deno × Bun × just-js/lo × PHP × Ruby on `v11` CAS',
     '',
-    `> Cross-runtime DevOps audit against \`catalog/v11-package-universe.json\` (5,070 packages) + \`catalog/max-version-lock.json\` + Awesome-OS sovereign runtimes (\`libv8_monolith\`, \`libuv\`).`,
+    `> Cross-runtime DevOps audit against \`catalog/v11-package-universe.json\` (${uni.packages.length.toLocaleString('en-US')} packages) + \`catalog/max-version-lock.json\` + Awesome-OS sovereign runtimes (\`libv8_monolith\`, \`libuv\`).`,
     '',
     '## 1. Per-Runtime `v11` CAS Coverage',
     '',
@@ -389,7 +415,7 @@ function main(): void {
         `| **${r.name}** | ${r.totalLibs} | ${r.coveredInV11} | **${r.coveragePercent}%** | ${r.missing.length ? r.missing.map((m) => `\`${m}\``).join(', ') : '_(0 — 100% covered)_'} |`,
     ),
     '',
-    `## 2. Top Shared Libraries Deduplicated Once in \`v11\` CAS (${sharedCount} libs shared by 2–5 runtimes)`,
+    `## 2. Top Shared Libraries Deduplicated Once in \`v11\` CAS (${sharedCount} libs shared by 2–${BIG_BOYS.length} runtimes)`,
     '',
     '| Library | Shared By | Runtimes | Pinned Max Version (`v11`) |',
     '| :--- | ---: | :--- | :--- |',

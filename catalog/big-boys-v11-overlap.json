@@ -2,9 +2,9 @@
   "schema": "awesome-os.big-boys-v11-overlap.v1",
   "abiMagic": "0x33564742",
   "casLayout": "v11",
-  "totalStandaloneMb": 13987,
-  "uniqueLibsAnalyzed": 135,
-  "sharedAcrossMultipleRuntimes": 74,
+  "totalStandaloneMb": 15457,
+  "uniqueLibsAnalyzed": 146,
+  "sharedAcrossMultipleRuntimes": 83,
   "runtimes": [
     {
       "id": "chromium",
@@ -163,15 +163,14 @@
       "id": "vcpkg-top100",
       "name": "microsoft/vcpkg Top 100 Native Binary Ports",
       "totalLibs": 100,
-      "coveredInV11": 94,
-      "coveragePercent": 94,
+      "coveredInV11": 95,
+      "coveragePercent": 95,
       "missing": [
         "googletest",
         "glfw",
         "zeromq",
         "rocksdb",
-        "leveldb",
-        "libxslt"
+        "leveldb"
       ],
       "standaloneDiskMb": 1850
     },
@@ -188,10 +187,9 @@
       "id": "pypi-top-wheels",
       "name": "PyPI / Python Top Binary Wheels (numpy/torch/pillow/arrow)",
       "totalLibs": 33,
-      "coveredInV11": 31,
-      "coveragePercent": 93.9,
+      "coveredInV11": 32,
+      "coveragePercent": 97,
       "missing": [
-        "libxslt",
         "zeromq"
       ],
       "standaloneDiskMb": 1480
@@ -215,11 +213,90 @@
         "elfutils"
       ],
       "standaloneDiskMb": 195
+    },
+    {
+      "id": "php-top-native",
+      "name": "PHP 8.6 / Composer / PECL + PHP-WASI Top Native Extensions",
+      "totalLibs": 32,
+      "coveredInV11": 32,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 780
+    },
+    {
+      "id": "ruby-top-native",
+      "name": "Ruby 4.0 / RubyGems / Bundler + ruby.wasm Top Native Gems",
+      "totalLibs": 25,
+      "coveredInV11": 25,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 690
     }
   ],
   "sharedLibraries": [
     {
       "lib": "zlib",
+      "sharedByCount": 24,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird",
+        "lo",
+        "colibri",
+        "llama-cpp",
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels",
+        "gpu-compute-stack",
+        "linux-kernel-boot",
+        "php-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "1.4"
+    },
+    {
+      "lib": "openssl",
+      "sharedByCount": 23,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird",
+        "lo",
+        "colibri",
+        "llama-cpp",
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels",
+        "gpu-compute-stack",
+        "linux-kernel-boot",
+        "php-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "4.1.0 (ahead-of-chrome upstream max)"
+    },
+    {
+      "lib": "zstd",
       "sharedByCount": 22,
       "runtimes": [
         "chromium",
@@ -229,8 +306,6 @@
         "nodejs",
         "deno",
         "bun",
-        "ladybird",
-        "lo",
         "colibri",
         "llama-cpp",
         "vllm",
@@ -243,40 +318,14 @@
         "npm-top-native",
         "pypi-top-wheels",
         "gpu-compute-stack",
-        "linux-kernel-boot"
+        "linux-kernel-boot",
+        "php-top-native",
+        "ruby-top-native"
       ],
-      "v11MaxVersion": "1.4"
+      "v11MaxVersion": "1.6.0 (ahead-of-chrome upstream max)"
     },
     {
-      "lib": "openssl",
-      "sharedByCount": 21,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "bun",
-        "ladybird",
-        "lo",
-        "colibri",
-        "llama-cpp",
-        "vllm",
-        "gnome-wayland",
-        "kde-plasma",
-        "hyprland-omarchy",
-        "rust-cargo",
-        "dotnet-11",
-        "vcpkg-top100",
-        "npm-top-native",
-        "pypi-top-wheels",
-        "gpu-compute-stack",
-        "linux-kernel-boot"
-      ],
-      "v11MaxVersion": "4.1.0 (ahead-of-chrome upstream max)"
-    },
-    {
-      "lib": "zstd",
+      "lib": "sqlite",
       "sharedByCount": 20,
       "runtimes": [
         "chromium",
@@ -286,33 +335,6 @@
         "nodejs",
         "deno",
         "bun",
-        "colibri",
-        "llama-cpp",
-        "vllm",
-        "gnome-wayland",
-        "kde-plasma",
-        "hyprland-omarchy",
-        "rust-cargo",
-        "dotnet-11",
-        "vcpkg-top100",
-        "npm-top-native",
-        "pypi-top-wheels",
-        "gpu-compute-stack",
-        "linux-kernel-boot"
-      ],
-      "v11MaxVersion": "1.6.0 (ahead-of-chrome upstream max)"
-    },
-    {
-      "lib": "sqlite",
-      "sharedByCount": 18,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "bun",
         "ladybird",
         "lo",
         "colibri",
@@ -323,7 +345,9 @@
         "dotnet-11",
         "vcpkg-top100",
         "npm-top-native",
-        "pypi-top-wheels"
+        "pypi-top-wheels",
+        "php-top-native",
+        "ruby-top-native"
       ],
       "v11MaxVersion": "3.54.1"
     },
@@ -351,50 +375,8 @@
       "v11MaxVersion": "1.4.369"
     },
     {
-      "lib": "libjpeg-turbo",
-      "sharedByCount": 14,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "ladybird",
-        "vllm",
-        "gnome-wayland",
-        "kde-plasma",
-        "hyprland-omarchy",
-        "rust-cargo",
-        "dotnet-11",
-        "vcpkg-top100",
-        "npm-top-native",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "3.2.1"
-    },
-    {
-      "lib": "libpng",
-      "sharedByCount": 14,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "ladybird",
-        "vllm",
-        "gnome-wayland",
-        "kde-plasma",
-        "hyprland-omarchy",
-        "rust-cargo",
-        "dotnet-11",
-        "vcpkg-top100",
-        "npm-top-native",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "1.6.59"
-    },
-    {
       "lib": "brotli",
-      "sharedByCount": 13,
+      "sharedByCount": 15,
       "runtimes": [
         "chromium",
         "firefox",
@@ -408,13 +390,15 @@
         "dotnet-11",
         "vcpkg-top100",
         "npm-top-native",
-        "pypi-top-wheels"
+        "pypi-top-wheels",
+        "php-top-native",
+        "ruby-top-native"
       ],
       "v11MaxVersion": "1.2.1"
     },
     {
       "lib": "icu4c",
-      "sharedByCount": 13,
+      "sharedByCount": 15,
       "runtimes": [
         "chromium",
         "firefox",
@@ -428,13 +412,15 @@
         "kde-plasma",
         "dotnet-11",
         "vcpkg-top100",
-        "npm-top-native"
+        "npm-top-native",
+        "php-top-native",
+        "ruby-top-native"
       ],
       "v11MaxVersion": "79.1"
     },
     {
-      "lib": "libwebp",
-      "sharedByCount": 12,
+      "lib": "libjpeg-turbo",
+      "sharedByCount": 15,
       "runtimes": [
         "chromium",
         "firefox",
@@ -443,17 +429,42 @@
         "ladybird",
         "vllm",
         "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy",
         "rust-cargo",
         "dotnet-11",
         "vcpkg-top100",
         "npm-top-native",
-        "pypi-top-wheels"
+        "pypi-top-wheels",
+        "php-top-native"
       ],
-      "v11MaxVersion": "1.6.0"
+      "v11MaxVersion": "3.2.1"
+    },
+    {
+      "lib": "libpng",
+      "sharedByCount": 15,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird",
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels",
+        "php-top-native"
+      ],
+      "v11MaxVersion": "1.6.59"
     },
     {
       "lib": "curl",
-      "sharedByCount": 11,
+      "sharedByCount": 13,
       "runtimes": [
         "chromium",
         "ladybird",
@@ -465,9 +476,49 @@
         "dotnet-11",
         "vcpkg-top100",
         "npm-top-native",
-        "pypi-top-wheels"
+        "pypi-top-wheels",
+        "php-top-native",
+        "ruby-top-native"
       ],
       "v11MaxVersion": "8.23.0"
+    },
+    {
+      "lib": "libwebp",
+      "sharedByCount": 13,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird",
+        "vllm",
+        "gnome-wayland",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels",
+        "php-top-native"
+      ],
+      "v11MaxVersion": "1.6.0"
+    },
+    {
+      "lib": "libffi",
+      "sharedByCount": 11,
+      "runtimes": [
+        "firefox",
+        "deno",
+        "lo",
+        "vllm",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels",
+        "php-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "3.8.2"
     },
     {
       "lib": "nghttp2",
@@ -486,6 +537,23 @@
         "pypi-top-wheels"
       ],
       "v11MaxVersion": "1.71.0"
+    },
+    {
+      "lib": "libuv",
+      "sharedByCount": 10,
+      "runtimes": [
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "vllm",
+        "rust-cargo",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels",
+        "php-top-native"
+      ],
+      "v11MaxVersion": "1.53.0 (awesome-os/libuv live upstream)"
     },
     {
       "lib": "ffmpeg",
@@ -520,38 +588,6 @@
       "v11MaxVersion": "15.2.0 (ahead-of-chrome upstream max)"
     },
     {
-      "lib": "libffi",
-      "sharedByCount": 9,
-      "runtimes": [
-        "firefox",
-        "deno",
-        "lo",
-        "vllm",
-        "rust-cargo",
-        "dotnet-11",
-        "vcpkg-top100",
-        "npm-top-native",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "3.8.2"
-    },
-    {
-      "lib": "libuv",
-      "sharedByCount": 9,
-      "runtimes": [
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "vllm",
-        "rust-cargo",
-        "vcpkg-top100",
-        "npm-top-native",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "1.53.0 (awesome-os/libuv live upstream)"
-    },
-    {
       "lib": "vulkan-headers",
       "sharedByCount": 9,
       "runtimes": [
@@ -568,6 +604,50 @@
       "v11MaxVersion": "1.4.369"
     },
     {
+      "lib": "lz4",
+      "sharedByCount": 8,
+      "runtimes": [
+        "lo",
+        "rust-cargo",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels",
+        "linux-kernel-boot",
+        "php-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "1.11.1"
+    },
+    {
+      "lib": "v8",
+      "sharedByCount": 8,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "lo",
+        "npm-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "16.0.88+ (awesome-os/libv8_monolith / Chromium 160 Canary)"
+    },
+    {
+      "lib": "freetype",
+      "sharedByCount": 7,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels",
+        "php-top-native"
+      ],
+      "v11MaxVersion": "2.15.0"
+    },
+    {
       "lib": "simdutf",
       "sharedByCount": 7,
       "runtimes": [
@@ -580,20 +660,6 @@
         "npm-top-native"
       ],
       "v11MaxVersion": "9.5.0"
-    },
-    {
-      "lib": "v8",
-      "sharedByCount": 7,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "lo",
-        "npm-top-native"
-      ],
-      "v11MaxVersion": "16.0.88+ (awesome-os/libv8_monolith / Chromium 160 Canary)"
     },
     {
       "lib": "cmake",
@@ -622,19 +688,6 @@
       "v11MaxVersion": "1.5.5"
     },
     {
-      "lib": "freetype",
-      "sharedByCount": 6,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "dotnet-11",
-        "vcpkg-top100",
-        "npm-top-native",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "2.13.3"
-    },
-    {
       "lib": "glslang",
       "sharedByCount": 6,
       "runtimes": [
@@ -659,19 +712,6 @@
         "npm-top-native"
       ],
       "v11MaxVersion": "1.4.2"
-    },
-    {
-      "lib": "lz4",
-      "sharedByCount": 6,
-      "runtimes": [
-        "lo",
-        "rust-cargo",
-        "vcpkg-top100",
-        "npm-top-native",
-        "pypi-top-wheels",
-        "linux-kernel-boot"
-      ],
-      "v11MaxVersion": "1.11.1"
     },
     {
       "lib": "mimalloc",
@@ -713,6 +753,31 @@
       "v11MaxVersion": "3.14.8"
     },
     {
+      "lib": "re2",
+      "sharedByCount": 6,
+      "runtimes": [
+        "chromium",
+        "rust-cargo",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "2025-11-05"
+    },
+    {
+      "lib": "bzip2",
+      "sharedByCount": 5,
+      "runtimes": [
+        "rust-cargo",
+        "vcpkg-top100",
+        "pypi-top-wheels",
+        "linux-kernel-boot",
+        "php-top-native"
+      ],
+      "v11MaxVersion": "1.0.8"
+    },
+    {
       "lib": "c-ares",
       "sharedByCount": 5,
       "runtimes": [
@@ -725,6 +790,30 @@
       "v11MaxVersion": "1.34.9"
     },
     {
+      "lib": "libxml2",
+      "sharedByCount": 5,
+      "runtimes": [
+        "chromium",
+        "vcpkg-top100",
+        "pypi-top-wheels",
+        "php-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "2.15.4"
+    },
+    {
+      "lib": "postgresql",
+      "sharedByCount": 5,
+      "runtimes": [
+        "lo",
+        "vcpkg-top100",
+        "pypi-top-wheels",
+        "php-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "19.0"
+    },
+    {
       "lib": "protobuf",
       "sharedByCount": 5,
       "runtimes": [
@@ -735,18 +824,6 @@
         "pypi-top-wheels"
       ],
       "v11MaxVersion": "36.2"
-    },
-    {
-      "lib": "re2",
-      "sharedByCount": 5,
-      "runtimes": [
-        "chromium",
-        "rust-cargo",
-        "vcpkg-top100",
-        "npm-top-native",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "2025-11-05"
     },
     {
       "lib": "simdjson",
@@ -773,6 +850,18 @@
       "v11MaxVersion": "148"
     },
     {
+      "lib": "xz",
+      "sharedByCount": 5,
+      "runtimes": [
+        "rust-cargo",
+        "vcpkg-top100",
+        "pypi-top-wheels",
+        "linux-kernel-boot",
+        "php-top-native"
+      ],
+      "v11MaxVersion": "5.8.4"
+    },
+    {
       "lib": "ada",
       "sharedByCount": 4,
       "runtimes": [
@@ -782,17 +871,6 @@
         "npm-top-native"
       ],
       "v11MaxVersion": "4.1.1 (ahead-of-chrome upstream max)"
-    },
-    {
-      "lib": "bzip2",
-      "sharedByCount": 4,
-      "runtimes": [
-        "rust-cargo",
-        "vcpkg-top100",
-        "pypi-top-wheels",
-        "linux-kernel-boot"
-      ],
-      "v11MaxVersion": "1.0.8"
     },
     {
       "lib": "dbus",
@@ -861,6 +939,39 @@
       "v11MaxVersion": "2.15"
     },
     {
+      "lib": "libxslt",
+      "sharedByCount": 4,
+      "runtimes": [
+        "vcpkg-top100",
+        "pypi-top-wheels",
+        "php-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "1.1.45"
+    },
+    {
+      "lib": "libyaml",
+      "sharedByCount": 4,
+      "runtimes": [
+        "vcpkg-top100",
+        "pypi-top-wheels",
+        "php-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "0.2.6"
+    },
+    {
+      "lib": "llhttp",
+      "sharedByCount": 4,
+      "runtimes": [
+        "nodejs",
+        "vcpkg-top100",
+        "npm-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "9.4.4"
+    },
+    {
       "lib": "openblas",
       "sharedByCount": 4,
       "runtimes": [
@@ -894,17 +1005,6 @@
       "v11MaxVersion": "1.26.0"
     },
     {
-      "lib": "xz",
-      "sharedByCount": 4,
-      "runtimes": [
-        "rust-cargo",
-        "vcpkg-top100",
-        "pypi-top-wheels",
-        "linux-kernel-boot"
-      ],
-      "v11MaxVersion": "5.8.4"
-    },
-    {
       "lib": "aom",
       "sharedByCount": 3,
       "runtimes": [
@@ -923,6 +1023,16 @@
         "vcpkg-top100"
       ],
       "v11MaxVersion": "3.8.11"
+    },
+    {
+      "lib": "libevent",
+      "sharedByCount": 3,
+      "runtimes": [
+        "firefox",
+        "vcpkg-top100",
+        "php-top-native"
+      ],
+      "v11MaxVersion": "2.1.13"
     },
     {
       "lib": "libopus",
@@ -945,26 +1055,6 @@
       "v11MaxVersion": "1.17.0"
     },
     {
-      "lib": "libxml2",
-      "sharedByCount": 3,
-      "runtimes": [
-        "chromium",
-        "vcpkg-top100",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "2.15.4"
-    },
-    {
-      "lib": "llhttp",
-      "sharedByCount": 3,
-      "runtimes": [
-        "nodejs",
-        "vcpkg-top100",
-        "npm-top-native"
-      ],
-      "v11MaxVersion": "9.4.4"
-    },
-    {
       "lib": "mbedtls",
       "sharedByCount": 3,
       "runtimes": [
@@ -975,16 +1065,6 @@
       "v11MaxVersion": "4.3.0"
     },
     {
-      "lib": "postgresql",
-      "sharedByCount": 3,
-      "runtimes": [
-        "lo",
-        "vcpkg-top100",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "19.0"
-    },
-    {
       "lib": "wayland-protocols",
       "sharedByCount": 3,
       "runtimes": [
@@ -993,6 +1073,15 @@
         "hyprland-omarchy"
       ],
       "v11MaxVersion": "1.50"
+    },
+    {
+      "lib": "argon2",
+      "sharedByCount": 2,
+      "runtimes": [
+        "php-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "20190702"
     },
     {
       "lib": "cairo",
@@ -1013,6 +1102,15 @@
       "v11MaxVersion": "6.1.3"
     },
     {
+      "lib": "gmp",
+      "sharedByCount": 2,
+      "runtimes": [
+        "php-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "6.3.0"
+    },
+    {
       "lib": "gtk",
       "sharedByCount": 2,
       "runtimes": [
@@ -1022,13 +1120,31 @@
       "v11MaxVersion": "4.24.2"
     },
     {
-      "lib": "libevent",
+      "lib": "hiredis",
       "sharedByCount": 2,
       "runtimes": [
-        "firefox",
-        "vcpkg-top100"
+        "vcpkg-top100",
+        "ruby-top-native"
       ],
-      "v11MaxVersion": "2.1.13"
+      "v11MaxVersion": "1.5.1"
+    },
+    {
+      "lib": "libgit2",
+      "sharedByCount": 2,
+      "runtimes": [
+        "php-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "1.9.7"
+    },
+    {
+      "lib": "librdkafka",
+      "sharedByCount": 2,
+      "runtimes": [
+        "php-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "2.16.0"
     },
     {
       "lib": "libsdl3",
@@ -1040,6 +1156,15 @@
       "v11MaxVersion": "3.4.20"
     },
     {
+      "lib": "libsodium",
+      "sharedByCount": 2,
+      "runtimes": [
+        "php-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "1.0.22"
+    },
+    {
       "lib": "libusb",
       "sharedByCount": 2,
       "runtimes": [
@@ -1049,22 +1174,13 @@
       "v11MaxVersion": "1.0.30"
     },
     {
-      "lib": "libxslt",
+      "lib": "libvips",
       "sharedByCount": 2,
       "runtimes": [
-        "vcpkg-top100",
-        "pypi-top-wheels"
+        "php-top-native",
+        "ruby-top-native"
       ],
-      "v11MaxVersion": "needs-pin"
-    },
-    {
-      "lib": "libyaml",
-      "sharedByCount": 2,
-      "runtimes": [
-        "vcpkg-top100",
-        "pypi-top-wheels"
-      ],
-      "v11MaxVersion": "0.2.6"
+      "v11MaxVersion": "8.18.7"
     },
     {
       "lib": "luajit",
@@ -1074,6 +1190,15 @@
         "vcpkg-top100"
       ],
       "v11MaxVersion": "2.1 27f169c"
+    },
+    {
+      "lib": "mariadb",
+      "sharedByCount": 2,
+      "runtimes": [
+        "php-top-native",
+        "ruby-top-native"
+      ],
+      "v11MaxVersion": "3.4.11"
     },
     {
       "lib": "md4c",
@@ -1128,6 +1253,15 @@
         "pypi-top-wheels"
       ],
       "v11MaxVersion": "5.1.0"
+    },
+    {
+      "lib": "pcre2",
+      "sharedByCount": 2,
+      "runtimes": [
+        "vcpkg-top100",
+        "php-top-native"
+      ],
+      "v11MaxVersion": "10.49"
     },
     {
       "lib": "pixman",

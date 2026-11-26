@@ -53,9 +53,17 @@ const UPSTREAMS: readonly UpstreamTarget[] = [
   { pkg: 'protobuf', repo: 'protocolbuffers/protobuf' },
   { pkg: 'icu4c', repo: 'unicode-org/icu' },
   { pkg: 'sqlite', repo: 'sqlite/sqlite' },
-  // Graphics, Fonts, Media & GPU (Browsers + Desktop + Colibri)
+  { pkg: 'libxml2', repo: 'GNOME/libxml2' },
+  { pkg: 'libxslt', repo: 'GNOME/libxslt' },
+  { pkg: 'onig', repo: 'kkos/oniguruma' },
+  { pkg: 'libgit2', repo: 'libgit2/libgit2' },
+  { pkg: 'librdkafka', repo: 'confluentinc/librdkafka' },
+  { pkg: 'mariadb-connector-c', repo: 'mariadb-corporation/mariadb-connector-c' },
+  // Graphics, Fonts, Media & GPU (Browsers + Desktop + Colibri + PHP/Ruby)
+  { pkg: 'freetype', repo: 'freetype/freetype' },
   { pkg: 'harfbuzz', repo: 'harfbuzz/harfbuzz' },
   { pkg: 'woff2', repo: 'google/woff2' },
+  { pkg: 'vips', repo: 'libvips/libvips' },
   { pkg: 'vulkan-headers', repo: 'KhronosGroup/Vulkan-Headers' },
   { pkg: 'vulkan-loader', repo: 'KhronosGroup/Vulkan-Loader' },
   { pkg: 'glslang', repo: 'KhronosGroup/glslang' },
@@ -83,12 +91,24 @@ const UPSTREAMS: readonly UpstreamTarget[] = [
   { pkg: 'meson', repo: 'mesonbuild/meson' },
 ];
 
+const NON_GITHUB_UPSTREAMS: ReadonlyArray<{
+  readonly pkg: string;
+  readonly repo: string;
+  readonly upstreamTag: string;
+  readonly upstreamVersion: string;
+}> = [
+  { pkg: 'pixman', repo: 'gitlab.freedesktop.org/pixman/pixman', upstreamTag: 'pixman-0.46.4', upstreamVersion: '0.46.4' },
+  { pkg: 'cairo', repo: 'gitlab.freedesktop.org/cairo/cairo', upstreamTag: '1.18.6', upstreamVersion: '1.18.6' },
+  { pkg: 'giflib', repo: 'sourceforge.net/projects/giflib', upstreamTag: 'giflib-6.1.3', upstreamVersion: '6.1.3' },
+];
+
 function normalizeTag(raw: string): string {
   const s = raw.trim();
-  // Handle tags like "v1.53.0", "openssl-4.1.0", "curl-8_23_0", "R_2_11_0", "vulkan-sdk-1.4.369.0", "liburing-2.14"
-  const m = s.match(/(\d+[._]\d+(?:[._]\d+){0,2})/);
+  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+  // Handle tags like "v1.53.0", "openssl-4.1.0", "curl-8_23_0", "R_2_11_0", "VER-2-15-0", "vulkan-sdk-1.4.369.0", "liburing-2.14"
+  const m = s.match(/(\d+[._-]\d+(?:[._-]\d+){0,2})/);
   if (!m) return s;
-  return m[1].replace(/_/g, '.');
+  return m[1].replace(/[_-]/g, '.');
 }
 
 function fetchLatestGithubVersion(repo: string): { tag: string; version: string } | null {
@@ -112,6 +132,18 @@ function fetchLatestGithubVersion(repo: string): { tag: string; version: string 
       if (!t || /rc|alpha|beta|pre|dev/i.test(t)) continue;
       const v = normalizeTag(t);
       if (/^\d+\.\d+/.test(v)) candidates.push({ tag: t, version: v });
+    }
+    if (candidates.length === 0) {
+      const deepOut = execFileSync('gh', ['api', `repos/${repo}/tags?per_page=100`, '--jq', '.[].name'], {
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'ignore'],
+      }).trim();
+      for (const line of deepOut.split(/\r?\n/)) {
+        const t = line.trim();
+        if (!t || /rc|alpha|beta|pre|dev/i.test(t)) continue;
+        const v = normalizeTag(t);
+        if (/^\d+\.\d+/.test(v)) candidates.push({ tag: t, version: v });
+      }
     }
   } catch {
     // ignore
@@ -178,6 +210,24 @@ for (const u of UPSTREAMS) {
   });
   const mark = bumped ? `BUMP ${prev} -> ${live.version}` : `OK (${prev ?? 'external'} vs live ${live.version})`;
   console.log(`  ${u.pkg.padEnd(16)} ${u.repo.padEnd(32)} ${mark}`);
+}
+
+for (const u of NON_GITHUB_UPSTREAMS) {
+  const existing = pkgMap.get(u.pkg.toLowerCase());
+  const prev = existing?.version ?? null;
+  let bumped = false;
+  if (existing && compareVersions(u.upstreamVersion, existing.version) > 0) {
+    existing.version = u.upstreamVersion;
+    bumped = true;
+  }
+  results.push({
+    pkg: u.pkg,
+    repo: u.repo,
+    upstreamTag: u.upstreamTag,
+    upstreamVersion: u.upstreamVersion,
+    previousV11: prev,
+    bumped,
+  });
 }
 
 uni.liveUpstreamSyncedAt = new Date().toISOString();
