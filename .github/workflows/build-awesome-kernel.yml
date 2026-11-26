@@ -18,5 +18,9 @@ jobs:
           node-version: '24'
       - name: Run holo-kbuild & Module.symvers ABI gate tests
         run: node --test kernel/holo-kbuild.test.mts
+      - name: Compile & run C11 B8G_ABI_MAGIC_V3 self-test (-Wall -Wextra -Werror)
+        run: |
+          cc -std=c11 -Wall -Wextra -Werror kernel/b8g_abi/b8g_abi_selftest.c -o /tmp/b8g_abi_selftest
+          /tmp/b8g_abi_selftest
       - name: Emit reproducible Linux 7.3.6 v11 build plan
         run: node kernel/holo-kbuild.mts plan
