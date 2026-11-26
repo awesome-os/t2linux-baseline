@@ -6,11 +6,11 @@
 
 | Runtime | Core Native Libs | Covered in `v11` CAS | Coverage | Missing / Custom |
 | :--- | ---: | ---: | ---: | :--- |
-| **Chromium 160 Canary / Sectium Browser** | 27 | 26 | **96.3%** | `libxml2` |
-| **Firefox (Gecko / SpiderMonkey)** | 24 | 22 | **91.7%** | `pixman`, `cairo` |
+| **Chromium 160 Canary / Sectium Browser** | 27 | 27 | **100%** | _(0 — 100% covered)_ |
+| **Firefox (Gecko / SpiderMonkey)** | 24 | 24 | **100%** | _(0 — 100% covered)_ |
 | **Electron (awesome-os/electron)** | 20 | 20 | **100%** | _(0 — 100% covered)_ |
 | **NW.js (holo-display-nwjs)** | 18 | 18 | **100%** | _(0 — 100% covered)_ |
-| **Node.js** | 16 | 15 | **93.8%** | `ngtcp2` |
+| **Node.js** | 16 | 16 | **100%** | _(0 — 100% covered)_ |
 | **Deno** | 10 | 10 | **100%** | _(0 — 100% covered)_ |
 | **Bun** | 12 | 12 | **100%** | _(0 — 100% covered)_ |
 | **Ladybird (awesome-os/ladybird)** | 23 | 23 | **100%** | _(0 — 100% covered)_ |
@@ -23,9 +23,9 @@
 | **Omarchy / Hyprland 0.57 (wlroots 0.20)** | 15 | 15 | **100%** | _(0 — 100% covered)_ |
 | **Rust / Cargo Native Crates (*-sys)** | 25 | 25 | **100%** | _(0 — 100% covered)_ |
 | **.NET 11 SDK & Native Runtime** | 17 | 17 | **100%** | _(0 — 100% covered)_ |
-| **microsoft/vcpkg Top 100 Native Binary Ports** | 100 | 89 | **89%** | `libxml2`, `giflib`, `googletest`, `ngtcp2`, `glfw`, `zeromq`, `rocksdb`, `leveldb`, `libxslt`, `pixman`, `cairo` |
-| **npm Top Native Binary Addons (sharp/sqlite/canvas/v8)** | 32 | 31 | **96.9%** | `giflib` |
-| **PyPI / Python Top Binary Wheels (numpy/torch/pillow/arrow)** | 33 | 30 | **90.9%** | `libxslt`, `libxml2`, `zeromq` |
+| **microsoft/vcpkg Top 100 Native Binary Ports** | 100 | 94 | **94%** | `googletest`, `glfw`, `zeromq`, `rocksdb`, `leveldb`, `libxslt` |
+| **npm Top Native Binary Addons (sharp/sqlite/canvas/v8)** | 32 | 32 | **100%** | _(0 — 100% covered)_ |
+| **PyPI / Python Top Binary Wheels (numpy/torch/pillow/arrow)** | 33 | 31 | **93.9%** | `libxslt`, `zeromq` |
 | **GPU Compute & AI Accelerators (CUDA / NCCL / ROCm / Triton / XDNA)** | 21 | 21 | **100%** | _(0 — 100% covered)_ |
 | **Linux Kernel & Bare-Metal Boot (torvalds/linux + Limine + musl)** | 15 | 14 | **93.3%** | `elfutils` |
 
@@ -82,13 +82,13 @@
 | `libarchive` | 3/22 | bun, rust-cargo, vcpkg-top100 | `3.8.11` |
 | `libopus` | 3/22 | chromium, firefox, vcpkg-top100 | `1.6.1` |
 | `libvpx` | 3/22 | chromium, firefox, vcpkg-top100 | `1.17.0` |
-| `libxml2` | 3/22 | chromium, vcpkg-top100, pypi-top-wheels | `needs-pin` |
+| `libxml2` | 3/22 | chromium, vcpkg-top100, pypi-top-wheels | `2.15.4` |
 | `llhttp` | 3/22 | nodejs, vcpkg-top100, npm-top-native | `9.4.4` |
 | `mbedtls` | 3/22 | lo, rust-cargo, vcpkg-top100 | `4.3.0` |
 | `postgresql` | 3/22 | lo, vcpkg-top100, pypi-top-wheels | `19.0` |
 | `wayland-protocols` | 3/22 | gnome-wayland, kde-plasma, hyprland-omarchy | `1.50` |
-| `cairo` | 2/22 | firefox, vcpkg-top100 | `needs-pin` |
-| `giflib` | 2/22 | vcpkg-top100, npm-top-native | `needs-pin` |
+| `cairo` | 2/22 | firefox, vcpkg-top100 | `1.18.6` |
+| `giflib` | 2/22 | vcpkg-top100, npm-top-native | `6.1.3` |
 | `gtk` | 2/22 | gnome-wayland, vcpkg-top100 | `4.24.2` |
 | `libevent` | 2/22 | firefox, vcpkg-top100 | `2.1.13` |
 | `libsdl3` | 2/22 | ladybird, vcpkg-top100 | `3.4.20` |
@@ -98,11 +98,11 @@
 | `luajit` | 2/22 | lo, vcpkg-top100 | `2.1 27f169c` |
 | `md4c` | 2/22 | lo, vcpkg-top100 | `0.6.0` |
 | `nghttp3` | 2/22 | nodejs, vcpkg-top100 | `1.19.0` |
-| `ngtcp2` | 2/22 | nodejs, vcpkg-top100 | `needs-pin` |
+| `ngtcp2` | 2/22 | nodejs, vcpkg-top100 | `1.26.0` |
 | `nspr` | 2/22 | firefox, vcpkg-top100 | `4.41` |
 | `nss` | 2/22 | firefox, vcpkg-top100 | `3.131.1` |
 | `opencv` | 2/22 | vcpkg-top100, pypi-top-wheels | `5.1.0` |
-| `pixman` | 2/22 | firefox, vcpkg-top100 | `needs-pin` |
+| `pixman` | 2/22 | firefox, vcpkg-top100 | `0.46.4` |
 | `qt6base` | 2/22 | kde-plasma, vcpkg-top100 | `6.12.1` |
 | `snappy` | 2/22 | vcpkg-top100, pypi-top-wheels | `1.3.1` |
 | `woff2` | 2/22 | ladybird, vcpkg-top100 | `1.0.2` |

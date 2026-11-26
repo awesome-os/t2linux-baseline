@@ -3,7 +3,7 @@
   "abiMagic": "0x33564742",
   "casLayout": "v11",
   "source": "https://github.com/rxrbln/t2sde",
-  "totalPackages": 5070,
+  "totalPackages": 5075,
   "packages": [
     {
       "name": "00-dirtree",
@@ -50997,6 +50997,71 @@
       "tarballs": [
         "https://github.com/jirutka/zzz/archive/v0.2.0/zzz-0.2.0.tar.gz"
       ]
+    },
+    {
+      "name": "pixman",
+      "category": "graphic",
+      "version": "0.46.4",
+      "license": "MIT",
+      "mode": "v11-cas-cross",
+      "tarballs": [
+        "cas://v11/trees/pixman@0.46.4",
+        "repository://gitlab.freedesktop.org/pixman/pixman@pixman-0.46.4"
+      ],
+      "repositoryUri": "repository://gitlab.freedesktop.org/pixman/pixman@pixman-0.46.4",
+      "v11TreeUri": "cas://v11/trees/pixman@0.46.4"
+    },
+    {
+      "name": "cairo",
+      "category": "graphic",
+      "version": "1.18.6",
+      "license": "LGPL",
+      "mode": "v11-cas-cross",
+      "tarballs": [
+        "cas://v11/trees/cairo@1.18.6",
+        "repository://gitlab.freedesktop.org/cairo/cairo@1.18.6"
+      ],
+      "repositoryUri": "repository://gitlab.freedesktop.org/cairo/cairo@1.18.6",
+      "v11TreeUri": "cas://v11/trees/cairo@1.18.6"
+    },
+    {
+      "name": "libxml2",
+      "category": "base",
+      "version": "2.15.4",
+      "license": "MIT",
+      "mode": "v11-cas-cross",
+      "tarballs": [
+        "cas://v11/trees/libxml2@2.15.4",
+        "repository://github.com/GNOME/libxml2@v2.15.4"
+      ],
+      "repositoryUri": "repository://github.com/GNOME/libxml2@v2.15.4",
+      "v11TreeUri": "cas://v11/trees/libxml2@2.15.4"
+    },
+    {
+      "name": "ngtcp2",
+      "category": "network",
+      "version": "1.26.0",
+      "license": "MIT",
+      "mode": "v11-cas-cross",
+      "tarballs": [
+        "cas://v11/trees/ngtcp2@1.26.0",
+        "repository://github.com/ngtcp2/ngtcp2@v1.26.0"
+      ],
+      "repositoryUri": "repository://github.com/ngtcp2/ngtcp2@v1.26.0",
+      "v11TreeUri": "cas://v11/trees/ngtcp2@1.26.0"
+    },
+    {
+      "name": "giflib",
+      "category": "graphic",
+      "version": "6.1.3",
+      "license": "MIT",
+      "mode": "v11-cas-cross",
+      "tarballs": [
+        "cas://v11/trees/giflib@6.1.3",
+        "repository://sourceforge.net/projects/giflib@giflib-6.1.3"
+      ],
+      "repositoryUri": "repository://sourceforge.net/projects/giflib@giflib-6.1.3",
+      "v11TreeUri": "cas://v11/trees/giflib@6.1.3"
     }
   ],
   "maxPinBumpedAt": "2026-11-26T20:04:53.953Z",
