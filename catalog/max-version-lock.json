@@ -2,7 +2,7 @@
   "schema": "awesome-os.max-version-lock.v1",
   "abiMagic": "0x33564742",
   "casLayout": "v11",
-  "generatedAt": "2026-11-26T09:22:28.909Z",
+  "generatedAt": "2026-11-26T09:54:52.465Z",
   "sources": {
     "v11Universe": "catalog/v11-package-universe.json",
     "ladybirdVcpkg": "E:\\awesome-os\\github-mirror\\awesome-os\\ladybird\\vcpkg.json",
@@ -12,9 +12,9 @@
     "totalLadybirdDeps": 49,
     "coveredInV11": 33,
     "overlapPercent": 67.35,
-    "raisedFromV11": 16,
+    "raisedFromV11": 17,
     "raisedFromLadybird": 1,
-    "equalAtMax": 16,
+    "equalAtMax": 15,
     "ladybirdCustomPins": 16
   },
   "libraries": [
@@ -289,9 +289,9 @@
       "name": "md4c",
       "v11Name": "md4c",
       "ladybirdVersion": "0.5.3#0",
-      "v11Version": "0.5.3",
-      "maxVersion": "0.5.3",
-      "winner": "equal",
+      "v11Version": "0.6.0",
+      "maxVersion": "0.6.0",
+      "winner": "v11-universe",
       "sharedBy": [
         "t2linux-v11",
         "ladybird"

@@ -1,0 +1,22 @@
+name: CI — Awesome-OS Linux 7.3.6 holo-kbuild & ABI Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'kernel/**'
+      - '.github/workflows/build-awesome-kernel.yml'
+  workflow_dispatch:
+
+jobs:
+  verify-kernel-kit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Run holo-kbuild & Module.symvers ABI gate tests
+        run: node --test kernel/holo-kbuild.test.mts
+      - name: Emit reproducible Linux 7.3.6 v11 build plan
+        run: node kernel/holo-kbuild.mts plan
