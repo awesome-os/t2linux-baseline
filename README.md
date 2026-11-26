@@ -2,6 +2,18 @@
 
 The real-compiler **T2 SDE Baseline Edition** — includes the original upstream **[T2 SDE](https://github.com/rxrbln/t2sde)** tooling (`scripts/Config`, `scripts/Build-Pkg`, `scripts/Build-Target`, `scripts/Emerge-Pkg`) and compiles a real legacy T2 SDE `initramfs` (`t2sde-baseline-initramfs-<arch>.cpio.zst`) directly from a normal console backed by the **`v11` CAS** (`sha512`).
 
+## Fresh OS Design: Minimal Base + Selectable Advanced Graphics (Default Rootless `Xwayland`)
+
+Instead of forcing every server, VM, and workstation to carry gigabytes of legacy Xorg or GPU drivers, Awesome-OS uses a **2-tier selectable graphics design**:
+
+| Layer | What's Included | Size / Target |
+| :--- | :--- | :--- |
+| **Base OS (Always Included)** | Static musl PID 1, `awesome-os/coreutils`, `/dev/fb0` (`42 KB` graphical desktop), `kitty-ink` ANSI/TUI, `tty0`+`ttyS0`, `modalias` `v11` CAS driver hydrator | **`~31 MB`** — boots on any PC (1998+), Hyper-V, QEMU, or 19" rack blade with **zero GPU stack** |
+| **`+ Advanced Graphics` (Selectable Option)** | Full **Wayland DRM+KMS + Mesa / Vulkan / Dawn WebGPU** hardware acceleration **+ Rootless `Xwayland` enabled by default** | Opt-in for workstations (**Omarchy**, **Noctalia**, **ChonkStep**, **Sectium**, **GNOME**, **KDE**) — every legacy X11 app works out of the box inside Wayland with **zero `xorg-server`** |
+| **`+ packages-legacy` (Frozen Opt-In Overlay)** | Frozen `885`-package Xorg/X11/SysV/GTK2/Qt5 `v11` CAS archive (`catalog/packages-legacy.json`) | Retro hardware preservation at **0 bytes** cost to modern builds |
+
+---
+
 ## Compile a Legacy T2 SDE Initramfs from Any Console
 
 ```bash
