@@ -8,7 +8,7 @@
 | :--- | ---: | ---: | ---: | :--- |
 | **Chromium 160 Canary / Sectium Browser** | 27 | 26 | **96.3%** | `libxml2` |
 | **Firefox (Gecko / SpiderMonkey)** | 24 | 22 | **91.7%** | `pixman`, `cairo` |
-| **Electron (awesome-os/sectium-electron)** | 20 | 20 | **100%** | _(0 — 100% covered)_ |
+| **Electron (awesome-os/electron)** | 20 | 20 | **100%** | _(0 — 100% covered)_ |
 | **NW.js (holo-display-nwjs)** | 18 | 18 | **100%** | _(0 — 100% covered)_ |
 | **Node.js** | 16 | 15 | **93.8%** | `ngtcp2` |
 | **Deno** | 10 | 10 | **100%** | _(0 — 100% covered)_ |

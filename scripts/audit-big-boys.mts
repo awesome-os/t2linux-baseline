@@ -55,7 +55,7 @@ const BIG_BOYS: readonly RuntimeSpec[] = [
   },
   {
     id: 'electron',
-    name: 'Electron (awesome-os/sectium-electron)',
+    name: 'Electron (awesome-os/electron)',
     standaloneDiskMb: 280,
     libs: [
       'v8', 'libuv', 'skia', 'ffmpeg', 'openssl', 'icu4c', 'zlib', 'brotli', 'zstd',

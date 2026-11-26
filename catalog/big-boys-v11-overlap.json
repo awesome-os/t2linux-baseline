@@ -31,7 +31,7 @@
     },
     {
       "id": "electron",
-      "name": "Electron (awesome-os/sectium-electron)",
+      "name": "Electron (awesome-os/electron)",
       "totalLibs": 20,
       "coveredInV11": 20,
       "coveragePercent": 100,
