@@ -24,9 +24,9 @@ Moving these into an opt-in legacy overlay (e.g., `target/x11-legacy` / `attic`)
 | `enlightenment` | 18 | `e16keyedit`, `e16menuedit`, `econnman`, `ecrire`, `edi`, `efl`, `enlightenment`, `enlightenment16`, … |
 | `lxde` | 8 | `lxappearance`, `lxde-common`, `lxmenu-data`, `lxpanel`, `lxrandr`, `lxsession`, `lxtask`, `lxterminal` |
 | `textproc` | 6 | `groff`, `libxml`, `libxml++`, `libxml1`, `libxmlb`, `libxslt` |
-| `audio` | 2 | `gtk2mp`, `libxmp` |
-| `develop` | 2 | `libxdp`, `libxo` |
+| `kde` | 2 | `akonadi`, `baloo` |
 | `gnome` | 2 | `evolution-data-server`, `libxklavier` |
+| `audio` | 2 | `gtk2mp`, `libxmp` |
 
 ## 2. Non-`CROSS` Packages Wishlist (Sysroot & Path Fixes)
 
