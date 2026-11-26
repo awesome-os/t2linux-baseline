@@ -1,0 +1,201 @@
+{
+  "schema": "awesome-os.max-toolchain-lock.v1",
+  "abiMagic": "0x33564742",
+  "generatedAt": "2026-11-26T21:35:45.133Z",
+  "totalToolchains": 24,
+  "resolvedCount": 24,
+  "toolchains": [
+    {
+      "name": "node",
+      "ecosystemGroup": "js-ts",
+      "repo": "nodejs/node",
+      "upstreamTag": "v26.13.1",
+      "maxVersion": "26.13.1",
+      "source": "github-tags"
+    },
+    {
+      "name": "deno",
+      "ecosystemGroup": "js-ts",
+      "repo": "denoland/deno",
+      "upstreamTag": "v2.9.8",
+      "maxVersion": "2.9.8",
+      "source": "github-release"
+    },
+    {
+      "name": "bun",
+      "ecosystemGroup": "js-ts",
+      "repo": "oven-sh/bun",
+      "upstreamTag": "bun-v1.4.5",
+      "maxVersion": "1.4.5",
+      "source": "github-release"
+    },
+    {
+      "name": "pnpm",
+      "ecosystemGroup": "js-ts",
+      "repo": "pnpm/pnpm",
+      "upstreamTag": "v12.24.0",
+      "maxVersion": "12.24.0",
+      "source": "github-tags"
+    },
+    {
+      "name": "typescript",
+      "ecosystemGroup": "js-ts",
+      "repo": "microsoft/TypeScript",
+      "upstreamTag": "v7.0.2",
+      "maxVersion": "7.0.2",
+      "source": "github-release"
+    },
+    {
+      "name": "esbuild",
+      "ecosystemGroup": "js-ts",
+      "repo": "evanw/esbuild",
+      "upstreamTag": "v0.28.2",
+      "maxVersion": "0.28.2",
+      "source": "github-release"
+    },
+    {
+      "name": "vite",
+      "ecosystemGroup": "js-ts",
+      "repo": "vitejs/vite",
+      "upstreamTag": "v8.4.0",
+      "maxVersion": "8.4.0",
+      "source": "github-release"
+    },
+    {
+      "name": "rolldown",
+      "ecosystemGroup": "js-ts",
+      "repo": "rolldown/rolldown",
+      "upstreamTag": "v1.3.4",
+      "maxVersion": "1.3.4",
+      "source": "github-release"
+    },
+    {
+      "name": "oxc",
+      "ecosystemGroup": "js-ts",
+      "repo": "oxc-project/oxc",
+      "upstreamTag": "oxlint_v1.95.0",
+      "maxVersion": "1.95.0",
+      "source": "github-release"
+    },
+    {
+      "name": "biome",
+      "ecosystemGroup": "js-ts",
+      "repo": "biomejs/biome",
+      "upstreamTag": "@biomejs/biome@2.6.9",
+      "maxVersion": "2.6.9",
+      "source": "github-release"
+    },
+    {
+      "name": "rust",
+      "ecosystemGroup": "systems-native",
+      "repo": "rust-lang/rust",
+      "upstreamTag": "1.100.0",
+      "maxVersion": "1.100.0",
+      "source": "github-release"
+    },
+    {
+      "name": "zig",
+      "ecosystemGroup": "systems-native",
+      "repo": "ziglang/zig",
+      "upstreamTag": "0.15.2",
+      "maxVersion": "0.15.2",
+      "source": "github-tags"
+    },
+    {
+      "name": "go",
+      "ecosystemGroup": "systems-native",
+      "repo": "golang/go",
+      "upstreamTag": "go1.27.4",
+      "maxVersion": "1.27.4",
+      "source": "github-tags"
+    },
+    {
+      "name": "uv",
+      "ecosystemGroup": "systems-native",
+      "repo": "astral-sh/uv",
+      "upstreamTag": "0.13.10",
+      "maxVersion": "0.13.10",
+      "source": "github-release"
+    },
+    {
+      "name": "cmake",
+      "ecosystemGroup": "systems-native",
+      "repo": "Kitware/CMake",
+      "upstreamTag": "v4.5.1",
+      "maxVersion": "4.5.1",
+      "source": "github-release"
+    },
+    {
+      "name": "ninja",
+      "ecosystemGroup": "systems-native",
+      "repo": "ninja-build/ninja",
+      "upstreamTag": "v1.13.2",
+      "maxVersion": "1.13.2",
+      "source": "github-release"
+    },
+    {
+      "name": "meson",
+      "ecosystemGroup": "systems-native",
+      "repo": "mesonbuild/meson",
+      "upstreamTag": "1.12.1",
+      "maxVersion": "1.12.1",
+      "source": "github-release"
+    },
+    {
+      "name": "php",
+      "ecosystemGroup": "polyglot-wasi",
+      "repo": "php/php-src",
+      "upstreamTag": "php-8.6.0",
+      "maxVersion": "8.6.0",
+      "source": "github-release"
+    },
+    {
+      "name": "composer",
+      "ecosystemGroup": "polyglot-wasi",
+      "repo": "composer/composer",
+      "upstreamTag": "2.11.3",
+      "maxVersion": "2.11.3",
+      "source": "github-release"
+    },
+    {
+      "name": "ruby",
+      "ecosystemGroup": "polyglot-wasi",
+      "repo": "ruby/ruby",
+      "upstreamTag": "v4.0.10",
+      "maxVersion": "4.0.10",
+      "source": "github-release"
+    },
+    {
+      "name": "ruby.wasm",
+      "ecosystemGroup": "polyglot-wasi",
+      "repo": "ruby/ruby.wasm",
+      "upstreamTag": "2.10.1",
+      "maxVersion": "2.10.1",
+      "source": "github-release"
+    },
+    {
+      "name": "wordpress-playground",
+      "ecosystemGroup": "polyglot-wasi",
+      "repo": "WordPress/wordpress-playground",
+      "upstreamTag": "v3.1.66",
+      "maxVersion": "3.1.66",
+      "source": "github-release"
+    },
+    {
+      "name": "dotnet",
+      "ecosystemGroup": "polyglot-wasi",
+      "repo": "dotnet/sdk",
+      "upstreamTag": "v11.0.100",
+      "maxVersion": "11.0.100",
+      "source": "github-tags"
+    },
+    {
+      "name": "dart",
+      "ecosystemGroup": "polyglot-wasi",
+      "repo": "dart-lang/sdk",
+      "upstreamTag": "3.14.1",
+      "maxVersion": "3.14.1",
+      "source": "github-tags"
+    }
+  ]
+}

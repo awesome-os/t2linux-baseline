@@ -45,6 +45,7 @@ jobs:
             echo "::warning::../ladybird/vcpkg.json not available; retaining existing catalog/max-version-lock.json"
           fi
           node scripts/audit-big-boys.mts
+          node scripts/track-max-toolchains.mts
 
       - name: Write catalog/bump-telemetry.json & $GITHUB_STEP_SUMMARY
         working-directory: t2linux-baseline
