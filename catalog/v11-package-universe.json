@@ -4662,8 +4662,11 @@
       "license": "MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/google/brotli/archive/v1.2.1/brotli-1.2.1.tar.gz"
-      ]
+        "cas://v11/trees/brotli@1.2.1",
+        "repository://github.com/google/brotli@v1.2.1"
+      ],
+      "repositoryUri": "repository://github.com/google/brotli@v1.2.1",
+      "v11TreeUri": "cas://v11/trees/brotli@1.2.1"
     },
     {
       "name": "brscan",
@@ -4922,8 +4925,11 @@
       "license": "MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/c-ares/c-ares/archive/v1.34.9/c-ares-1.34.9.tar.gz"
-      ]
+        "cas://v11/trees/c-ares@1.34.9",
+        "repository://github.com/c-ares/c-ares@v1.34.9"
+      ],
+      "repositoryUri": "repository://github.com/c-ares/c-ares@v1.34.9",
+      "v11TreeUri": "cas://v11/trees/c-ares@1.34.9"
     },
     {
       "name": "c-dvar",
@@ -6390,8 +6396,11 @@
       "license": "BSD",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/Kitware/CMake/releases/download/v4.5.1/cmake-4.5.1.tar.gz"
-      ]
+        "cas://v11/trees/cmake@4.5.1",
+        "repository://github.com/Kitware/CMake@v4.5.1"
+      ],
+      "repositoryUri": "repository://github.com/Kitware/CMake@v4.5.1",
+      "v11TreeUri": "cas://v11/trees/cmake@4.5.1"
     },
     {
       "name": "cmake-extras",
@@ -7966,9 +7975,11 @@
       "license": "MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://curl.se/download/curl-8.23.0.tar.xz",
-        "https://curl.se/ca/cacert-2026-10-20.pem"
-      ]
+        "cas://v11/trees/curl@8.23.0",
+        "repository://github.com/curl/curl@curl-8_23_0"
+      ],
+      "repositoryUri": "repository://github.com/curl/curl@curl-8_23_0",
+      "v11TreeUri": "cas://v11/trees/curl@8.23.0"
     },
     {
       "name": "curlftpfs",
@@ -8337,8 +8348,11 @@
       "license": "BSD",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://downloads.videolan.org/pub/videolan/dav1d/1.5.5/dav1d-1.5.5.tar.xz"
-      ]
+        "cas://v11/trees/dav1d@1.5.5",
+        "repository://github.com/videolan/dav1d@1.5.5"
+      ],
+      "repositoryUri": "repository://github.com/videolan/dav1d@1.5.5",
+      "v11TreeUri": "cas://v11/trees/dav1d@1.5.5"
     },
     {
       "name": "dav2d",
@@ -10934,8 +10948,11 @@
       "license": "OpenSource",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/libexpat/libexpat/releases/download/R_2_8_5/expat-2.8.5.tar.xz"
-      ]
+        "cas://v11/trees/expat@2.11.0",
+        "repository://github.com/libexpat/libexpat@R_2_11_0"
+      ],
+      "repositoryUri": "repository://github.com/libexpat/libexpat@R_2_11_0",
+      "v11TreeUri": "cas://v11/trees/expat@2.11.0"
     },
     {
       "name": "expect",
@@ -11094,8 +11111,11 @@
       "license": "APL MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/fastfloat/fast_float/archive/v8.4.0/fast_float-8.4.0.tar.gz"
-      ]
+        "cas://v11/trees/fast_float@8.4.0",
+        "repository://github.com/fastfloat/fast_float@v8.4.0"
+      ],
+      "repositoryUri": "repository://github.com/fastfloat/fast_float@v8.4.0",
+      "v11TreeUri": "cas://v11/trees/fast_float@8.4.0"
     },
     {
       "name": "fastcgi",
@@ -11384,8 +11404,11 @@
       "license": "LGPL",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://ffmpeg.org/releases/ffmpeg-9.1.tar.xz"
-      ]
+        "cas://v11/trees/ffmpeg@9.1",
+        "repository://github.com/FFmpeg/FFmpeg@n9.1"
+      ],
+      "repositoryUri": "repository://github.com/FFmpeg/FFmpeg@n9.1",
+      "v11TreeUri": "cas://v11/trees/ffmpeg@9.1"
     },
     {
       "name": "ffmpegthumbs",
@@ -13487,8 +13510,11 @@
       "license": "BSD",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/KhronosGroup/glslang/archive/16.6.0/glslang-16.6.0.tar.gz"
-      ]
+        "cas://v11/trees/glslang@16.6.0",
+        "repository://github.com/KhronosGroup/glslang@16.6.0"
+      ],
+      "repositoryUri": "repository://github.com/KhronosGroup/glslang@16.6.0",
+      "v11TreeUri": "cas://v11/trees/glslang@16.6.0"
     },
     {
       "name": "gltron",
@@ -16989,8 +17015,11 @@
       "license": "OpenSource",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/unicode-org/icu/releases/download/release-79.1/icu4c-79.1-sources.tgz"
-      ]
+        "cas://v11/trees/icu4c@79.1",
+        "repository://github.com/unicode-org/icu@release-79.1"
+      ],
+      "repositoryUri": "repository://github.com/unicode-org/icu@release-79.1",
+      "v11TreeUri": "cas://v11/trees/icu4c@79.1"
     },
     {
       "name": "id-utils",
@@ -21891,8 +21920,11 @@
       "license": "BSD",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://www.libarchive.org/downloads/libarchive-3.8.11.tar.xz"
-      ]
+        "cas://v11/trees/libarchive@3.8.11",
+        "repository://github.com/libarchive/libarchive@v3.8.11"
+      ],
+      "repositoryUri": "repository://github.com/libarchive/libarchive@v3.8.11",
+      "v11TreeUri": "cas://v11/trees/libarchive@3.8.11"
     },
     {
       "name": "libass",
@@ -21981,8 +22013,11 @@
       "license": "BSD",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/AOMediaCodec/libavif/archive/v1.4.2/libavif-1.4.2.tar.gz"
-      ]
+        "cas://v11/trees/libavif@1.4.2",
+        "repository://github.com/AOMediaCodec/libavif@v1.4.2"
+      ],
+      "repositoryUri": "repository://github.com/AOMediaCodec/libavif@v1.4.2",
+      "v11TreeUri": "cas://v11/trees/libavif@1.4.2"
     },
     {
       "name": "libayatana-appindicator",
@@ -22581,8 +22616,11 @@
       "license": "OpenSource",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/ebiggers/libdeflate/archive/v1.26/libdeflate-1.26.tar.gz"
-      ]
+        "cas://v11/trees/libdeflate@1.26",
+        "repository://github.com/ebiggers/libdeflate@v1.26"
+      ],
+      "repositoryUri": "repository://github.com/ebiggers/libdeflate@v1.26",
+      "v11TreeUri": "cas://v11/trees/libdeflate@1.26"
     },
     {
       "name": "libdex",
@@ -23071,8 +23109,11 @@
       "license": "MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/libffi/libffi/releases/download/v3.8.1/libffi-3.8.1.tar.gz"
-      ]
+        "cas://v11/trees/libffi@3.8.2",
+        "repository://github.com/libffi/libffi@v3.8.2"
+      ],
+      "repositoryUri": "repository://github.com/libffi/libffi@v3.8.2",
+      "v11TreeUri": "cas://v11/trees/libffi@3.8.2"
     },
     {
       "name": "libfido2",
@@ -24093,8 +24134,11 @@
       "license": "OpenSource",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.2.1/libjpeg-turbo-3.2.1.tar.gz"
-      ]
+        "cas://v11/trees/libjpeg-turbo@3.2.1",
+        "repository://github.com/libjpeg-turbo/libjpeg-turbo@3.2.1"
+      ],
+      "repositoryUri": "repository://github.com/libjpeg-turbo/libjpeg-turbo@3.2.1",
+      "v11TreeUri": "cas://v11/trees/libjpeg-turbo@3.2.1"
     },
     {
       "name": "libjuice",
@@ -26258,8 +26302,11 @@
       "license": "ZLIB",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://www.libsdl.org/release/SDL3-3.4.20.tar.gz"
-      ]
+        "cas://v11/trees/libsdl3@3.4.20",
+        "repository://github.com/libsdl-org/SDL@release-3.4.20"
+      ],
+      "repositoryUri": "repository://github.com/libsdl-org/SDL@release-3.4.20",
+      "v11TreeUri": "cas://v11/trees/libsdl3@3.4.20"
     },
     {
       "name": "libsdl3_image",
@@ -27258,8 +27305,11 @@
       "license": "LGPL MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/axboe/liburing/archive/liburing-2.15.tar.gz"
-      ]
+        "cas://v11/trees/liburing@2.15",
+        "repository://github.com/axboe/liburing@liburing-2.15"
+      ],
+      "repositoryUri": "repository://github.com/axboe/liburing@liburing-2.15",
+      "v11TreeUri": "cas://v11/trees/liburing@2.15"
     },
     {
       "name": "libusb",
@@ -27318,8 +27368,11 @@
       "license": "Free-to-use",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://dist.libuv.org/dist/v1.53.0/libuv-v1.53.0.tar.gz"
-      ]
+        "cas://v11/trees/libuv@1.53.0",
+        "repository://github.com/libuv/libuv@v1.53.0"
+      ],
+      "repositoryUri": "repository://github.com/libuv/libuv@v1.53.0",
+      "v11TreeUri": "cas://v11/trees/libuv@1.53.0"
     },
     {
       "name": "libv4l",
@@ -27438,8 +27491,11 @@
       "license": "OpenSource",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/webmproject/libwebp/archive/v1.6.0/libwebp-1.6.0.tar.gz"
-      ]
+        "cas://v11/trees/libwebp@1.6.0",
+        "repository://github.com/webmproject/libwebp@v1.6.0"
+      ],
+      "repositoryUri": "repository://github.com/webmproject/libwebp@v1.6.0",
+      "v11TreeUri": "cas://v11/trees/libwebp@1.6.0"
     },
     {
       "name": "libwebsockets",
@@ -27891,8 +27947,11 @@
       "license": "MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/nodejs/llhttp/archive/release/v9.4.4/llhttp-9.4.4.tar.gz"
-      ]
+        "cas://v11/trees/llhttp@9.4.4",
+        "repository://github.com/nodejs/llhttp@release/v9.4.4"
+      ],
+      "repositoryUri": "repository://github.com/nodejs/llhttp@release/v9.4.4",
+      "v11TreeUri": "cas://v11/trees/llhttp@9.4.4"
     },
     {
       "name": "llmnrd",
@@ -28962,8 +29021,11 @@
       "license": "BSD",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/lz4/lz4/archive/v1.11.1/lz4-1.11.1.tar.gz"
-      ]
+        "cas://v11/trees/lz4@1.11.1",
+        "repository://github.com/lz4/lz4@v1.11.1"
+      ],
+      "repositoryUri": "repository://github.com/lz4/lz4@v1.11.1",
+      "v11TreeUri": "cas://v11/trees/lz4@1.11.1"
     },
     {
       "name": "lzip",
@@ -29693,8 +29755,11 @@
       "license": "APL",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-3.6.8/mbedtls-3.6.8.tar.bz2"
-      ]
+        "cas://v11/trees/mbedtls@4.3.0",
+        "repository://github.com/Mbed-TLS/mbedtls@mbedtls-4.3.0"
+      ],
+      "repositoryUri": "repository://github.com/Mbed-TLS/mbedtls@mbedtls-4.3.0",
+      "v11TreeUri": "cas://v11/trees/mbedtls@4.3.0"
     },
     {
       "name": "mbox-importer",
@@ -29843,8 +29908,11 @@
       "license": "MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/mity/md4c/archive/release-0.5.3/md4c-0.5.3.tar.gz"
-      ]
+        "cas://v11/trees/md4c@0.6.0",
+        "repository://github.com/mity/md4c@v0.6.0"
+      ],
+      "repositoryUri": "repository://github.com/mity/md4c@v0.6.0",
+      "v11TreeUri": "cas://v11/trees/md4c@0.6.0"
     },
     {
       "name": "mda-lv2",
@@ -30044,8 +30112,11 @@
       "license": "APL",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/mesonbuild/meson/archive/1.12.1/meson-1.12.1.tar.gz"
-      ]
+        "cas://v11/trees/meson@1.12.1",
+        "repository://github.com/mesonbuild/meson@1.12.1"
+      ],
+      "repositoryUri": "repository://github.com/mesonbuild/meson@1.12.1",
+      "v11TreeUri": "cas://v11/trees/meson@1.12.1"
     },
     {
       "name": "meson-python",
@@ -30254,8 +30325,11 @@
       "license": "MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/microsoft/mimalloc/archive/v3.7.0/mimalloc-3.7.0.tar.gz"
-      ]
+        "cas://v11/trees/mimalloc@3.7.1",
+        "repository://github.com/microsoft/mimalloc@v3.7.1"
+      ],
+      "repositoryUri": "repository://github.com/microsoft/mimalloc@v3.7.1",
+      "v11TreeUri": "cas://v11/trees/mimalloc@3.7.1"
     },
     {
       "name": "mimetreeparser",
@@ -32441,8 +32515,11 @@
       "license": "BSD",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/nghttp2/nghttp2/releases/download/v1.71.0/nghttp2-1.71.0.tar.bz2"
-      ]
+        "cas://v11/trees/nghttp2@1.71.0",
+        "repository://github.com/nghttp2/nghttp2@v1.71.0"
+      ],
+      "repositoryUri": "repository://github.com/nghttp2/nghttp2@v1.71.0",
+      "v11TreeUri": "cas://v11/trees/nghttp2@1.71.0"
     },
     {
       "name": "nghttp3",
@@ -32451,8 +32528,11 @@
       "license": "MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/ngtcp2/nghttp3/releases/download/v1.19.0/nghttp3-1.19.0.tar.xz"
-      ]
+        "cas://v11/trees/nghttp3@1.19.0",
+        "repository://github.com/ngtcp2/nghttp3@v1.19.0"
+      ],
+      "repositoryUri": "repository://github.com/ngtcp2/nghttp3@v1.19.0",
+      "v11TreeUri": "cas://v11/trees/nghttp3@1.19.0"
     },
     {
       "name": "nginx",
@@ -32561,8 +32641,11 @@
       "license": "APL",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/ninja-build/ninja/archive/v1.13.2/ninja-v1.13.2.tar.gz"
-      ]
+        "cas://v11/trees/ninja@1.13.2",
+        "repository://github.com/ninja-build/ninja@v1.13.2"
+      ],
+      "repositoryUri": "repository://github.com/ninja-build/ninja@v1.13.2",
+      "v11TreeUri": "cas://v11/trees/ninja@1.13.2"
     },
     {
       "name": "nip2",
@@ -33536,8 +33619,11 @@
       "license": "BSD",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/xianyi/OpenBLAS/archive/v0.3.34/openblas-0.3.34.tar.gz"
-      ]
+        "cas://v11/trees/openblas@0.3.34",
+        "repository://github.com/OpenMathLib/OpenBLAS@v0.3.34"
+      ],
+      "repositoryUri": "repository://github.com/OpenMathLib/OpenBLAS@v0.3.34",
+      "v11TreeUri": "cas://v11/trees/openblas@0.3.34"
     },
     {
       "name": "opencascade",
@@ -33996,8 +34082,11 @@
       "license": "OpenSource",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://www.openssl.org/source/openssl-3.6.5.tar.gz"
-      ]
+        "cas://v11/trees/openssl@4.1.0",
+        "repository://github.com/openssl/openssl@openssl-4.1.0"
+      ],
+      "repositoryUri": "repository://github.com/openssl/openssl@openssl-4.1.0",
+      "v11TreeUri": "cas://v11/trees/openssl@4.1.0"
     },
     {
       "name": "opensubdiv",
@@ -36900,8 +36989,11 @@
       "license": "MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/protocolbuffers/protobuf/archive/v36.2/protobuf-36.2.tar.gz"
-      ]
+        "cas://v11/trees/protobuf@36.2",
+        "repository://github.com/protocolbuffers/protobuf@v36.2"
+      ],
+      "repositoryUri": "repository://github.com/protocolbuffers/protobuf@v36.2",
+      "v11TreeUri": "cas://v11/trees/protobuf@36.2"
     },
     {
       "name": "protobuf-c",
@@ -40251,8 +40343,11 @@
       "license": "BSD",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/google/re2/archive/2025-11-05/re2-2025-11-05.tar.gz"
-      ]
+        "cas://v11/trees/re2@2025-11-05",
+        "repository://github.com/google/re2@2025-11-05"
+      ],
+      "repositoryUri": "repository://github.com/google/re2@2025-11-05",
+      "v11TreeUri": "cas://v11/trees/re2@2025-11-05"
     },
     {
       "name": "re2c",
@@ -42651,8 +42746,11 @@
       "license": "APL",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/simdjson/simdjson/archive/v5.3.0/simdjson-5.3.0.tar.gz"
-      ]
+        "cas://v11/trees/simdjson@5.3.0",
+        "repository://github.com/simdjson/simdjson@v5.3.0"
+      ],
+      "repositoryUri": "repository://github.com/simdjson/simdjson@v5.3.0",
+      "v11TreeUri": "cas://v11/trees/simdjson@5.3.0"
     },
     {
       "name": "simdutf",
@@ -42661,8 +42759,11 @@
       "license": "OpenSource",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/simdutf/simdutf/archive/v9.4.0/simdutf-v9.4.0.tar.gz"
-      ]
+        "cas://v11/trees/simdutf@9.5.0",
+        "repository://github.com/simdutf/simdutf@v9.5.0"
+      ],
+      "repositoryUri": "repository://github.com/simdutf/simdutf@v9.5.0",
+      "v11TreeUri": "cas://v11/trees/simdutf@9.5.0"
     },
     {
       "name": "simgear",
@@ -43842,8 +43943,11 @@
       "license": "PublicDomain",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://www.sqlite.org/2026/sqlite-autoconf-3540100.tar.gz"
-      ]
+        "cas://v11/trees/sqlite@3.54.1",
+        "repository://github.com/sqlite/sqlite@version-3.54.1"
+      ],
+      "repositoryUri": "repository://github.com/sqlite/sqlite@version-3.54.1",
+      "v11TreeUri": "cas://v11/trees/sqlite@3.54.1"
     },
     {
       "name": "sqlite2",
@@ -48158,8 +48262,11 @@
       "license": "OpenSource",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.4.369/Vulkan-Headers-1.4.369.tar.gz"
-      ]
+        "cas://v11/trees/vulkan-headers@1.4.369",
+        "repository://github.com/KhronosGroup/Vulkan-Headers@v1.4.369"
+      ],
+      "repositoryUri": "repository://github.com/KhronosGroup/Vulkan-Headers@v1.4.369",
+      "v11TreeUri": "cas://v11/trees/vulkan-headers@1.4.369"
     },
     {
       "name": "vulkan-loader",
@@ -48168,8 +48275,11 @@
       "license": "OpenSource",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/KhronosGroup/Vulkan-Loader/archive/v1.4.369/Vulkan-Loader-1.4.369.tar.gz"
-      ]
+        "cas://v11/trees/vulkan-loader@1.4.369",
+        "repository://github.com/KhronosGroup/Vulkan-Loader@v1.4.369"
+      ],
+      "repositoryUri": "repository://github.com/KhronosGroup/Vulkan-Loader@v1.4.369",
+      "v11TreeUri": "cas://v11/trees/vulkan-loader@1.4.369"
     },
     {
       "name": "vulkan-tools",
@@ -49028,8 +49138,11 @@
       "license": "MIT",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/google/woff2/archive/v1.0.2/woff2-v1.0.2.tar.gz"
-      ]
+        "cas://v11/trees/woff2@1.0.2",
+        "repository://github.com/google/woff2@v1.0.2"
+      ],
+      "repositoryUri": "repository://github.com/google/woff2@v1.0.2",
+      "v11TreeUri": "cas://v11/trees/woff2@1.0.2"
     },
     {
       "name": "wofi",
@@ -50642,8 +50755,11 @@
       "license": "OpenSource",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "http://www.zlib.net/zlib-1.4.tar.xz"
-      ]
+        "cas://v11/trees/zlib@1.4",
+        "repository://github.com/madler/zlib@v1.4"
+      ],
+      "repositoryUri": "repository://github.com/madler/zlib@v1.4",
+      "v11TreeUri": "cas://v11/trees/zlib@1.4"
     },
     {
       "name": "zlib-ng",
@@ -50652,8 +50768,11 @@
       "license": "OpenSource",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/zlib-ng/zlib-ng/archive/2.3.3/zlib-ng-2.3.3.tar.gz"
-      ]
+        "cas://v11/trees/zlib-ng@2.3.3",
+        "repository://github.com/zlib-ng/zlib-ng@2.3.3"
+      ],
+      "repositoryUri": "repository://github.com/zlib-ng/zlib-ng@2.3.3",
+      "v11TreeUri": "cas://v11/trees/zlib-ng@2.3.3"
     },
     {
       "name": "zls",
@@ -50783,8 +50902,11 @@
       "license": "BSD GPL",
       "mode": "v11-cas-cross",
       "tarballs": [
-        "https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz"
-      ]
+        "cas://v11/trees/zstd@1.6.0",
+        "repository://github.com/facebook/zstd@v1.6.0"
+      ],
+      "repositoryUri": "repository://github.com/facebook/zstd@v1.6.0",
+      "v11TreeUri": "cas://v11/trees/zstd@1.6.0"
     },
     {
       "name": "zsync",
@@ -50878,5 +51000,6 @@
     }
   ],
   "maxPinBumpedAt": "2026-11-26T08:06:34.163Z",
-  "liveUpstreamSyncedAt": "2026-11-26T09:23:07.414Z"
+  "liveUpstreamSyncedAt": "2026-11-26T09:23:07.414Z",
+  "tarballReplacementAt": "2026-11-26T09:25:11.700Z"
 }
