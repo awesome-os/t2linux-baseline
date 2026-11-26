@@ -1,7 +1,7 @@
 {
   "schema": "awesome-os.live-upstream-tracker.v1",
-  "checkedAt": "2026-11-26T21:29:08.189Z",
-  "totalTracked": 67,
+  "checkedAt": "2026-11-26T21:30:57.229Z",
+  "totalTracked": 68,
   "bumpedCount": 0,
   "libraries": [
     {
@@ -317,6 +317,15 @@
       "upstreamVersion": "1.9.7",
       "previousV11": "1.9.7",
       "currentV11": "1.9.7",
+      "bumped": false
+    },
+    {
+      "pkg": "librdkafka",
+      "repo": "confluentinc/librdkafka",
+      "upstreamTag": "v2.16.0",
+      "upstreamVersion": "2.16.0",
+      "previousV11": "2.16.0",
+      "currentV11": "2.16.0",
       "bumped": false
     },
     {

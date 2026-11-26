@@ -130,7 +130,9 @@ function buildGhEnv(useEnvToken: boolean): NodeJS.ProcessEnv {
 
 function runGhApi(args: string[]): string | null {
   const hasEnvToken = Boolean(process.env.GH_TOKEN?.trim() || process.env.GITHUB_TOKEN?.trim());
-  const attempt = (useEnvToken: boolean): { ok: true; out: string } | { ok: false; authError: boolean } => {
+  const attempt = (
+    useEnvToken: boolean,
+  ): { ok: true; out: string } | { ok: false; authError: boolean; notFound: boolean } => {
     const env = buildGhEnv(useEnvToken);
     try {
       const out = execFileSync('gh', ['api', ...args], {
@@ -153,19 +155,32 @@ function runGhApi(args: string[]): string | null {
         } catch (winErr: unknown) {
           const we = winErr as { stderr?: string | Buffer; stdout?: string | Buffer };
           const msg = `${we.stderr ?? ''}\n${we.stdout ?? ''}`;
-          return { ok: false, authError: /401|bad credentials|authentication|token/i.test(msg) };
+          return {
+            ok: false,
+            authError: /401|bad credentials|authentication|token/i.test(msg),
+            notFound: /\b404\b|Not Found/i.test(msg),
+          };
         }
       }
       const msg = `${e.stderr ?? ''}\n${e.stdout ?? ''}`;
-      return { ok: false, authError: /401|bad credentials|authentication|token/i.test(msg) };
+      return {
+        ok: false,
+        authError: /401|bad credentials|authentication|token/i.test(msg),
+        notFound: /\b404\b|Not Found/i.test(msg),
+      };
     }
   };
 
-  const first = attempt(true);
+  let first = attempt(true);
   if (first.ok) return first.out;
   if (first.authError && hasEnvToken) {
     const fallback = attempt(false);
     if (fallback.ok) return fallback.out;
+    first = fallback;
+  }
+  if (!first.notFound) {
+    const retry = attempt(!(first.authError && hasEnvToken));
+    if (retry.ok) return retry.out;
   }
   return null;
 }
@@ -215,13 +230,13 @@ function fetchLatestGithubVersion(repo: string): { tag: string; version: string 
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const uniPath = join(repoRoot, 'catalog', 'v11-package-universe.json');
+const trackerPath = join(repoRoot, 'catalog', 'live-upstream-tracker.json');
 const uni = JSON.parse(readFileSync(uniPath, 'utf8')) as {
   packages: Array<{ name: string; version: string }>;
   liveUpstreamSyncedAt?: string;
 };
 
-const pkgMap = new Map(uni.packages.map((p) => [p.name.toLowerCase(), p]));
-const results: Array<{
+type TrackerEntry = {
   pkg: string;
   repo: string;
   upstreamTag: string;
@@ -229,15 +244,41 @@ const results: Array<{
   previousV11: string | null;
   currentV11: string | null;
   bumped: boolean;
-}> = [];
+};
+
+let prevTrackerMap = new Map<string, TrackerEntry>();
+try {
+  const prevTracker = JSON.parse(readFileSync(trackerPath, 'utf8')) as { libraries?: TrackerEntry[] };
+  prevTrackerMap = new Map((prevTracker.libraries ?? []).map((e) => [e.pkg.toLowerCase(), e]));
+} catch {
+  // ignore missing/invalid prior tracker
+}
+
+const pkgMap = new Map(uni.packages.map((p) => [p.name.toLowerCase(), p]));
+const results: TrackerEntry[] = [];
 
 for (const u of UPSTREAMS) {
   const live = fetchLatestGithubVersion(u.repo);
+  const existing = pkgMap.get(u.pkg.toLowerCase());
   if (!live) {
-    console.log(`  [SKIP] ${u.pkg.padEnd(16)} (${u.repo}) -> unavailable`);
+    const cached = prevTrackerMap.get(u.pkg.toLowerCase());
+    if (cached) {
+      const current = existing?.version ?? cached.currentV11 ?? null;
+      results.push({
+        pkg: u.pkg,
+        repo: u.repo,
+        upstreamTag: cached.upstreamTag,
+        upstreamVersion: cached.upstreamVersion,
+        previousV11: existing?.version ?? cached.previousV11 ?? null,
+        currentV11: current,
+        bumped: false,
+      });
+      console.log(`  [CACHED] ${u.pkg.padEnd(16)} (${u.repo}) -> retained ${cached.upstreamVersion}`);
+    } else {
+      console.log(`  [SKIP] ${u.pkg.padEnd(16)} (${u.repo}) -> unavailable`);
+    }
     continue;
   }
-  const existing = pkgMap.get(u.pkg.toLowerCase());
   const prev = existing?.version ?? null;
   let bumped = false;
   if (existing && compareVersions(live.version, existing.version) > 0) {
