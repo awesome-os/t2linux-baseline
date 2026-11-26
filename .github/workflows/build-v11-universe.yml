@@ -1,0 +1,61 @@
+name: Build v11 Package Universe (T2 SDE + v11 CAS)
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+    inputs:
+      wave:
+        description: 'Package universe wave to build'
+        required: true
+        default: 'core'
+        type: choice
+        options:
+          - core
+          - wayland
+          - devtools
+          - all
+
+permissions:
+  contents: read
+
+jobs:
+  build-v11-universe:
+    name: Analyze T2 SDE & Build v11 Universe (${{ inputs.wave || 'core' }})
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout awesome-os/t2linux-baseline
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (direct erasable TS execution)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install musl-tools for v11 CAS smoke-build
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y musl-tools
+
+      - name: Clone upstream rxrbln/t2sde (shallow)
+        run: |
+          git clone --depth=1 https://github.com/rxrbln/t2sde.git t2-trunk
+
+      - name: Analyze T2 SDE package universe
+        run: |
+          node scripts/analyze-t2sde.mts
+
+      - name: Build v11 package universe queue & CAS hardlink smoke-build
+        run: |
+          node scripts/build-v11-universe.mts --wave "${{ inputs.wave || 'core' }}" --smoke-build
+
+      - name: Upload v11 universe & catalog artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: v11-package-universe-${{ inputs.wave || 'core' }}
+          path: |
+            dist/v11-build-queue.json
+            catalog/v11-package-universe.json
+            catalog/packages-legacy.json
+            catalog/T2SDE-MODERNIZATION-WISHLIST.md
