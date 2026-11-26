@@ -19,4 +19,5 @@ The real-compiler **T2 SDE Baseline Edition** — includes the original upstream
   - [`catalog/v11-package-universe.json`](catalog/v11-package-universe.json) — **`5,070`** modern `[F] CROSS`-ready & remapped packages.
   - [`catalog/packages-legacy.json`](catalog/packages-legacy.json) — **`885`** frozen opt-in legacy packages (Xorg/X11, SysV, GTK2, Qt5 — zero impact on modern Wayland workstations; see [Why X11 Is Never Needed](https://github.com/awesome-os/desktop/blob/main/docs/WHY-NO-X11.md)).
   - [`catalog/T2SDE-MODERNIZATION-WISHLIST.md`](catalog/T2SDE-MODERNIZATION-WISHLIST.md) — Constructive upstream modernization & debloat wishlist.
+- **`docs/LINUX-COMPILER-AND-LEGACY-TREES.md`** — Practical Linux developer guide for `holo-compiler` / `zig cc` + materializing 0-byte legacy FHS file trees (hardlink & `overlayfs`) from `v11` CAS for `autotools`, `cmake`, `meson`, and T2 SDE `Build-Pkg`.
 - **`.github/workflows/build-t2linux-baseline.yml`** — CI builds the T2 SDE baseline initramfs with real `musl-gcc`, boots it in **QEMU**, verifies `[T2SDE-BASELINE] SELFTEST PASS`, and publishes `v0.1.0` releases.
