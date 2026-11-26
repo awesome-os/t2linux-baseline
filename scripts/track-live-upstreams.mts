@@ -51,25 +51,33 @@ function normalizeTag(raw: string): string {
 }
 
 function fetchLatestGithubVersion(repo: string): { tag: string; version: string } | null {
+  const candidates: Array<{ tag: string; version: string }> = [];
   try {
     const out = execFileSync('gh', ['api', `repos/${repo}/releases/latest`, '--jq', '.tag_name'], {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
     }).trim();
-    if (out) return { tag: out, version: normalizeTag(out) };
+    if (out) candidates.push({ tag: out, version: normalizeTag(out) });
   } catch {
-    // Fallback to tags if repo does not use GitHub Releases
+    // ignore
   }
   try {
-    const out = execFileSync('gh', ['api', `repos/${repo}/tags?per_page=1`, '--jq', '.[0].name'], {
+    const out = execFileSync('gh', ['api', `repos/${repo}/tags?per_page=10`, '--jq', '.[].name'], {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
     }).trim();
-    if (out) return { tag: out, version: normalizeTag(out) };
+    for (const line of out.split(/\r?\n/)) {
+      const t = line.trim();
+      if (!t || /rc|alpha|beta|pre|dev/i.test(t)) continue;
+      const v = normalizeTag(t);
+      if (/^\d+\.\d+/.test(v)) candidates.push({ tag: t, version: v });
+    }
   } catch {
-    return null;
+    // ignore
   }
-  return null;
+  if (candidates.length === 0) return null;
+  candidates.sort((a, b) => compareVersions(b.version, a.version));
+  return candidates[0];
 }
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');

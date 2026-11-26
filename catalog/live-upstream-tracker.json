@@ -1,8 +1,8 @@
 {
   "schema": "awesome-os.live-upstream-tracker.v1",
-  "checkedAt": "2026-11-26T08:13:44.710Z",
+  "checkedAt": "2026-11-26T09:19:15.978Z",
   "totalTracked": 21,
-  "bumpedCount": 1,
+  "bumpedCount": 0,
   "libraries": [
     {
       "pkg": "libuv",
@@ -87,8 +87,8 @@
     {
       "pkg": "vulkan-loader",
       "repo": "KhronosGroup/Vulkan-Loader",
-      "upstreamTag": "windows-rt-1.0.8.1",
-      "upstreamVersion": "1.0.8.1",
+      "upstreamTag": "vulkan-sdk-1.4.363.0",
+      "upstreamVersion": "1.4.363.0",
       "previousV11": "1.4.369",
       "bumped": false
     },
@@ -121,8 +121,8 @@
       "repo": "simdutf/simdutf",
       "upstreamTag": "v9.5.0",
       "upstreamVersion": "9.5.0",
-      "previousV11": "9.4.0",
-      "bumped": true
+      "previousV11": "9.5.0",
+      "bumped": false
     },
     {
       "pkg": "protobuf",
