@@ -1,0 +1,102 @@
+name: Damped-Gravity Upstream Version Bump (v11)
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  gravity-version-bump:
+    name: Track Live Upstreams, Bump Max Pins & Emit Lock
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout awesome-os/t2linux-baseline
+        uses: actions/checkout@v4
+        with:
+          path: t2linux-baseline
+
+      - name: Checkout awesome-os/ladybird (vcpkg.json for max-version-lock)
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: awesome-os/ladybird
+          path: ladybird
+          sparse-checkout: |
+            vcpkg.json
+
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Track live upstreams & bump max pins
+        working-directory: t2linux-baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/track-live-upstreams.mts
+          node scripts/bump-all-max-pins.mts
+          if [ -f ../ladybird/vcpkg.json ]; then
+            node scripts/generate-max-version-lock.mts
+          else
+            echo "::warning::../ladybird/vcpkg.json not available; retaining existing catalog/max-version-lock.json"
+          fi
+
+      - name: Write catalog/bump-telemetry.json & $GITHUB_STEP_SUMMARY
+        working-directory: t2linux-baseline
+        run: |
+          node --input-type=module -e '
+            import { readFileSync, writeFileSync, appendFileSync, existsSync } from "node:fs";
+            const tracker = JSON.parse(readFileSync("catalog/live-upstream-tracker.json", "utf8"));
+            const uni = JSON.parse(readFileSync("catalog/v11-package-universe.json", "utf8"));
+            const lock = existsSync("catalog/max-version-lock.json")
+              ? JSON.parse(readFileSync("catalog/max-version-lock.json", "utf8"))
+              : null;
+            const bumped = (tracker.libraries || []).filter((l) => l.bumped);
+            const telemetry = {
+              schema: "awesome-os.gravity-bump-telemetry.v1",
+              abiMagic: "0x33564742",
+              generatedAt: new Date().toISOString(),
+              dampingFactor: 0.65,
+              totalTracked: tracker.totalTracked ?? (tracker.libraries?.length || 0),
+              bumpedCount: bumped.length,
+              bumpedLibraries: bumped,
+              totalUniversePackages: uni.totalPackages ?? (uni.packages?.length || 0),
+              maxVersionLockSummary: lock?.summary ?? null,
+            };
+            writeFileSync("catalog/bump-telemetry.json", JSON.stringify(telemetry, null, 2) + "\n", "utf8");
+            const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+            if (summaryPath) {
+              const md = [
+                "## Damped-Gravity Upstream Bump Telemetry",
+                "",
+                "| Metric | Value |",
+                "| :--- | :--- |",
+                `| Tracked Upstream Libraries | ${telemetry.totalTracked} |`,
+                `| Newly Bumped | ${telemetry.bumpedCount} |`,
+                `| v11 Package Universe | ${telemetry.totalUniversePackages} |`,
+                `| Ladybird Dep Overlap | ${lock?.summary?.overlapPercent ?? "n/a"}% |`,
+                "",
+              ].join("\n");
+              appendFileSync(summaryPath, md, "utf8");
+            }
+          '
+
+      - name: Commit updated catalog/ & dispatch holo-v11 report sync if changed
+        working-directory: t2linux-baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "awesome-os-bot"
+          git config user.email "bot@awesome-os.com"
+          if [ -n "$(git status --porcelain catalog/)" ]; then
+            git add catalog/
+            git commit -m "chore(catalog): damped-gravity upstream version bump & max-version-lock"
+            git push origin HEAD:main
+            gh workflow run update-v11-reports.yml -R awesome-os/holo-v11 || echo "::warning::Cross-repo workflow dispatch skipped (token scope)"
+          else
+            echo "catalog/ unchanged — skipping commit & dispatch."
+          fi
