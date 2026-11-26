@@ -1,19 +1,19 @@
 {
   "schema": "awesome-os.gravity-bump-telemetry.v1",
   "abiMagic": "0x33564742",
-  "generatedAt": "2026-11-26T20:04:54.097Z",
+  "generatedAt": "2026-11-26T21:29:08.615Z",
   "dampingFactor": 0.65,
-  "totalTracked": 56,
+  "totalTracked": 67,
   "bumpedCount": 0,
   "bumpedLibraries": [],
-  "totalUniversePackages": 5070,
+  "totalUniversePackages": 5078,
   "maxVersionLockSummary": {
     "totalLadybirdDeps": 49,
-    "coveredInV11": 33,
-    "overlapPercent": 67.35,
-    "raisedFromV11": 17,
-    "raisedFromLadybird": 1,
-    "equalAtMax": 15,
-    "ladybirdCustomPins": 16
+    "coveredInV11": 34,
+    "overlapPercent": 69.39,
+    "raisedFromV11": 18,
+    "raisedFromLadybird": 0,
+    "equalAtMax": 16,
+    "ladybirdCustomPins": 15
   }
 }
