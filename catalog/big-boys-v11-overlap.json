@@ -1,0 +1,347 @@
+{
+  "schema": "awesome-os.big-boys-v11-overlap.v1",
+  "abiMagic": "0x33564742",
+  "casLayout": "v11",
+  "totalStandaloneMb": 1550,
+  "uniqueLibsAnalyzed": 43,
+  "sharedAcrossMultipleRuntimes": 23,
+  "runtimes": [
+    {
+      "id": "chromium",
+      "name": "Chromium / Sectium Browser",
+      "totalLibs": 27,
+      "coveredInV11": 26,
+      "coveragePercent": 96.3,
+      "missing": [
+        "libxml2"
+      ],
+      "standaloneDiskMb": 420
+    },
+    {
+      "id": "electron",
+      "name": "Electron (awesome-os/sectium-electron)",
+      "totalLibs": 20,
+      "coveredInV11": 20,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 280
+    },
+    {
+      "id": "nwjs",
+      "name": "NW.js (holo-display-nwjs)",
+      "totalLibs": 18,
+      "coveredInV11": 18,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 310
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js",
+      "totalLibs": 16,
+      "coveredInV11": 14,
+      "coveragePercent": 87.5,
+      "missing": [
+        "ngtcp2",
+        "ada"
+      ],
+      "standaloneDiskMb": 115
+    },
+    {
+      "id": "deno",
+      "name": "Deno",
+      "totalLibs": 10,
+      "coveredInV11": 10,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 135
+    },
+    {
+      "id": "bun",
+      "name": "Bun",
+      "totalLibs": 12,
+      "coveredInV11": 12,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 105
+    },
+    {
+      "id": "ladybird",
+      "name": "Ladybird (awesome-os/ladybird)",
+      "totalLibs": 23,
+      "coveredInV11": 23,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 185
+    }
+  ],
+  "sharedLibraries": [
+    {
+      "lib": "brotli",
+      "sharedByCount": 7,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird"
+      ],
+      "v11MaxVersion": "1.2.1"
+    },
+    {
+      "lib": "icu4c",
+      "sharedByCount": 7,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird"
+      ],
+      "v11MaxVersion": "79.1"
+    },
+    {
+      "lib": "openssl",
+      "sharedByCount": 7,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird"
+      ],
+      "v11MaxVersion": "3.6.5"
+    },
+    {
+      "lib": "sqlite",
+      "sharedByCount": 7,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird"
+      ],
+      "v11MaxVersion": "3.54.1"
+    },
+    {
+      "lib": "zlib",
+      "sharedByCount": 7,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird"
+      ],
+      "v11MaxVersion": "1.4"
+    },
+    {
+      "lib": "nghttp2",
+      "sharedByCount": 6,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "bun",
+        "ladybird"
+      ],
+      "v11MaxVersion": "1.71.0"
+    },
+    {
+      "lib": "zstd",
+      "sharedByCount": 6,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun"
+      ],
+      "v11MaxVersion": "1.5.7"
+    },
+    {
+      "lib": "v8",
+      "sharedByCount": 5,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno"
+      ],
+      "v11MaxVersion": "15.8 (awesome-os/libv8_monolith)"
+    },
+    {
+      "lib": "vulkan-loader",
+      "sharedByCount": 5,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "deno",
+        "ladybird"
+      ],
+      "v11MaxVersion": "1.4.369"
+    },
+    {
+      "lib": "dav1d",
+      "sharedByCount": 4,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "ladybird"
+      ],
+      "v11MaxVersion": "1.5.5"
+    },
+    {
+      "lib": "ffmpeg",
+      "sharedByCount": 4,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "ladybird"
+      ],
+      "v11MaxVersion": "9.1"
+    },
+    {
+      "lib": "libavif",
+      "sharedByCount": 4,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "ladybird"
+      ],
+      "v11MaxVersion": "1.4.2"
+    },
+    {
+      "lib": "libjpeg-turbo",
+      "sharedByCount": 4,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "ladybird"
+      ],
+      "v11MaxVersion": "3.2.1"
+    },
+    {
+      "lib": "libpng",
+      "sharedByCount": 4,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "ladybird"
+      ],
+      "v11MaxVersion": "1.6.59"
+    },
+    {
+      "lib": "libuv",
+      "sharedByCount": 4,
+      "runtimes": [
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno"
+      ],
+      "v11MaxVersion": "1.51.0 (awesome-os/libuv)"
+    },
+    {
+      "lib": "libwebp",
+      "sharedByCount": 4,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "ladybird"
+      ],
+      "v11MaxVersion": "1.6.0"
+    },
+    {
+      "lib": "simdutf",
+      "sharedByCount": 4,
+      "runtimes": [
+        "electron",
+        "nodejs",
+        "bun",
+        "ladybird"
+      ],
+      "v11MaxVersion": "9.5.0"
+    },
+    {
+      "lib": "skia",
+      "sharedByCount": 4,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "ladybird"
+      ],
+      "v11MaxVersion": "148"
+    },
+    {
+      "lib": "vulkan-headers",
+      "sharedByCount": 4,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "ladybird"
+      ],
+      "v11MaxVersion": "1.4.369"
+    },
+    {
+      "lib": "simdjson",
+      "sharedByCount": 3,
+      "runtimes": [
+        "electron",
+        "nodejs",
+        "ladybird"
+      ],
+      "v11MaxVersion": "5.3.0"
+    },
+    {
+      "lib": "c-ares",
+      "sharedByCount": 2,
+      "runtimes": [
+        "nodejs",
+        "bun"
+      ],
+      "v11MaxVersion": "1.34.9"
+    },
+    {
+      "lib": "curl",
+      "sharedByCount": 2,
+      "runtimes": [
+        "chromium",
+        "ladybird"
+      ],
+      "v11MaxVersion": "8.23.0"
+    },
+    {
+      "lib": "mimalloc",
+      "sharedByCount": 2,
+      "runtimes": [
+        "bun",
+        "ladybird"
+      ],
+      "v11MaxVersion": "3.7.0"
+    }
+  ]
+}
