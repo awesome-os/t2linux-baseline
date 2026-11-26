@@ -329,7 +329,7 @@
         "deno",
         "lo"
       ],
-      "v11MaxVersion": "16.0.88 / latest (awesome-os/libv8_monolith)"
+      "v11MaxVersion": "16.0.88+ (awesome-os/libv8_monolith / Chromium 160 Canary)"
     },
     {
       "lib": "vulkan-headers",
@@ -366,7 +366,7 @@
         "deno",
         "vllm"
       ],
-      "v11MaxVersion": "1.51.0 (awesome-os/libuv)"
+      "v11MaxVersion": "1.53.0 (awesome-os/libuv live upstream)"
     },
     {
       "lib": "simdutf",

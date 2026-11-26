@@ -36,10 +36,10 @@
 | `libpng` | 6/12 | chromium, firefox, electron, nwjs, ladybird, vllm | `1.6.59` |
 | `libwebp` | 6/12 | chromium, firefox, electron, nwjs, ladybird, vllm | `1.6.0` |
 | `nghttp2` | 6/12 | chromium, electron, nwjs, nodejs, bun, ladybird | `1.71.0` |
-| `v8` | 6/12 | chromium, electron, nwjs, nodejs, deno, lo | `16.0.88 / latest (awesome-os/libv8_monolith)` |
+| `v8` | 6/12 | chromium, electron, nwjs, nodejs, deno, lo | `16.0.88+ (awesome-os/libv8_monolith / Chromium 160 Canary)` |
 | `vulkan-headers` | 6/12 | chromium, electron, nwjs, ladybird, colibri, llama-cpp | `1.4.369` |
 | `dav1d` | 5/12 | chromium, firefox, electron, nwjs, ladybird | `1.5.5` |
-| `libuv` | 5/12 | electron, nwjs, nodejs, deno, vllm | `1.51.0 (awesome-os/libuv)` |
+| `libuv` | 5/12 | electron, nwjs, nodejs, deno, vllm | `1.53.0 (awesome-os/libuv live upstream)` |
 | `simdutf` | 5/12 | electron, nodejs, bun, ladybird, lo | `9.5.0` |
 | `libavif` | 4/12 | chromium, electron, nwjs, ladybird | `1.4.2` |
 | `libffi` | 4/12 | firefox, deno, lo, vllm | `3.8.1` |

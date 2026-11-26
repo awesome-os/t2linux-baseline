@@ -1,0 +1,176 @@
+{
+  "schema": "awesome-os.live-upstream-tracker.v1",
+  "checkedAt": "2026-11-26T08:13:44.710Z",
+  "totalTracked": 21,
+  "bumpedCount": 1,
+  "libraries": [
+    {
+      "pkg": "libuv",
+      "repo": "libuv/libuv",
+      "upstreamTag": "v1.53.0",
+      "upstreamVersion": "1.53.0",
+      "previousV11": "1.53.0",
+      "bumped": false
+    },
+    {
+      "pkg": "openssl",
+      "repo": "openssl/openssl",
+      "upstreamTag": "openssl-4.1.0",
+      "upstreamVersion": "4.1.0",
+      "previousV11": "4.1.0",
+      "bumped": false
+    },
+    {
+      "pkg": "harfbuzz",
+      "repo": "harfbuzz/harfbuzz",
+      "upstreamTag": "15.2.0",
+      "upstreamVersion": "15.2.0",
+      "previousV11": null,
+      "bumped": false
+    },
+    {
+      "pkg": "zstd",
+      "repo": "facebook/zstd",
+      "upstreamTag": "v1.6.0",
+      "upstreamVersion": "1.6.0",
+      "previousV11": "1.6.0",
+      "bumped": false
+    },
+    {
+      "pkg": "mimalloc",
+      "repo": "microsoft/mimalloc",
+      "upstreamTag": "v3.7.1",
+      "upstreamVersion": "3.7.1",
+      "previousV11": "3.7.1",
+      "bumped": false
+    },
+    {
+      "pkg": "zlib-ng",
+      "repo": "zlib-ng/zlib-ng",
+      "upstreamTag": "2.3.3",
+      "upstreamVersion": "2.3.3",
+      "previousV11": "2.3.3",
+      "bumped": false
+    },
+    {
+      "pkg": "expat",
+      "repo": "libexpat/libexpat",
+      "upstreamTag": "R_2_11_0",
+      "upstreamVersion": "2.11.0",
+      "previousV11": "2.11.0",
+      "bumped": false
+    },
+    {
+      "pkg": "ada",
+      "repo": "ada-url/ada",
+      "upstreamTag": "v4.1.1",
+      "upstreamVersion": "4.1.1",
+      "previousV11": null,
+      "bumped": false
+    },
+    {
+      "pkg": "curl",
+      "repo": "curl/curl",
+      "upstreamTag": "curl-8_23_0",
+      "upstreamVersion": "8.23.0",
+      "previousV11": "8.23.0",
+      "bumped": false
+    },
+    {
+      "pkg": "vulkan-headers",
+      "repo": "KhronosGroup/Vulkan-Headers",
+      "upstreamTag": "vulkan-sdk-1.4.363.0",
+      "upstreamVersion": "1.4.363.0",
+      "previousV11": "1.4.369",
+      "bumped": false
+    },
+    {
+      "pkg": "vulkan-loader",
+      "repo": "KhronosGroup/Vulkan-Loader",
+      "upstreamTag": "windows-rt-1.0.8.1",
+      "upstreamVersion": "1.0.8.1",
+      "previousV11": "1.4.369",
+      "bumped": false
+    },
+    {
+      "pkg": "glslang",
+      "repo": "KhronosGroup/glslang",
+      "upstreamTag": "16.6.0",
+      "upstreamVersion": "16.6.0",
+      "previousV11": "16.6.0",
+      "bumped": false
+    },
+    {
+      "pkg": "brotli",
+      "repo": "google/brotli",
+      "upstreamTag": "v1.2.1",
+      "upstreamVersion": "1.2.1",
+      "previousV11": "1.2.1",
+      "bumped": false
+    },
+    {
+      "pkg": "simdjson",
+      "repo": "simdjson/simdjson",
+      "upstreamTag": "v5.3.0",
+      "upstreamVersion": "5.3.0",
+      "previousV11": "5.3.0",
+      "bumped": false
+    },
+    {
+      "pkg": "simdutf",
+      "repo": "simdutf/simdutf",
+      "upstreamTag": "v9.5.0",
+      "upstreamVersion": "9.5.0",
+      "previousV11": "9.4.0",
+      "bumped": true
+    },
+    {
+      "pkg": "protobuf",
+      "repo": "protocolbuffers/protobuf",
+      "upstreamTag": "v36.2",
+      "upstreamVersion": "36.2",
+      "previousV11": "36.2",
+      "bumped": false
+    },
+    {
+      "pkg": "liburing",
+      "repo": "axboe/liburing",
+      "upstreamTag": "liburing-2.15",
+      "upstreamVersion": "2.15",
+      "previousV11": "2.15",
+      "bumped": false
+    },
+    {
+      "pkg": "openblas",
+      "repo": "OpenMathLib/OpenBLAS",
+      "upstreamTag": "v0.3.34",
+      "upstreamVersion": "0.3.34",
+      "previousV11": "0.3.34",
+      "bumped": false
+    },
+    {
+      "pkg": "cmake",
+      "repo": "Kitware/CMake",
+      "upstreamTag": "v4.5.1",
+      "upstreamVersion": "4.5.1",
+      "previousV11": "4.5.1",
+      "bumped": false
+    },
+    {
+      "pkg": "ninja",
+      "repo": "ninja-build/ninja",
+      "upstreamTag": "v1.13.2",
+      "upstreamVersion": "1.13.2",
+      "previousV11": "1.13.2",
+      "bumped": false
+    },
+    {
+      "pkg": "nghttp2",
+      "repo": "nghttp2/nghttp2",
+      "upstreamTag": "v1.71.0",
+      "upstreamVersion": "1.71.0",
+      "previousV11": "1.71.0",
+      "bumped": false
+    }
+  ]
+}

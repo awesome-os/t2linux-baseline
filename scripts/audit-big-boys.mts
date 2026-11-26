@@ -176,9 +176,9 @@ function main(): void {
     v11Map.set(l.name.toLowerCase(), l.maxVersion);
     if (l.v11Name) v11Map.set(l.v11Name.toLowerCase(), l.maxVersion);
   }
-  // Awesome-OS sovereign first-party v11 CAS runtimes & verified ahead-of-Chrome upstream maxes
-  v11Map.set('v8', '16.0.88 / latest (awesome-os/libv8_monolith)');
-  v11Map.set('libuv', '1.51.0 (awesome-os/libuv)');
+  // Awesome-OS sovereign first-party v11 CAS runtimes & verified live upstream maxes
+  v11Map.set('v8', '16.0.88+ (awesome-os/libv8_monolith / Chromium 160 Canary)');
+  v11Map.set('libuv', `${v11Map.get('libuv') ?? '1.53.0'} (awesome-os/libuv live upstream)`);
   v11Map.set('webui', '0.1.0 (awesome-os/webui)');
   v11Map.set('harfbuzz', '15.2.0 (ahead-of-chrome upstream max)');
   v11Map.set('openssl', '4.1.0 (ahead-of-chrome upstream max)');
