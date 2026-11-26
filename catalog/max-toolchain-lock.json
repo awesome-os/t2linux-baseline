@@ -1,7 +1,7 @@
 {
   "schema": "awesome-os.max-toolchain-lock.v1",
   "abiMagic": "0x33564742",
-  "generatedAt": "2026-11-26T21:35:45.133Z",
+  "generatedAt": "2026-11-26T21:37:01.533Z",
   "totalToolchains": 24,
   "resolvedCount": 24,
   "toolchains": [
