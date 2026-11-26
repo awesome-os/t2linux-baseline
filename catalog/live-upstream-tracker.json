@@ -1,8 +1,8 @@
 {
   "schema": "awesome-os.live-upstream-tracker.v1",
-  "checkedAt": "2026-11-26T21:17:34.726Z",
+  "checkedAt": "2026-11-26T21:27:54.413Z",
   "totalTracked": 68,
-  "bumpedCount": 1,
+  "bumpedCount": 0,
   "libraries": [
     {
       "pkg": "linux",
@@ -10,6 +10,7 @@
       "upstreamTag": "v7.3",
       "upstreamVersion": "7.3",
       "previousV11": "7.3.6",
+      "currentV11": "7.3.6",
       "bumped": false
     },
     {
@@ -18,6 +19,7 @@
       "upstreamTag": "v12.11.1",
       "upstreamVersion": "12.11.1",
       "previousV11": "12.11.1",
+      "currentV11": "12.11.1",
       "bumped": false
     },
     {
@@ -26,6 +28,7 @@
       "upstreamTag": "v1.53.0",
       "upstreamVersion": "1.53.0",
       "previousV11": "1.53.0",
+      "currentV11": "1.53.0",
       "bumped": false
     },
     {
@@ -34,6 +37,7 @@
       "upstreamTag": "openssl-4.1.0",
       "upstreamVersion": "4.1.0",
       "previousV11": "4.1.0",
+      "currentV11": "4.1.0",
       "bumped": false
     },
     {
@@ -42,6 +46,7 @@
       "upstreamTag": "mbedtls-4.3.0",
       "upstreamVersion": "4.3.0",
       "previousV11": "4.3.0",
+      "currentV11": "4.3.0",
       "bumped": false
     },
     {
@@ -50,6 +55,7 @@
       "upstreamTag": "v1.6.0",
       "upstreamVersion": "1.6.0",
       "previousV11": "1.6.0",
+      "currentV11": "1.6.0",
       "bumped": false
     },
     {
@@ -58,6 +64,7 @@
       "upstreamTag": "v1.4",
       "upstreamVersion": "1.4",
       "previousV11": "1.4",
+      "currentV11": "1.4",
       "bumped": false
     },
     {
@@ -66,6 +73,7 @@
       "upstreamTag": "2.3.3",
       "upstreamVersion": "2.3.3",
       "previousV11": "2.3.3",
+      "currentV11": "2.3.3",
       "bumped": false
     },
     {
@@ -74,6 +82,7 @@
       "upstreamTag": "v1.2.1",
       "upstreamVersion": "1.2.1",
       "previousV11": "1.2.1",
+      "currentV11": "1.2.1",
       "bumped": false
     },
     {
@@ -82,6 +91,7 @@
       "upstreamTag": "v1.11.1",
       "upstreamVersion": "1.11.1",
       "previousV11": "1.11.1",
+      "currentV11": "1.11.1",
       "bumped": false
     },
     {
@@ -90,6 +100,7 @@
       "upstreamTag": "v1.26",
       "upstreamVersion": "1.26",
       "previousV11": "1.26",
+      "currentV11": "1.26",
       "bumped": false
     },
     {
@@ -98,6 +109,7 @@
       "upstreamTag": "v3.8.11",
       "upstreamVersion": "3.8.11",
       "previousV11": "3.8.11",
+      "currentV11": "3.8.11",
       "bumped": false
     },
     {
@@ -106,6 +118,7 @@
       "upstreamTag": "v3.7.1",
       "upstreamVersion": "3.7.1",
       "previousV11": "3.7.1",
+      "currentV11": "3.7.1",
       "bumped": false
     },
     {
@@ -114,6 +127,7 @@
       "upstreamTag": "liburing-2.15",
       "upstreamVersion": "2.15",
       "previousV11": "2.15",
+      "currentV11": "2.15",
       "bumped": false
     },
     {
@@ -122,6 +136,7 @@
       "upstreamTag": "v3.8.2",
       "upstreamVersion": "3.8.2",
       "previousV11": "3.8.2",
+      "currentV11": "3.8.2",
       "bumped": false
     },
     {
@@ -130,6 +145,7 @@
       "upstreamTag": "curl-8_23_0",
       "upstreamVersion": "8.23.0",
       "previousV11": "8.23.0",
+      "currentV11": "8.23.0",
       "bumped": false
     },
     {
@@ -138,6 +154,7 @@
       "upstreamTag": "v1.71.0",
       "upstreamVersion": "1.71.0",
       "previousV11": "1.71.0",
+      "currentV11": "1.71.0",
       "bumped": false
     },
     {
@@ -146,6 +163,7 @@
       "upstreamTag": "v1.19.0",
       "upstreamVersion": "1.19.0",
       "previousV11": "1.19.0",
+      "currentV11": "1.19.0",
       "bumped": false
     },
     {
@@ -154,6 +172,7 @@
       "upstreamTag": "v1.26.0",
       "upstreamVersion": "1.26.0",
       "previousV11": "1.26.0",
+      "currentV11": "1.26.0",
       "bumped": false
     },
     {
@@ -162,6 +181,7 @@
       "upstreamTag": "v1.34.9",
       "upstreamVersion": "1.34.9",
       "previousV11": "1.34.9",
+      "currentV11": "1.34.9",
       "bumped": false
     },
     {
@@ -170,6 +190,7 @@
       "upstreamTag": "release/v9.4.4",
       "upstreamVersion": "9.4.4",
       "previousV11": "9.4.4",
+      "currentV11": "9.4.4",
       "bumped": false
     },
     {
@@ -178,6 +199,7 @@
       "upstreamTag": "v4.1.1",
       "upstreamVersion": "4.1.1",
       "previousV11": null,
+      "currentV11": null,
       "bumped": false
     },
     {
@@ -186,6 +208,7 @@
       "upstreamTag": "R_2_11_0",
       "upstreamVersion": "2.11.0",
       "previousV11": "2.11.0",
+      "currentV11": "2.11.0",
       "bumped": false
     },
     {
@@ -194,6 +217,7 @@
       "upstreamTag": "v5.3.0",
       "upstreamVersion": "5.3.0",
       "previousV11": "5.3.0",
+      "currentV11": "5.3.0",
       "bumped": false
     },
     {
@@ -202,6 +226,7 @@
       "upstreamTag": "v9.5.0",
       "upstreamVersion": "9.5.0",
       "previousV11": "9.5.0",
+      "currentV11": "9.5.0",
       "bumped": false
     },
     {
@@ -210,6 +235,7 @@
       "upstreamTag": "v8.4.0",
       "upstreamVersion": "8.4.0",
       "previousV11": "8.4.0",
+      "currentV11": "8.4.0",
       "bumped": false
     },
     {
@@ -218,6 +244,7 @@
       "upstreamTag": "2025-11-05",
       "upstreamVersion": "2025-11-05",
       "previousV11": "2025-11-05",
+      "currentV11": "2025-11-05",
       "bumped": false
     },
     {
@@ -226,6 +253,7 @@
       "upstreamTag": "v0.6.0",
       "upstreamVersion": "0.6.0",
       "previousV11": "0.6.0",
+      "currentV11": "0.6.0",
       "bumped": false
     },
     {
@@ -234,6 +262,7 @@
       "upstreamTag": "v36.2",
       "upstreamVersion": "36.2",
       "previousV11": "36.2",
+      "currentV11": "36.2",
       "bumped": false
     },
     {
@@ -242,6 +271,7 @@
       "upstreamTag": "release-79.1",
       "upstreamVersion": "79.1",
       "previousV11": "79.1",
+      "currentV11": "79.1",
       "bumped": false
     },
     {
@@ -250,6 +280,7 @@
       "upstreamTag": "version-3.54.1",
       "upstreamVersion": "3.54.1",
       "previousV11": "3.54.1",
+      "currentV11": "3.54.1",
       "bumped": false
     },
     {
@@ -258,6 +289,7 @@
       "upstreamTag": "v2.15.4",
       "upstreamVersion": "2.15.4",
       "previousV11": "2.15.4",
+      "currentV11": "2.15.4",
       "bumped": false
     },
     {
@@ -266,6 +298,7 @@
       "upstreamTag": "v1.1.45",
       "upstreamVersion": "1.1.45",
       "previousV11": "1.1.45",
+      "currentV11": "1.1.45",
       "bumped": false
     },
     {
@@ -274,6 +307,7 @@
       "upstreamTag": "v6.9.10",
       "upstreamVersion": "6.9.10",
       "previousV11": "6.9.10",
+      "currentV11": "6.9.10",
       "bumped": false
     },
     {
@@ -282,6 +316,7 @@
       "upstreamTag": "v1.9.7",
       "upstreamVersion": "1.9.7",
       "previousV11": "1.9.7",
+      "currentV11": "1.9.7",
       "bumped": false
     },
     {
@@ -290,6 +325,7 @@
       "upstreamTag": "v2.16.0",
       "upstreamVersion": "2.16.0",
       "previousV11": "2.16.0",
+      "currentV11": "2.16.0",
       "bumped": false
     },
     {
@@ -298,6 +334,7 @@
       "upstreamTag": "v3.4.11",
       "upstreamVersion": "3.4.11",
       "previousV11": "3.4.11",
+      "currentV11": "3.4.11",
       "bumped": false
     },
     {
@@ -306,6 +343,7 @@
       "upstreamTag": "VER-2-15-0",
       "upstreamVersion": "2.15.0",
       "previousV11": "2.15.0",
+      "currentV11": "2.15.0",
       "bumped": false
     },
     {
@@ -314,6 +352,7 @@
       "upstreamTag": "15.2.0",
       "upstreamVersion": "15.2.0",
       "previousV11": null,
+      "currentV11": null,
       "bumped": false
     },
     {
@@ -322,6 +361,7 @@
       "upstreamTag": "v1.0.2",
       "upstreamVersion": "1.0.2",
       "previousV11": "1.0.2",
+      "currentV11": "1.0.2",
       "bumped": false
     },
     {
@@ -330,6 +370,7 @@
       "upstreamTag": "v8.18.7",
       "upstreamVersion": "8.18.7",
       "previousV11": "8.18.7",
+      "currentV11": "8.18.7",
       "bumped": false
     },
     {
@@ -338,6 +379,7 @@
       "upstreamTag": "v1.4.369",
       "upstreamVersion": "1.4.369",
       "previousV11": "1.4.369",
+      "currentV11": "1.4.369",
       "bumped": false
     },
     {
@@ -346,6 +388,7 @@
       "upstreamTag": "v1.4.369",
       "upstreamVersion": "1.4.369",
       "previousV11": "1.4.369",
+      "currentV11": "1.4.369",
       "bumped": false
     },
     {
@@ -354,6 +397,7 @@
       "upstreamTag": "16.6.0",
       "upstreamVersion": "16.6.0",
       "previousV11": "16.6.0",
+      "currentV11": "16.6.0",
       "bumped": false
     },
     {
@@ -362,6 +406,7 @@
       "upstreamTag": "release-3.4.20",
       "upstreamVersion": "3.4.20",
       "previousV11": "3.4.20",
+      "currentV11": "3.4.20",
       "bumped": false
     },
     {
@@ -369,8 +414,9 @@
       "repo": "pnggroup/libpng",
       "upstreamTag": "v1.6.59",
       "upstreamVersion": "1.6.59",
-      "previousV11": "1.6.58",
-      "bumped": true
+      "previousV11": "1.6.59",
+      "currentV11": "1.6.59",
+      "bumped": false
     },
     {
       "pkg": "libjpeg-turbo",
@@ -378,6 +424,7 @@
       "upstreamTag": "3.2.1",
       "upstreamVersion": "3.2.1",
       "previousV11": "3.2.1",
+      "currentV11": "3.2.1",
       "bumped": false
     },
     {
@@ -386,6 +433,7 @@
       "upstreamTag": "v1.6.0",
       "upstreamVersion": "1.6.0",
       "previousV11": "1.6.0",
+      "currentV11": "1.6.0",
       "bumped": false
     },
     {
@@ -394,6 +442,7 @@
       "upstreamTag": "v1.4.2",
       "upstreamVersion": "1.4.2",
       "previousV11": "1.4.2",
+      "currentV11": "1.4.2",
       "bumped": false
     },
     {
@@ -402,6 +451,7 @@
       "upstreamTag": "1.5.5",
       "upstreamVersion": "1.5.5",
       "previousV11": "1.5.5",
+      "currentV11": "1.5.5",
       "bumped": false
     },
     {
@@ -410,6 +460,7 @@
       "upstreamTag": "n9.1",
       "upstreamVersion": "9.1",
       "previousV11": "9.1",
+      "currentV11": "9.1",
       "bumped": false
     },
     {
@@ -418,6 +469,7 @@
       "upstreamTag": "v0.3.34",
       "upstreamVersion": "0.3.34",
       "previousV11": "0.3.34",
+      "currentV11": "0.3.34",
       "bumped": false
     },
     {
@@ -426,6 +478,7 @@
       "upstreamTag": "v2.32.7-1",
       "upstreamVersion": "2.32.7.1",
       "previousV11": null,
+      "currentV11": null,
       "bumped": false
     },
     {
@@ -434,6 +487,7 @@
       "upstreamTag": "v4.9.0dev",
       "upstreamVersion": "4.9.0",
       "previousV11": null,
+      "currentV11": null,
       "bumped": false
     },
     {
@@ -442,6 +496,7 @@
       "upstreamTag": "v3.5.0",
       "upstreamVersion": "3.5.0",
       "previousV11": null,
+      "currentV11": null,
       "bumped": false
     },
     {
@@ -450,6 +505,7 @@
       "upstreamTag": "v3.9.0",
       "upstreamVersion": "3.9.0",
       "previousV11": "3.9.0",
+      "currentV11": "3.9.0",
       "bumped": false
     },
     {
@@ -458,6 +514,7 @@
       "upstreamTag": "v2.8.3.post2",
       "upstreamVersion": "2.8.3",
       "previousV11": null,
+      "currentV11": null,
       "bumped": false
     },
     {
@@ -466,6 +523,7 @@
       "upstreamTag": "rocm-7.14.0",
       "upstreamVersion": "7.14.0",
       "previousV11": null,
+      "currentV11": null,
       "bumped": false
     },
     {
@@ -474,6 +532,7 @@
       "upstreamTag": "v3.15-pc",
       "upstreamVersion": "3.15",
       "previousV11": null,
+      "currentV11": null,
       "bumped": false
     },
     {
@@ -482,6 +541,7 @@
       "upstreamTag": "v2026.4",
       "upstreamVersion": "2026.4",
       "previousV11": "2026.4",
+      "currentV11": "2026.4",
       "bumped": false
     },
     {
@@ -490,6 +550,7 @@
       "upstreamTag": "vulkan-sdk-1.4.363.0",
       "upstreamVersion": "1.4.363.0",
       "previousV11": "1.4.363.0",
+      "currentV11": "1.4.363.0",
       "bumped": false
     },
     {
@@ -498,6 +559,7 @@
       "upstreamTag": "2.21.75",
       "upstreamVersion": "2.21.75",
       "previousV11": null,
+      "currentV11": null,
       "bumped": false
     },
     {
@@ -506,6 +568,7 @@
       "upstreamTag": "v4.5.1",
       "upstreamVersion": "4.5.1",
       "previousV11": "4.5.1",
+      "currentV11": "4.5.1",
       "bumped": false
     },
     {
@@ -514,6 +577,7 @@
       "upstreamTag": "v1.13.2",
       "upstreamVersion": "1.13.2",
       "previousV11": "1.13.2",
+      "currentV11": "1.13.2",
       "bumped": false
     },
     {
@@ -522,6 +586,7 @@
       "upstreamTag": "1.12.1",
       "upstreamVersion": "1.12.1",
       "previousV11": "1.12.1",
+      "currentV11": "1.12.1",
       "bumped": false
     },
     {
@@ -530,6 +595,7 @@
       "upstreamTag": "pixman-0.46.4",
       "upstreamVersion": "0.46.4",
       "previousV11": "0.46.4",
+      "currentV11": "0.46.4",
       "bumped": false
     },
     {
@@ -538,6 +604,7 @@
       "upstreamTag": "1.18.6",
       "upstreamVersion": "1.18.6",
       "previousV11": "1.18.6",
+      "currentV11": "1.18.6",
       "bumped": false
     },
     {
@@ -546,6 +613,7 @@
       "upstreamTag": "giflib-6.1.3",
       "upstreamVersion": "6.1.3",
       "previousV11": "6.1.3",
+      "currentV11": "6.1.3",
       "bumped": false
     }
   ]

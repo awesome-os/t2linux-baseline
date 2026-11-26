@@ -111,58 +111,101 @@ function normalizeTag(raw: string): string {
   return m[1].replace(/[_-]/g, '.');
 }
 
+function buildGhEnv(useEnvToken: boolean): NodeJS.ProcessEnv {
+  const env: NodeJS.ProcessEnv = { ...process.env };
+  if (!useEnvToken) {
+    delete env.GH_TOKEN;
+    delete env.GITHUB_TOKEN;
+    return env;
+  }
+  const token = env.GH_TOKEN?.trim() || env.GITHUB_TOKEN?.trim();
+  if (token) {
+    env.GH_TOKEN = token;
+  } else {
+    delete env.GH_TOKEN;
+    delete env.GITHUB_TOKEN;
+  }
+  return env;
+}
+
+function runGhApi(args: string[]): string | null {
+  const hasEnvToken = Boolean(process.env.GH_TOKEN?.trim() || process.env.GITHUB_TOKEN?.trim());
+  const attempt = (useEnvToken: boolean): { ok: true; out: string } | { ok: false; authError: boolean } => {
+    const env = buildGhEnv(useEnvToken);
+    try {
+      const out = execFileSync('gh', ['api', ...args], {
+        encoding: 'utf8',
+        env,
+        stdio: ['ignore', 'pipe', 'pipe'],
+      }).trim();
+      return { ok: true, out };
+    } catch (err: unknown) {
+      const e = err as { code?: string; stderr?: string | Buffer; stdout?: string | Buffer };
+      if (e.code === 'ENOENT' && process.platform === 'win32') {
+        try {
+          const out = execFileSync('gh.cmd', ['api', ...args], {
+            encoding: 'utf8',
+            env,
+            shell: true,
+            stdio: ['ignore', 'pipe', 'pipe'],
+          }).trim();
+          return { ok: true, out };
+        } catch (winErr: unknown) {
+          const we = winErr as { stderr?: string | Buffer; stdout?: string | Buffer };
+          const msg = `${we.stderr ?? ''}\n${we.stdout ?? ''}`;
+          return { ok: false, authError: /401|bad credentials|authentication|token/i.test(msg) };
+        }
+      }
+      const msg = `${e.stderr ?? ''}\n${e.stdout ?? ''}`;
+      return { ok: false, authError: /401|bad credentials|authentication|token/i.test(msg) };
+    }
+  };
+
+  const first = attempt(true);
+  if (first.ok) return first.out;
+  if (first.authError && hasEnvToken) {
+    const fallback = attempt(false);
+    if (fallback.ok) return fallback.out;
+  }
+  return null;
+}
+
 function fetchLatestGithubVersion(repo: string): { tag: string; version: string } | null {
   const candidates: Array<{ tag: string; version: string }> = [];
-  try {
-    const out = execFileSync('gh', ['api', `repos/${repo}/releases/latest`, '--jq', '.tag_name'], {
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'ignore'],
-    }).trim();
-    if (out) candidates.push({ tag: out, version: normalizeTag(out) });
-  } catch {
-    // ignore
+  const latestOut = runGhApi([`repos/${repo}/releases/latest`, '--jq', '.tag_name']);
+  if (latestOut) {
+    candidates.push({ tag: latestOut, version: normalizeTag(latestOut) });
   }
-  try {
-    const out = execFileSync('gh', ['api', `repos/${repo}/tags?per_page=10`, '--jq', '.[].name'], {
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'ignore'],
-    }).trim();
-    for (const line of out.split(/\r?\n/)) {
+  const tagsOut = runGhApi([`repos/${repo}/tags?per_page=10`, '--jq', '.[].name']);
+  if (tagsOut !== null) {
+    for (const line of tagsOut.split(/\r?\n/)) {
       const t = line.trim();
       if (!t || /rc|alpha|beta|pre|dev/i.test(t)) continue;
       const v = normalizeTag(t);
       if (/^\d+\.\d+/.test(v)) candidates.push({ tag: t, version: v });
     }
     if (candidates.length === 0) {
-      const deepOut = execFileSync('gh', ['api', `repos/${repo}/tags?per_page=100`, '--jq', '.[].name'], {
-        encoding: 'utf8',
-        stdio: ['ignore', 'pipe', 'ignore'],
-      }).trim();
-      for (const line of deepOut.split(/\r?\n/)) {
-        const t = line.trim();
-        if (!t || /rc|alpha|beta|pre|dev/i.test(t)) continue;
-        const v = normalizeTag(t);
-        if (/^\d+\.\d+/.test(v)) candidates.push({ tag: t, version: v });
+      const deepOut = runGhApi([`repos/${repo}/tags?per_page=100`, '--jq', '.[].name']);
+      if (deepOut) {
+        for (const line of deepOut.split(/\r?\n/)) {
+          const t = line.trim();
+          if (!t || /rc|alpha|beta|pre|dev/i.test(t)) continue;
+          const v = normalizeTag(t);
+          if (/^\d+\.\d+/.test(v)) candidates.push({ tag: t, version: v });
+        }
       }
     }
-  } catch {
-    // ignore
   }
   // For KhronosGroup Vulkan repos, also check weekly v1.* spec tags directly
   if (repo.startsWith('KhronosGroup/Vulkan-')) {
-    try {
-      const out = execFileSync('gh', ['api', `repos/${repo}/git/matching-refs/tags/v1.`, '--jq', '.[-5:][].ref'], {
-        encoding: 'utf8',
-        stdio: ['ignore', 'pipe', 'ignore'],
-      }).trim();
-      for (const line of out.split(/\r?\n/)) {
+    const refsOut = runGhApi([`repos/${repo}/git/matching-refs/tags/v1.`, '--jq', '.[-5:][].ref']);
+    if (refsOut) {
+      for (const line of refsOut.split(/\r?\n/)) {
         const t = line.replace('refs/tags/', '').trim();
         if (!t) continue;
         const v = normalizeTag(t);
         if (/^\d+\.\d+/.test(v)) candidates.push({ tag: t, version: v });
       }
-    } catch {
-      // ignore
     }
   }
   if (candidates.length === 0) return null;
@@ -184,6 +227,7 @@ const results: Array<{
   upstreamTag: string;
   upstreamVersion: string;
   previousV11: string | null;
+  currentV11: string | null;
   bumped: boolean;
 }> = [];
 
@@ -200,12 +244,18 @@ for (const u of UPSTREAMS) {
     existing.version = live.version;
     bumped = true;
   }
+  const currentV11 = existing
+    ? compareVersions(existing.version, live.version) < 0
+      ? live.version
+      : existing.version
+    : null;
   results.push({
     pkg: u.pkg,
     repo: u.repo,
     upstreamTag: live.tag,
     upstreamVersion: live.version,
     previousV11: prev,
+    currentV11,
     bumped,
   });
   const mark = bumped ? `BUMP ${prev} -> ${live.version}` : `OK (${prev ?? 'external'} vs live ${live.version})`;
@@ -220,12 +270,18 @@ for (const u of NON_GITHUB_UPSTREAMS) {
     existing.version = u.upstreamVersion;
     bumped = true;
   }
+  const currentV11 = existing
+    ? compareVersions(existing.version, u.upstreamVersion) < 0
+      ? u.upstreamVersion
+      : existing.version
+    : null;
   results.push({
     pkg: u.pkg,
     repo: u.repo,
     upstreamTag: u.upstreamTag,
     upstreamVersion: u.upstreamVersion,
     previousV11: prev,
+    currentV11,
     bumped,
   });
 }
