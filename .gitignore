@@ -1,0 +1,5 @@
+dist/
+build/
+t2-trunk/
+*.iso
+*.cpio.zst

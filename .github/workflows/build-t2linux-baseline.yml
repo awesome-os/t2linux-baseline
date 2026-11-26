@@ -1,0 +1,88 @@
+name: Build & Boot T2Linux Baseline (Original T2 SDE + v11 CAS)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-boot-x86_64:
+    name: Build & Boot T2Linux Baseline (x86_64)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout awesome-os/t2linux-baseline
+        uses: actions/checkout@v4
+
+      - name: Install real compilers, T2 SDE deps, and QEMU
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            musl-tools gcc make bash git cpio zstd busybox-static qemu-system-x86
+
+      - name: Compile legacy T2 SDE initramfs from v11 CAS (normal console builder)
+        run: |
+          chmod +x scripts/t2-cas-initramfs.sh
+          ./scripts/t2-cas-initramfs.sh
+          ls -lh dist/
+          cat dist/v11-tree.json
+
+      - name: Stage kernel & run QEMU Boot Self-Test
+        run: |
+          KPATH="/boot/vmlinuz-$(uname -r)"
+          if [ ! -f "$KPATH" ]; then
+            KPATH=$(ls -1 /boot/vmlinuz-* | sort -V | tail -n 1)
+          fi
+          sudo cp "$KPATH" dist/vmlinuz-x86_64
+          sudo chmod 644 dist/vmlinuz-x86_64
+
+          set -o pipefail
+          timeout 60s qemu-system-x86_64 \
+            -cpu max \
+            -kernel dist/vmlinuz-x86_64 \
+            -initrd dist/t2sde-baseline-initramfs-x86_64.cpio.zst \
+            -append "console=ttyS0,115200 t2baseline.selftest=1" \
+            -nographic -m 512 -no-reboot | tee build/qemu-baseline.log
+
+          grep -F '[T2SDE-BASELINE] PID 1 READY (B8G_ABI_MAGIC_V3=0x33564742)' build/qemu-baseline.log
+          grep -F '[T2SDE-BASELINE] Original T2 SDE tooling present at /opt/t2sde/scripts/' build/qemu-baseline.log
+          grep -F '[T2SDE-BASELINE] SELFTEST PASS' build/qemu-baseline.log
+
+      - name: Upload x86_64 baseline artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: t2linux-baseline-x86_64
+          path: |
+            dist/t2sde-baseline-initramfs-x86_64.cpio.zst
+            dist/t2-mininit-x86_64
+            dist/vmlinuz-x86_64
+            dist/v11-tree.json
+
+  publish-release:
+    name: Publish T2Linux Baseline v0.1.0
+    needs: [build-and-boot-x86_64]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: t2linux-baseline-x86_64
+          path: release-assets
+
+      - name: Publish v0.1.0 release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="v0.1.0"
+          REPO="${{ github.repository }}"
+          if gh release view "$TAG" --repo "$REPO" >/dev/null 2>&1; then
+            gh release upload "$TAG" release-assets/* --repo "$REPO" --clobber
+          else
+            gh release create "$TAG" release-assets/* --repo "$REPO" \
+              --title "Awesome-OS T2Linux Baseline $TAG — Original T2 SDE + v11 CAS" \
+              --notes "Compiled legacy T2 SDE initramfs from v11 CAS with original upstream rxrbln/t2sde tooling, static musl PID 1, and QEMU boot self-test."
+          fi

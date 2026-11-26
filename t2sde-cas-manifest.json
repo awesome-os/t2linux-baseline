@@ -1,0 +1,21 @@
+{
+  "schema": "awesome-os.t2sde-baseline-cas.v1",
+  "abiMagic": "0x33564742",
+  "casLayout": "v11",
+  "upstreamT2Sde": {
+    "repository": "https://github.com/rxrbln/t2sde.git",
+    "branch": "trunk",
+    "requiredScripts": [
+      "scripts/Config",
+      "scripts/Build-Pkg",
+      "scripts/Build-Target",
+      "scripts/Emerge-Pkg",
+      "scripts/Create-ISO",
+      "package/base/mkinitrd/mkinitrd.sh"
+    ]
+  },
+  "target": "t2linux-baseline",
+  "architectures": ["x86_64", "aarch64"],
+  "compilers": ["musl-gcc", "zig cc", "gcc"],
+  "casRoot": "/var/lib/b8g/cas/v11"
+}

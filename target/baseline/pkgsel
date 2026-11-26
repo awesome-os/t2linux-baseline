@@ -1,0 +1,17 @@
+# Awesome-OS T2Linux Baseline Package Selection (Legacy T2 SDE Initramfs + Tooling)
+O *
+X 00-dirtree
+X linux-header
+X musl
+X binutils
+X gcc
+X make
+X bash
+X busybox
+X mkinitrd
+X cpio
+X zstd
+X e2fsprogs
+X kmod
+X util-linux
+X iproute2
