@@ -25,7 +25,7 @@
 | `brotli` | 7/8 | chromium, electron, nwjs, nodejs, deno, bun, ladybird | `1.2.1` |
 | `icu4c` | 7/8 | chromium, electron, nwjs, nodejs, deno, bun, ladybird | `79.1` |
 | `nghttp2` | 6/8 | chromium, electron, nwjs, nodejs, bun, ladybird | `1.71.0` |
-| `v8` | 6/8 | chromium, electron, nwjs, nodejs, deno, lo | `15.8 (awesome-os/libv8_monolith)` |
+| `v8` | 6/8 | chromium, electron, nwjs, nodejs, deno, lo | `latest / 16+ (awesome-os/libv8_monolith)` |
 | `zstd` | 6/8 | chromium, electron, nwjs, nodejs, deno, bun | `1.5.7` |
 | `simdutf` | 5/8 | electron, nodejs, bun, ladybird, lo | `9.5.0` |
 | `vulkan-loader` | 5/8 | chromium, electron, nwjs, deno, ladybird | `1.4.369` |

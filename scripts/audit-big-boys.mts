@@ -138,7 +138,7 @@ function main(): void {
     if (l.v11Name) v11Map.set(l.v11Name.toLowerCase(), l.maxVersion);
   }
   // Awesome-OS sovereign first-party v11 CAS runtimes
-  v11Map.set('v8', '15.8 (awesome-os/libv8_monolith)');
+  v11Map.set('v8', 'latest / 16+ (awesome-os/libv8_monolith)');
   v11Map.set('libuv', '1.51.0 (awesome-os/libuv)');
   v11Map.set('webui', '0.1.0 (awesome-os/webui)');
 
