@@ -2,9 +2,9 @@
   "schema": "awesome-os.big-boys-v11-overlap.v1",
   "abiMagic": "0x33564742",
   "casLayout": "v11",
-  "totalStandaloneMb": 3582,
-  "uniqueLibsAnalyzed": 76,
-  "sharedAcrossMultipleRuntimes": 41,
+  "totalStandaloneMb": 8992,
+  "uniqueLibsAnalyzed": 115,
+  "sharedAcrossMultipleRuntimes": 74,
   "runtimes": [
     {
       "id": "chromium",
@@ -147,130 +147,200 @@
       "coveragePercent": 100,
       "missing": [],
       "standaloneDiskMb": 145
+    },
+    {
+      "id": "rust-cargo",
+      "name": "Rust / Cargo Native Crates (*-sys)",
+      "totalLibs": 25,
+      "coveredInV11": 25,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 640
+    },
+    {
+      "id": "dotnet-11",
+      "name": ".NET 11 SDK & Native Runtime",
+      "totalLibs": 17,
+      "coveredInV11": 17,
+      "coveragePercent": 100,
+      "missing": [],
+      "standaloneDiskMb": 520
+    },
+    {
+      "id": "vcpkg-top100",
+      "name": "microsoft/vcpkg Top 100 Native Binary Ports",
+      "totalLibs": 100,
+      "coveredInV11": 89,
+      "coveragePercent": 89,
+      "missing": [
+        "libxml2",
+        "giflib",
+        "googletest",
+        "ngtcp2",
+        "glfw",
+        "zeromq",
+        "rocksdb",
+        "leveldb",
+        "libxslt",
+        "pixman",
+        "cairo"
+      ],
+      "standaloneDiskMb": 1850
+    },
+    {
+      "id": "npm-top-native",
+      "name": "npm Top Native Binary Addons (sharp/sqlite/canvas/v8)",
+      "totalLibs": 32,
+      "coveredInV11": 31,
+      "coveragePercent": 96.9,
+      "missing": [
+        "giflib"
+      ],
+      "standaloneDiskMb": 920
+    },
+    {
+      "id": "pypi-top-wheels",
+      "name": "PyPI / Python Top Binary Wheels (numpy/torch/pillow/arrow)",
+      "totalLibs": 33,
+      "coveredInV11": 30,
+      "coveragePercent": 90.9,
+      "missing": [
+        "libxslt",
+        "libxml2",
+        "zeromq"
+      ],
+      "standaloneDiskMb": 1480
     }
   ],
   "sharedLibraries": [
     {
       "lib": "zlib",
+      "sharedByCount": 20,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird",
+        "lo",
+        "colibri",
+        "llama-cpp",
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "1.4"
+    },
+    {
+      "lib": "openssl",
+      "sharedByCount": 19,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird",
+        "lo",
+        "colibri",
+        "llama-cpp",
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "4.1.0 (ahead-of-chrome upstream max)"
+    },
+    {
+      "lib": "sqlite",
+      "sharedByCount": 18,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird",
+        "lo",
+        "colibri",
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "3.54.1"
+    },
+    {
+      "lib": "zstd",
+      "sharedByCount": 18,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "colibri",
+        "llama-cpp",
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "1.6.0 (ahead-of-chrome upstream max)"
+    },
+    {
+      "lib": "vulkan-loader",
       "sharedByCount": 15,
       "runtimes": [
         "chromium",
         "firefox",
         "electron",
         "nwjs",
-        "nodejs",
-        "deno",
-        "bun",
-        "ladybird",
-        "lo",
-        "colibri",
-        "llama-cpp",
-        "vllm",
-        "gnome-wayland",
-        "kde-plasma",
-        "hyprland-omarchy"
-      ],
-      "v11MaxVersion": "1.4"
-    },
-    {
-      "lib": "openssl",
-      "sharedByCount": 14,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "bun",
-        "ladybird",
-        "lo",
-        "colibri",
-        "llama-cpp",
-        "vllm",
-        "gnome-wayland",
-        "kde-plasma",
-        "hyprland-omarchy"
-      ],
-      "v11MaxVersion": "4.1.0 (ahead-of-chrome upstream max)"
-    },
-    {
-      "lib": "sqlite",
-      "sharedByCount": 13,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "bun",
-        "ladybird",
-        "lo",
-        "colibri",
-        "vllm",
-        "gnome-wayland",
-        "kde-plasma"
-      ],
-      "v11MaxVersion": "3.54.1"
-    },
-    {
-      "lib": "zstd",
-      "sharedByCount": 13,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "bun",
-        "colibri",
-        "llama-cpp",
-        "vllm",
-        "gnome-wayland",
-        "kde-plasma",
-        "hyprland-omarchy"
-      ],
-      "v11MaxVersion": "1.6.0 (ahead-of-chrome upstream max)"
-    },
-    {
-      "lib": "vulkan-loader",
-      "sharedByCount": 11,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
         "deno",
         "ladybird",
         "colibri",
         "llama-cpp",
         "gnome-wayland",
         "kde-plasma",
-        "hyprland-omarchy"
+        "hyprland-omarchy",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native"
       ],
       "v11MaxVersion": "1.4.369"
     },
     {
-      "lib": "icu4c",
-      "sharedByCount": 10,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "bun",
-        "ladybird",
-        "gnome-wayland",
-        "kde-plasma"
-      ],
-      "v11MaxVersion": "79.1"
-    },
-    {
       "lib": "libjpeg-turbo",
-      "sharedByCount": 9,
+      "sharedByCount": 14,
       "runtimes": [
         "chromium",
         "firefox",
@@ -280,12 +350,133 @@
         "vllm",
         "gnome-wayland",
         "kde-plasma",
-        "hyprland-omarchy"
+        "hyprland-omarchy",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
       ],
       "v11MaxVersion": "3.2.1"
     },
     {
       "lib": "libpng",
+      "sharedByCount": 14,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird",
+        "vllm",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "1.6.59"
+    },
+    {
+      "lib": "brotli",
+      "sharedByCount": 13,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "1.2.1"
+    },
+    {
+      "lib": "icu4c",
+      "sharedByCount": 13,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "bun",
+        "ladybird",
+        "gnome-wayland",
+        "kde-plasma",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native"
+      ],
+      "v11MaxVersion": "79.1"
+    },
+    {
+      "lib": "libwebp",
+      "sharedByCount": 12,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "electron",
+        "nwjs",
+        "ladybird",
+        "vllm",
+        "gnome-wayland",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "1.6.0"
+    },
+    {
+      "lib": "curl",
+      "sharedByCount": 11,
+      "runtimes": [
+        "chromium",
+        "ladybird",
+        "lo",
+        "colibri",
+        "llama-cpp",
+        "vllm",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "8.23.0"
+    },
+    {
+      "lib": "nghttp2",
+      "sharedByCount": 11,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "nodejs",
+        "bun",
+        "ladybird",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "1.71.0"
+    },
+    {
+      "lib": "ffmpeg",
       "sharedByCount": 9,
       "runtimes": [
         "chromium",
@@ -294,260 +485,473 @@
         "nwjs",
         "ladybird",
         "vllm",
-        "gnome-wayland",
-        "kde-plasma",
-        "hyprland-omarchy"
-      ],
-      "v11MaxVersion": "1.6.59"
-    },
-    {
-      "lib": "brotli",
-      "sharedByCount": 8,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "bun",
-        "ladybird"
-      ],
-      "v11MaxVersion": "1.2.1"
-    },
-    {
-      "lib": "libwebp",
-      "sharedByCount": 7,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "ladybird",
-        "vllm",
-        "gnome-wayland"
-      ],
-      "v11MaxVersion": "1.6.0"
-    },
-    {
-      "lib": "vulkan-headers",
-      "sharedByCount": 7,
-      "runtimes": [
-        "chromium",
-        "electron",
-        "nwjs",
-        "ladybird",
-        "colibri",
-        "llama-cpp",
-        "hyprland-omarchy"
-      ],
-      "v11MaxVersion": "1.4.369"
-    },
-    {
-      "lib": "curl",
-      "sharedByCount": 6,
-      "runtimes": [
-        "chromium",
-        "ladybird",
-        "lo",
-        "colibri",
-        "llama-cpp",
-        "vllm"
-      ],
-      "v11MaxVersion": "8.23.0"
-    },
-    {
-      "lib": "ffmpeg",
-      "sharedByCount": 6,
-      "runtimes": [
-        "chromium",
-        "firefox",
-        "electron",
-        "nwjs",
-        "ladybird",
-        "vllm"
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
       ],
       "v11MaxVersion": "9.1"
     },
     {
-      "lib": "nghttp2",
-      "sharedByCount": 6,
+      "lib": "harfbuzz",
+      "sharedByCount": 9,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "15.2.0 (ahead-of-chrome upstream max)"
+    },
+    {
+      "lib": "libffi",
+      "sharedByCount": 9,
+      "runtimes": [
+        "firefox",
+        "deno",
+        "lo",
+        "vllm",
+        "rust-cargo",
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "3.8.2"
+    },
+    {
+      "lib": "libuv",
+      "sharedByCount": 9,
+      "runtimes": [
+        "electron",
+        "nwjs",
+        "nodejs",
+        "deno",
+        "vllm",
+        "rust-cargo",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "1.53.0 (awesome-os/libuv live upstream)"
+    },
+    {
+      "lib": "vulkan-headers",
+      "sharedByCount": 8,
       "runtimes": [
         "chromium",
         "electron",
         "nwjs",
+        "ladybird",
+        "colibri",
+        "llama-cpp",
+        "hyprland-omarchy",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "1.4.369"
+    },
+    {
+      "lib": "simdutf",
+      "sharedByCount": 7,
+      "runtimes": [
+        "electron",
         "nodejs",
         "bun",
-        "ladybird"
+        "ladybird",
+        "lo",
+        "vcpkg-top100",
+        "npm-top-native"
       ],
-      "v11MaxVersion": "1.71.0"
+      "v11MaxVersion": "9.5.0"
     },
     {
       "lib": "v8",
-      "sharedByCount": 6,
+      "sharedByCount": 7,
       "runtimes": [
         "chromium",
         "electron",
         "nwjs",
         "nodejs",
         "deno",
-        "lo"
+        "lo",
+        "npm-top-native"
       ],
       "v11MaxVersion": "16.0.88+ (awesome-os/libv8_monolith / Chromium 160 Canary)"
     },
     {
       "lib": "dav1d",
-      "sharedByCount": 5,
+      "sharedByCount": 6,
       "runtimes": [
         "chromium",
         "firefox",
         "electron",
         "nwjs",
-        "ladybird"
+        "ladybird",
+        "vcpkg-top100"
       ],
       "v11MaxVersion": "1.5.5"
     },
     {
-      "lib": "harfbuzz",
-      "sharedByCount": 5,
+      "lib": "freetype",
+      "sharedByCount": 6,
       "runtimes": [
         "chromium",
         "firefox",
-        "gnome-wayland",
-        "kde-plasma",
-        "hyprland-omarchy"
+        "dotnet-11",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
       ],
-      "v11MaxVersion": "15.2.0 (ahead-of-chrome upstream max)"
-    },
-    {
-      "lib": "libuv",
-      "sharedByCount": 5,
-      "runtimes": [
-        "electron",
-        "nwjs",
-        "nodejs",
-        "deno",
-        "vllm"
-      ],
-      "v11MaxVersion": "1.53.0 (awesome-os/libuv live upstream)"
-    },
-    {
-      "lib": "simdutf",
-      "sharedByCount": 5,
-      "runtimes": [
-        "electron",
-        "nodejs",
-        "bun",
-        "ladybird",
-        "lo"
-      ],
-      "v11MaxVersion": "9.5.0"
-    },
-    {
-      "lib": "glslang",
-      "sharedByCount": 4,
-      "runtimes": [
-        "ladybird",
-        "colibri",
-        "llama-cpp",
-        "hyprland-omarchy"
-      ],
-      "v11MaxVersion": "16.6.0"
+      "v11MaxVersion": "2.13.3"
     },
     {
       "lib": "libavif",
-      "sharedByCount": 4,
+      "sharedByCount": 6,
       "runtimes": [
         "chromium",
         "electron",
         "nwjs",
-        "ladybird"
+        "ladybird",
+        "vcpkg-top100",
+        "npm-top-native"
       ],
       "v11MaxVersion": "1.4.2"
     },
     {
-      "lib": "libffi",
-      "sharedByCount": 4,
-      "runtimes": [
-        "firefox",
-        "deno",
-        "lo",
-        "vllm"
-      ],
-      "v11MaxVersion": "3.8.2"
-    },
-    {
       "lib": "mimalloc",
-      "sharedByCount": 4,
+      "sharedByCount": 6,
       "runtimes": [
         "bun",
         "ladybird",
         "colibri",
-        "llama-cpp"
+        "llama-cpp",
+        "rust-cargo",
+        "vcpkg-top100"
       ],
       "v11MaxVersion": "3.7.1 (ahead-of-chrome upstream max)"
     },
     {
       "lib": "python",
-      "sharedByCount": 4,
+      "sharedByCount": 6,
       "runtimes": [
         "lo",
         "colibri",
         "llama-cpp",
-        "vllm"
+        "vllm",
+        "vcpkg-top100",
+        "pypi-top-wheels"
       ],
       "v11MaxVersion": "3.14.8"
     },
     {
-      "lib": "skia",
-      "sharedByCount": 4,
+      "lib": "c-ares",
+      "sharedByCount": 5,
+      "runtimes": [
+        "nodejs",
+        "bun",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "1.34.9"
+    },
+    {
+      "lib": "cmake",
+      "sharedByCount": 5,
+      "runtimes": [
+        "llama-cpp",
+        "vllm",
+        "rust-cargo",
+        "vcpkg-top100",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "4.5.1"
+    },
+    {
+      "lib": "glslang",
+      "sharedByCount": 5,
+      "runtimes": [
+        "ladybird",
+        "colibri",
+        "llama-cpp",
+        "hyprland-omarchy",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "16.6.0"
+    },
+    {
+      "lib": "lz4",
+      "sharedByCount": 5,
+      "runtimes": [
+        "lo",
+        "rust-cargo",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "1.11.1"
+    },
+    {
+      "lib": "ninja",
+      "sharedByCount": 5,
+      "runtimes": [
+        "llama-cpp",
+        "vllm",
+        "rust-cargo",
+        "vcpkg-top100",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "1.13.2"
+    },
+    {
+      "lib": "protobuf",
+      "sharedByCount": 5,
+      "runtimes": [
+        "vllm",
+        "rust-cargo",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "36.2"
+    },
+    {
+      "lib": "re2",
+      "sharedByCount": 5,
       "runtimes": [
         "chromium",
-        "electron",
-        "nwjs",
-        "ladybird"
+        "rust-cargo",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
       ],
-      "v11MaxVersion": "148"
-    },
-    {
-      "lib": "dbus",
-      "sharedByCount": 3,
-      "runtimes": [
-        "gnome-wayland",
-        "kde-plasma",
-        "hyprland-omarchy"
-      ],
-      "v11MaxVersion": "1.16.4"
-    },
-    {
-      "lib": "pipewire",
-      "sharedByCount": 3,
-      "runtimes": [
-        "gnome-wayland",
-        "kde-plasma",
-        "hyprland-omarchy"
-      ],
-      "v11MaxVersion": "1.6.11"
+      "v11MaxVersion": "2025-11-05"
     },
     {
       "lib": "simdjson",
-      "sharedByCount": 3,
+      "sharedByCount": 5,
       "runtimes": [
         "electron",
         "nodejs",
-        "ladybird"
+        "ladybird",
+        "vcpkg-top100",
+        "npm-top-native"
       ],
       "v11MaxVersion": "5.3.0"
     },
     {
-      "lib": "wayland",
-      "sharedByCount": 3,
+      "lib": "skia",
+      "sharedByCount": 5,
+      "runtimes": [
+        "chromium",
+        "electron",
+        "nwjs",
+        "ladybird",
+        "dotnet-11"
+      ],
+      "v11MaxVersion": "148"
+    },
+    {
+      "lib": "ada",
+      "sharedByCount": 4,
+      "runtimes": [
+        "nodejs",
+        "lo",
+        "vcpkg-top100",
+        "npm-top-native"
+      ],
+      "v11MaxVersion": "4.1.1 (ahead-of-chrome upstream max)"
+    },
+    {
+      "lib": "dbus",
+      "sharedByCount": 4,
       "runtimes": [
         "gnome-wayland",
         "kde-plasma",
-        "hyprland-omarchy"
+        "hyprland-omarchy",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "1.16.4"
+    },
+    {
+      "lib": "expat",
+      "sharedByCount": 4,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "vcpkg-top100",
+        "npm-top-native"
+      ],
+      "v11MaxVersion": "2.11.0 (ahead-of-chrome upstream max)"
+    },
+    {
+      "lib": "fontconfig",
+      "sharedByCount": 4,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "vcpkg-top100",
+        "npm-top-native"
+      ],
+      "v11MaxVersion": "2.17.1"
+    },
+    {
+      "lib": "libdeflate",
+      "sharedByCount": 4,
+      "runtimes": [
+        "bun",
+        "lo",
+        "rust-cargo",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "1.26"
+    },
+    {
+      "lib": "libtiff",
+      "sharedByCount": 4,
+      "runtimes": [
+        "ladybird",
+        "vcpkg-top100",
+        "npm-top-native",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "4.7.2"
+    },
+    {
+      "lib": "pipewire",
+      "sharedByCount": 4,
+      "runtimes": [
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "1.6.11"
+    },
+    {
+      "lib": "wayland",
+      "sharedByCount": 4,
+      "runtimes": [
+        "gnome-wayland",
+        "kde-plasma",
+        "hyprland-omarchy",
+        "vcpkg-top100"
       ],
       "v11MaxVersion": "1.26.0"
+    },
+    {
+      "lib": "aom",
+      "sharedByCount": 3,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "3.15.2"
+    },
+    {
+      "lib": "bzip2",
+      "sharedByCount": 3,
+      "runtimes": [
+        "rust-cargo",
+        "vcpkg-top100",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "1.0.8"
+    },
+    {
+      "lib": "libarchive",
+      "sharedByCount": 3,
+      "runtimes": [
+        "bun",
+        "rust-cargo",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "3.8.11"
+    },
+    {
+      "lib": "libopus",
+      "sharedByCount": 3,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "1.6.1"
+    },
+    {
+      "lib": "liburing",
+      "sharedByCount": 3,
+      "runtimes": [
+        "colibri",
+        "rust-cargo",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "2.15"
+    },
+    {
+      "lib": "libvpx",
+      "sharedByCount": 3,
+      "runtimes": [
+        "chromium",
+        "firefox",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "1.17.0"
+    },
+    {
+      "lib": "libxml2",
+      "sharedByCount": 3,
+      "runtimes": [
+        "chromium",
+        "vcpkg-top100",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "needs-pin"
+    },
+    {
+      "lib": "llhttp",
+      "sharedByCount": 3,
+      "runtimes": [
+        "nodejs",
+        "vcpkg-top100",
+        "npm-top-native"
+      ],
+      "v11MaxVersion": "9.4.4"
+    },
+    {
+      "lib": "mbedtls",
+      "sharedByCount": 3,
+      "runtimes": [
+        "lo",
+        "rust-cargo",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "4.3.0"
+    },
+    {
+      "lib": "openblas",
+      "sharedByCount": 3,
+      "runtimes": [
+        "llama-cpp",
+        "vcpkg-top100",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "0.3.34"
+    },
+    {
+      "lib": "postgresql",
+      "sharedByCount": 3,
+      "runtimes": [
+        "lo",
+        "vcpkg-top100",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "19.0"
     },
     {
       "lib": "wayland-protocols",
@@ -560,103 +964,194 @@
       "v11MaxVersion": "1.50"
     },
     {
-      "lib": "ada",
+      "lib": "xz",
+      "sharedByCount": 3,
+      "runtimes": [
+        "rust-cargo",
+        "vcpkg-top100",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "5.8.4"
+    },
+    {
+      "lib": "cairo",
+      "sharedByCount": 2,
+      "runtimes": [
+        "firefox",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "needs-pin"
+    },
+    {
+      "lib": "giflib",
+      "sharedByCount": 2,
+      "runtimes": [
+        "vcpkg-top100",
+        "npm-top-native"
+      ],
+      "v11MaxVersion": "needs-pin"
+    },
+    {
+      "lib": "gtk",
+      "sharedByCount": 2,
+      "runtimes": [
+        "gnome-wayland",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "4.24.2"
+    },
+    {
+      "lib": "libevent",
+      "sharedByCount": 2,
+      "runtimes": [
+        "firefox",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "2.1.13"
+    },
+    {
+      "lib": "libsdl3",
+      "sharedByCount": 2,
+      "runtimes": [
+        "ladybird",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "3.4.20"
+    },
+    {
+      "lib": "libusb",
+      "sharedByCount": 2,
+      "runtimes": [
+        "vcpkg-top100",
+        "npm-top-native"
+      ],
+      "v11MaxVersion": "1.0.30"
+    },
+    {
+      "lib": "libxslt",
+      "sharedByCount": 2,
+      "runtimes": [
+        "vcpkg-top100",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "needs-pin"
+    },
+    {
+      "lib": "libyaml",
+      "sharedByCount": 2,
+      "runtimes": [
+        "vcpkg-top100",
+        "pypi-top-wheels"
+      ],
+      "v11MaxVersion": "0.2.6"
+    },
+    {
+      "lib": "luajit",
+      "sharedByCount": 2,
+      "runtimes": [
+        "lo",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "2.1 27f169c"
+    },
+    {
+      "lib": "md4c",
+      "sharedByCount": 2,
+      "runtimes": [
+        "lo",
+        "vcpkg-top100"
+      ],
+      "v11MaxVersion": "0.6.0"
+    },
+    {
+      "lib": "nghttp3",
       "sharedByCount": 2,
       "runtimes": [
         "nodejs",
-        "lo"
+        "vcpkg-top100"
       ],
-      "v11MaxVersion": "4.1.1 (ahead-of-chrome upstream max)"
+      "v11MaxVersion": "1.19.0"
     },
     {
-      "lib": "aom",
-      "sharedByCount": 2,
-      "runtimes": [
-        "chromium",
-        "firefox"
-      ],
-      "v11MaxVersion": "3.15.2"
-    },
-    {
-      "lib": "c-ares",
+      "lib": "ngtcp2",
       "sharedByCount": 2,
       "runtimes": [
         "nodejs",
-        "bun"
+        "vcpkg-top100"
       ],
-      "v11MaxVersion": "1.34.9"
+      "v11MaxVersion": "needs-pin"
     },
     {
-      "lib": "cmake",
+      "lib": "nspr",
       "sharedByCount": 2,
       "runtimes": [
-        "llama-cpp",
-        "vllm"
+        "firefox",
+        "vcpkg-top100"
       ],
-      "v11MaxVersion": "4.5.1"
+      "v11MaxVersion": "4.41"
     },
     {
-      "lib": "expat",
+      "lib": "nss",
       "sharedByCount": 2,
       "runtimes": [
-        "chromium",
-        "firefox"
+        "firefox",
+        "vcpkg-top100"
       ],
-      "v11MaxVersion": "2.11.0 (ahead-of-chrome upstream max)"
+      "v11MaxVersion": "3.131.1"
     },
     {
-      "lib": "fontconfig",
+      "lib": "opencv",
       "sharedByCount": 2,
       "runtimes": [
-        "chromium",
-        "firefox"
+        "vcpkg-top100",
+        "pypi-top-wheels"
       ],
-      "v11MaxVersion": "2.17.1"
+      "v11MaxVersion": "5.1.0"
     },
     {
-      "lib": "freetype",
+      "lib": "pixman",
       "sharedByCount": 2,
       "runtimes": [
-        "chromium",
-        "firefox"
+        "firefox",
+        "vcpkg-top100"
       ],
-      "v11MaxVersion": "2.13.3"
+      "v11MaxVersion": "needs-pin"
     },
     {
-      "lib": "libdeflate",
+      "lib": "qt6base",
       "sharedByCount": 2,
       "runtimes": [
-        "bun",
-        "lo"
+        "kde-plasma",
+        "vcpkg-top100"
       ],
-      "v11MaxVersion": "1.26"
+      "v11MaxVersion": "6.12.1"
     },
     {
-      "lib": "libopus",
+      "lib": "snappy",
       "sharedByCount": 2,
       "runtimes": [
-        "chromium",
-        "firefox"
+        "vcpkg-top100",
+        "pypi-top-wheels"
       ],
-      "v11MaxVersion": "1.6.1"
+      "v11MaxVersion": "1.3.1"
     },
     {
-      "lib": "libvpx",
+      "lib": "woff2",
       "sharedByCount": 2,
       "runtimes": [
-        "chromium",
-        "firefox"
+        "ladybird",
+        "vcpkg-top100"
       ],
-      "v11MaxVersion": "1.17.0"
+      "v11MaxVersion": "1.0.2"
     },
     {
-      "lib": "ninja",
+      "lib": "zeromq",
       "sharedByCount": 2,
       "runtimes": [
-        "llama-cpp",
-        "vllm"
+        "vcpkg-top100",
+        "pypi-top-wheels"
       ],
-      "v11MaxVersion": "1.13.2"
+      "v11MaxVersion": "needs-pin"
     }
   ]
 }

@@ -179,6 +179,73 @@ const BIG_BOYS: readonly RuntimeSpec[] = [
       'libpng', 'libjpeg-turbo', 'harfbuzz',
     ],
   },
+  {
+    id: 'rust-cargo',
+    name: 'Rust / Cargo Native Crates (*-sys)',
+    standaloneDiskMb: 640,
+    libs: [
+      'openssl', 'zlib', 'zstd', 'brotli', 'lz4', 'bzip2', 'xz', 'sqlite',
+      'curl', 'libffi', 'libuv', 'mimalloc', 'protobuf', 'nghttp2', 'liburing',
+      'libarchive', 'libdeflate', 're2', 'mbedtls', 'libpng', 'libjpeg-turbo',
+      'libwebp', 'vulkan-loader', 'cmake', 'ninja',
+    ],
+  },
+  {
+    id: 'dotnet-11',
+    name: '.NET 11 SDK & Native Runtime',
+    standaloneDiskMb: 520,
+    libs: [
+      'openssl', 'zlib', 'brotli', 'icu4c', 'sqlite', 'curl', 'nghttp2',
+      'zstd', 'skia', 'harfbuzz', 'freetype', 'libpng', 'libjpeg-turbo',
+      'libwebp', 'libffi', 'vulkan-loader', 'krb5',
+    ],
+  },
+  {
+    id: 'vcpkg-top100',
+    name: 'microsoft/vcpkg Top 100 Native Binary Ports',
+    standaloneDiskMb: 1850,
+    libs: [
+      'zlib', 'openssl', 'curl', 'sqlite', 'zstd', 'brotli', 'lz4', 'libpng',
+      'libjpeg-turbo', 'libwebp', 'libavif', 'ffmpeg', 'harfbuzz', 'freetype',
+      'fontconfig', 'icu4c', 'protobuf', 'fmt', 'spdlog', 'nlohmann-json',
+      'abseil-cpp', 'grpc', 'eigen', 'opencv', 'libsdl3', 'vulkan-headers',
+      'vulkan-loader', 'glslang', 'mimalloc', 'simdjson', 're2', 'expat',
+      'libxml2', 'pcre2', 'bzip2', 'xz', 'libffi', 'libuv', 'nghttp2',
+      'c-ares', 'openblas', 'mbedtls', 'libarchive', 'libtiff', 'giflib',
+      'libogg', 'libvorbis', 'libopus', 'dav1d', 'aom', 'libvpx', 'x264',
+      'x265', 'libevent', 'yaml-cpp', 'catch2', 'googletest', 'benchmark',
+      'xxhash', 'snappy', 'lzo', 'libdeflate', 'liburing', 'libpsl', 'woff2',
+      'md4c', 'fast_float', 'simdutf', 'ada', 'llhttp', 'nghttp3', 'ngtcp2',
+      'qt6base', 'gtk', 'wayland', 'pipewire', 'dbus', 'openal', 'glfw',
+      'glm', 'assimp', 'lua', 'luajit', 'python', 'postgresql', 'hiredis',
+      'zeromq', 'flatbuffers', 'rocksdb', 'leveldb', 'cmake', 'ninja',
+      'meson', 'libyaml', 'libxslt', 'libusb', 'pixman', 'cairo', 'nss', 'nspr',
+    ],
+  },
+  {
+    id: 'npm-top-native',
+    name: 'npm Top Native Binary Addons (sharp/sqlite/canvas/v8)',
+    standaloneDiskMb: 920,
+    libs: [
+      'v8', 'libuv', 'openssl', 'zlib', 'brotli', 'zstd', 'lz4', 'sqlite',
+      'libjpeg-turbo', 'libpng', 'libwebp', 'libavif', 'libtiff', 'giflib',
+      'harfbuzz', 'freetype', 'fontconfig', 'expat', 're2', 'libffi', 'icu4c',
+      'nghttp2', 'c-ares', 'llhttp', 'ada', 'simdjson', 'simdutf', 'libusb',
+      'protobuf', 'curl', 'ffmpeg', 'vulkan-loader',
+    ],
+  },
+  {
+    id: 'pypi-top-wheels',
+    name: 'PyPI / Python Top Binary Wheels (numpy/torch/pillow/arrow)',
+    standaloneDiskMb: 1480,
+    libs: [
+      'python', 'openblas', 'openssl', 'zlib', 'zstd', 'brotli', 'lz4',
+      'snappy', 'bzip2', 'xz', 'sqlite', 'curl', 'nghttp2', 'c-ares',
+      'protobuf', 're2', 'libjpeg-turbo', 'libpng', 'libwebp', 'libtiff',
+      'freetype', 'harfbuzz', 'ffmpeg', 'opencv', 'libffi', 'libuv',
+      'libyaml', 'libxslt', 'libxml2', 'zeromq', 'postgresql', 'cmake', 'ninja',
+    ],
+  },
 ];
 
 const ALIASES: Readonly<Record<string, readonly string[]>> = {
