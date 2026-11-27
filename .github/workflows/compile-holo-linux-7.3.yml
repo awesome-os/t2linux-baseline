@@ -11,6 +11,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   compile-and-boot-holo-linux:
     runs-on: ubuntu-latest
@@ -104,6 +108,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: holo-linux-x86_64
+          retention-days: 7
           path: |
             dist/vmlinuz-7.3.6-x86_64
             dist/b8g_abi.ko

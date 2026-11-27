@@ -19,10 +19,15 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-v11-universe:
     name: Analyze T2 SDE & Build v11 Universe (${{ inputs.wave || 'core' }})
     runs-on: ubuntu-latest
+    timeout-minutes: 45
 
     steps:
       - name: Checkout awesome-os/t2linux-baseline
@@ -54,6 +59,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: v11-package-universe-${{ inputs.wave || 'core' }}
+          retention-days: 7
           path: |
             dist/v11-build-queue.json
             catalog/v11-package-universe.json

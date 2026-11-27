@@ -9,6 +9,10 @@ permissions:
   contents: write
   pull-requests: write
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   autoroll:
     uses: awesome-os/maintenance-workflows/.github/workflows/reusable-holo-autoroll.yml@v1
