@@ -6,6 +6,7 @@ The real-compiler **T2 SDE Baseline Edition** — includes the original upstream
 
 Instead of forcing every server, VM, and workstation to carry gigabytes of legacy Xorg or GPU drivers, Awesome-OS uses a **2-tier selectable graphics design**:
 
+<!-- DOC-STATIC-REFERENCE -->
 | Layer | What's Included | Size / Target |
 | :--- | :--- | :--- |
 | **Base OS (Always Included)** | Static musl PID 1, `awesome-os/coreutils`, `/dev/fb0` (`42 KB` graphical desktop), `kitty-ink` ANSI/TUI, `tty0`+`ttyS0`, `modalias` `v11` CAS driver hydrator | **`~31 MB`** — boots on any PC (1998+), Hyper-V, QEMU, or 19" rack blade with **zero GPU stack** |
