@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Restore ccache kernel objects
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: ~/.cache/ccache
           key: holo-linux-ccache-${{ hashFiles('kernel/awesome-os-7.3.config') }}-${{ github.run_id }}
@@ -62,7 +62,7 @@ jobs:
 
       - name: Save ccache kernel objects (always)
         if: always()
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: ~/.cache/ccache
           key: holo-linux-ccache-${{ hashFiles('kernel/awesome-os-7.3.config') }}-${{ github.run_id }}
@@ -101,7 +101,7 @@ jobs:
           grep -F "[HOLO-LINUX] /dev/b8g-arena LIVE" /tmp/qemu-holo.log
 
       - name: Upload compiled Holo-Linux kernel & b8g_abi.ko artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: holo-linux-x86_64
           path: |

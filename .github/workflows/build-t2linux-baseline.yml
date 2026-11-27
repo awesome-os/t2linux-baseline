@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout awesome-os/t2linux-baseline
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install real compilers, T2 SDE deps, and QEMU
         run: |
@@ -52,7 +52,7 @@ jobs:
           grep -F '[T2SDE-BASELINE] SELFTEST PASS' build/qemu-baseline.log
 
       - name: Upload x86_64 baseline artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: t2linux-baseline-x86_64
           path: |
@@ -68,7 +68,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: t2linux-baseline-x86_64
           path: release-assets

@@ -26,10 +26,10 @@ jobs:
 
     steps:
       - name: Checkout awesome-os/t2linux-baseline
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node.js (direct erasable TS execution)
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: '24'
 
@@ -51,7 +51,7 @@ jobs:
           node scripts/build-v11-universe.mts --wave "${{ inputs.wave || 'core' }}" --smoke-build
 
       - name: Upload v11 universe & catalog artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: v11-package-universe-${{ inputs.wave || 'core' }}
           path: |
