@@ -13,6 +13,7 @@
     "zeroCasV1": true,
     "spdxLicense": true,
     "gitattributes": true,
-    "codeowners": true
+    "codeowners": true,
+    "noWorkflowBloat": true
   }
 }
