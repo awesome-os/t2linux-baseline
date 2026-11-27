@@ -101,7 +101,7 @@ jobs:
           grep -F "[HOLO-LINUX] /dev/b8g-arena LIVE" /tmp/qemu-holo.log
 
       - name: Upload compiled Holo-Linux kernel & b8g_abi.ko artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: holo-linux-x86_64
           path: |
