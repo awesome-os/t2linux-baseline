@@ -2,7 +2,7 @@
   "schema": "awesome-os.max-version-lock.v1",
   "abiMagic": "0x33564742",
   "casLayout": "v11",
-  "generatedAt": "2026-11-26T21:36:47.729Z",
+  "generatedAt": "2026-11-27T01:15:58.913Z",
   "sources": {
     "v11Universe": "catalog/v11-package-universe.json",
     "ladybirdVcpkg": "/home/runner/work/t2linux-baseline/t2linux-baseline/ladybird/vcpkg.json",
