@@ -35,3 +35,40 @@ Instead of forcing every server, VM, and workstation to carry gigabytes of legac
 - **[`catalog/max-toolchain-lock.json`](catalog/max-toolchain-lock.json) (`scripts/track-max-toolchains.mts`):** Live upstream max-version lock covering **26** major runtimes, bundlers, base OS images, and package managers (`node` `26.13.1` / upstream `27.0.0-alpha.0.2.0`, `deno`, `bun`, `pnpm`, `typescript`, `esbuild`, `vite`, `rolldown`, `oxc`, `biome`, `rust`, `zig`, `go`, `python` `3.15.2` / upstream `3.16.0a2`, `uv`, `cmake`, `ninja`, `meson`, `alpine` `3.24.4`, `php` `8.6.0`, `composer`, `ruby` `4.0.10`, `ruby.wasm`, `wordpress-playground`, `dotnet`, `dart`), tracking both `maxStable` and `maxUpstream` and refreshed automatically by [`gravity-version-bump.yml`](.github/workflows/gravity-version-bump.yml).
 - **`docs/LINUX-COMPILER-AND-LEGACY-TREES.md`** — Practical Linux developer guide for `holo-compiler` / `zig cc` + materializing 0-byte legacy FHS file trees (hardlink & `overlayfs`) from `v11` CAS for `autotools`, `cmake`, `meson`, and T2 SDE `Build-Pkg`.
 - **`.github/workflows/build-t2linux-baseline.yml` & `holo-ci@v1`:** CI builds the T2 SDE baseline initramfs with real `musl-gcc`, boots it in **QEMU**, verifies `[T2SDE-BASELINE] SELFTEST PASS`, publishes `v0.1.0` releases, and runs centralized **`holo-ci@v1`** verification ([`.github/workflows/holo-ci.yml`](.github/workflows/holo-ci.yml) + [`holo-ci.json`](holo-ci.json)).
+
+---
+
+## Tracked Max Toolchain Lock (`26/26` Resolved)
+
+Snapshot from [`catalog/max-toolchain-lock.json`](catalog/max-toolchain-lock.json) (`schema: "awesome-os.max-toolchain-lock.v1"`, `abiMagic: 0x33564742`, `generatedAt: 2026-11-27T01:16:13.524Z`):
+
+<!-- AUTO-GENERATED:BEGIN source="max-toolchain-lock.json" id="t2linux:toolchain-lock" -->
+| Toolchain | Group | Upstream Repo | Max Stable | Max Upstream | Source |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `node` | `js-ts` | `nodejs/node` | `26.13.1` | `27.0.0-alpha.0.2.0` | `github-tags` |
+| `deno` | `js-ts` | `denoland/deno` | `2.9.8` | `2.9.8` | `github-release` |
+| `bun` | `js-ts` | `oven-sh/bun` | `1.4.5` | `1.4.5` | `github-release` |
+| `pnpm` | `js-ts` | `pnpm/pnpm` | `12.24.0` | `12.24.0` | `github-tags` |
+| `typescript` | `js-ts` | `microsoft/TypeScript` | `7.0.2` | `7.1-beta` | `github-release` |
+| `esbuild` | `js-ts` | `evanw/esbuild` | `0.28.2` | `0.28.2` | `github-release` |
+| `vite` | `js-ts` | `vitejs/vite` | `8.4.0` | `8.4.0` | `github-release` |
+| `rolldown` | `js-ts` | `rolldown/rolldown` | `1.3.4` | `1.3.4` | `github-release` |
+| `oxc` | `js-ts` | `oxc-project/oxc` | `1.95.0` | `1.95.0` | `github-release` |
+| `biome` | `js-ts` | `biomejs/biome` | `2.6.9` | `2.6.9` | `github-release` |
+| `rust` | `systems-native` | `rust-lang/rust` | `1.100.0` | `1.100.0` | `github-release` |
+| `zig` | `systems-native` | `ziglang/zig` | `0.15.2` | `0.15.2` | `github-tags` |
+| `go` | `systems-native` | `golang/go` | `1.27.4` | `1.27.4` | `github-tags` |
+| `python` | `systems-native` | `python/cpython` | `3.15.2` | `3.16.0a2` | `github-tags` |
+| `uv` | `systems-native` | `astral-sh/uv` | `0.13.10` | `0.13.10` | `github-release` |
+| `cmake` | `systems-native` | `Kitware/CMake` | `4.5.1` | `4.5.1` | `github-release` |
+| `ninja` | `systems-native` | `ninja-build/ninja` | `1.13.2` | `1.13.2` | `github-release` |
+| `meson` | `systems-native` | `mesonbuild/meson` | `1.12.1` | `1.13.0rc1` | `github-release` |
+| `alpine` | `systems-native` | `alpinelinux/aports` | `3.24.4` | `3.24.4` | `docker-hub` |
+| `php` | `polyglot-wasi` | `php/php-src` | `8.6.0` | `8.6.0` | `github-release` |
+| `composer` | `polyglot-wasi` | `composer/composer` | `2.11.3` | `2.11.3` | `github-release` |
+| `ruby` | `polyglot-wasi` | `ruby/ruby` | `4.0.10` | `4.1.0-preview1` | `github-release` |
+| `ruby.wasm` | `polyglot-wasi` | `ruby/ruby.wasm` | `2.10.1` | `2.10.1` | `github-release` |
+| `wordpress-playground` | `polyglot-wasi` | `WordPress/wordpress-playground` | `3.1.66` | `3.1.66` | `github-release` |
+| `dotnet` | `polyglot-wasi` | `dotnet/sdk` | `11.0.100` | `11.0.100` | `github-tags` |
+| `dart` | `polyglot-wasi` | `dart-lang/sdk` | `3.14.1` | `3.15.0-186.0.dev` | `github-tags` |
+<!-- AUTO-GENERATED:END -->
