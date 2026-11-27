@@ -15,8 +15,84 @@ concurrency:
 
 jobs:
   autoroll:
-    uses: awesome-os/maintenance-workflows/.github/workflows/reusable-holo-autoroll.yml@v1
-    with:
-      config-path: holo-ci.json
-      tracking-issue: 'awesome-os/awesome-os#5'
-      auto-merge: false
+    name: Holo-CI Upstream Autoroll (Shadow-Canary Gated)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout awesome-os/t2linux-baseline
+        uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Checkout holo-ci runtime
+        uses: actions/checkout@v7
+        with:
+          repository: awesome-os/maintenance-workflows
+          ref: v1
+          path: .holo-ci-runtime
+
+      - name: Setup Node.js 26
+        uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+
+      - name: Bump upstream pins via holo-ci
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          node .holo-ci-runtime/holo-ci/cli.mts bump \
+            --fetch-upstream \
+            --apply-pins \
+            --config holo-ci.json \
+            --emit-summary
+
+      - name: Pre-bump shadow-canary verification gate
+        id: shadow-canary
+        run: |
+          set -euo pipefail
+          node .holo-ci-runtime/holo-ci/cli.mts verify --config holo-ci.json --emit-summary
+          rm -rf .holo-ci-runtime
+          DIFF_STAT="$(git diff --stat || true)"
+          CHANGED_FILES="$(git status --short || true)"
+          LOCK_SHA="$(node --input-type=module -e '
+            import { readFileSync } from "node:fs";
+            import { createHash } from "node:crypto";
+            const raw = readFileSync("catalog/max-toolchain-lock.json", "utf8");
+            const lock = JSON.parse(raw);
+            if (lock.schema !== "awesome-os.max-toolchain-lock.v1" || lock.abiMagic !== "0x33564742") throw new Error("Invalid lock schema/abiMagic");
+            if (!Array.isArray(lock.toolchains) || lock.toolchains.length === 0 || lock.resolvedCount > lock.totalToolchains) throw new Error("Invalid lock toolchains");
+            process.stdout.write(createHash("sha256").update(raw).digest("hex"));
+          ')"
+          if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then
+            {
+              echo "### Pre-Bump Shadow-Canary Verification (PASS)"
+              echo "- \`holo-ci verify\`: **PASS**"
+              echo "- \`catalog/max-toolchain-lock.json\` SHA-256: \`${LOCK_SHA}\`"
+              echo '```text'
+              echo "${CHANGED_FILES:-no workspace changes}"
+              [ -n "${DIFF_STAT}" ] && echo "${DIFF_STAT}"
+              echo '```'
+            } >> "${GITHUB_STEP_SUMMARY}"
+          fi
+          echo "passed=true" >> "${GITHUB_OUTPUT}"
+
+      - name: Open autoroll pull request if pins changed
+        if: success() && steps.shadow-canary.outputs.passed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AUTORUN_BRANCH: autoroll/upstream-pins-${{ github.run_id }}
+        run: |
+          CHANGED="$(git status --porcelain)"
+          if [ -z "${CHANGED}" ]; then
+            echo "No upstream pin changes detected; skipping autoroll PR."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "${AUTORUN_BRANCH}"
+          git add -A
+          git commit -m "chore(autoroll): bump upstream pins" -m "Bug: awesome-os/awesome-os#5" -m "Verified-By: holo-ci@v1"
+          git push origin "${AUTORUN_BRANCH}"
+          gh label create "type/autoroll" --color "0e8a16" --description "Automated upstream pin roll" --force >/dev/null 2>&1 || true
+          PR_BODY="$(printf 'Automated upstream pin roll via `holo-ci bump --fetch-upstream --apply-pins`.\n\nBug: awesome-os/awesome-os#5\nVerified-By: holo-ci@v1\n')"
+          gh pr create --base main --head "${AUTORUN_BRANCH}" --title "chore(autoroll): bump upstream pins" --body "${PR_BODY}" --label "type/autoroll"

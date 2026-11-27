@@ -32,6 +32,13 @@ jobs:
           sparse-checkout: |
             vcpkg.json
 
+      - name: Checkout holo-ci runtime
+        uses: actions/checkout@v7
+        with:
+          repository: awesome-os/maintenance-workflows
+          ref: v1
+          path: .holo-ci-runtime
+
       - name: Setup Node.js 24
         uses: actions/setup-node@v7
         with:
@@ -59,40 +66,59 @@ jobs:
             import { readFileSync, writeFileSync, appendFileSync, existsSync } from "node:fs";
             const tracker = JSON.parse(readFileSync("catalog/live-upstream-tracker.json", "utf8"));
             const uni = JSON.parse(readFileSync("catalog/v11-package-universe.json", "utf8"));
-            const lock = existsSync("catalog/max-version-lock.json")
-              ? JSON.parse(readFileSync("catalog/max-version-lock.json", "utf8"))
-              : null;
+            const lock = existsSync("catalog/max-version-lock.json") ? JSON.parse(readFileSync("catalog/max-version-lock.json", "utf8")) : null;
             const bumped = (tracker.libraries || []).filter((l) => l.bumped);
             const telemetry = {
-              schema: "awesome-os.gravity-bump-telemetry.v1",
-              abiMagic: "0x33564742",
-              generatedAt: new Date().toISOString(),
-              dampingFactor: 0.65,
+              schema: "awesome-os.gravity-bump-telemetry.v1", abiMagic: "0x33564742",
+              generatedAt: new Date().toISOString(), dampingFactor: 0.65,
               totalTracked: tracker.totalTracked ?? (tracker.libraries?.length || 0),
-              bumpedCount: bumped.length,
-              bumpedLibraries: bumped,
+              bumpedCount: bumped.length, bumpedLibraries: bumped,
               totalUniversePackages: uni.totalPackages ?? (uni.packages?.length || 0),
               maxVersionLockSummary: lock?.summary ?? null,
             };
             writeFileSync("catalog/bump-telemetry.json", JSON.stringify(telemetry, null, 2) + "\n", "utf8");
-            const summaryPath = process.env.GITHUB_STEP_SUMMARY;
-            if (summaryPath) {
-              const md = [
-                "## Damped-Gravity Upstream Bump Telemetry",
-                "",
-                "| Metric | Value |",
-                "| :--- | :--- |",
-                `| Tracked Upstream Libraries | ${telemetry.totalTracked} |`,
-                `| Newly Bumped | ${telemetry.bumpedCount} |`,
+            if (process.env.GITHUB_STEP_SUMMARY) {
+              appendFileSync(process.env.GITHUB_STEP_SUMMARY, [
+                "## Damped-Gravity Upstream Bump Telemetry", "", "| Metric | Value |", "| :--- | :--- |",
+                `| Tracked Upstream Libraries | ${telemetry.totalTracked} |`, `| Newly Bumped | ${telemetry.bumpedCount} |`,
                 `| v11 Package Universe | ${telemetry.totalUniversePackages} |`,
-                `| Ladybird Dep Overlap | ${lock?.summary?.overlapPercent ?? "n/a"}% |`,
-                "",
-              ].join("\n");
-              appendFileSync(summaryPath, md, "utf8");
+                `| Ladybird Dep Overlap | ${lock?.summary?.overlapPercent ?? "n/a"}% |`, "",
+              ].join("\n"), "utf8");
             }
           '
 
+      - name: Pre-bump shadow-canary verification gate
+        id: shadow-canary
+        working-directory: t2linux-baseline
+        run: |
+          set -euo pipefail
+          node "${{ github.workspace }}/.holo-ci-runtime/holo-ci/cli.mts" verify --config holo-ci.json --emit-summary
+          DIFF_STAT="$(git diff --stat catalog/ || true)"
+          CHANGED_FILES="$(git status --short catalog/ || true)"
+          LOCK_SHA="$(node --input-type=module -e '
+            import { readFileSync } from "node:fs";
+            import { createHash } from "node:crypto";
+            const raw = readFileSync("catalog/max-toolchain-lock.json", "utf8");
+            const lock = JSON.parse(raw);
+            if (lock.schema !== "awesome-os.max-toolchain-lock.v1" || lock.abiMagic !== "0x33564742") throw new Error("Invalid lock schema/abiMagic");
+            if (!Array.isArray(lock.toolchains) || lock.toolchains.length === 0 || lock.resolvedCount > lock.totalToolchains) throw new Error("Invalid lock toolchains");
+            process.stdout.write(createHash("sha256").update(raw).digest("hex"));
+          ')"
+          if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then
+            {
+              echo "### Pre-Bump Shadow-Canary Verification (PASS)"
+              echo "- \`holo-ci verify\`: **PASS**"
+              echo "- \`catalog/max-toolchain-lock.json\` SHA-256: \`${LOCK_SHA}\`"
+              echo '```text'
+              echo "${CHANGED_FILES:-no catalog/ changes}"
+              [ -n "${DIFF_STAT}" ] && echo "${DIFF_STAT}"
+              echo '```'
+            } >> "${GITHUB_STEP_SUMMARY}"
+          fi
+          echo "passed=true" >> "${GITHUB_OUTPUT}"
+
       - name: Commit updated catalog/ & dispatch holo-v11 report sync if changed
+        if: success() && steps.shadow-canary.outputs.passed == 'true'
         working-directory: t2linux-baseline
         env:
           GH_TOKEN: ${{ github.token }}
