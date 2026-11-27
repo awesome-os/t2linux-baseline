@@ -68,7 +68,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: t2linux-baseline-x86_64
           path: release-assets
