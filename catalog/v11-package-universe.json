@@ -47907,7 +47907,7 @@
     {
       "name": "vips",
       "category": "graphic",
-      "version": "8.18.7",
+      "version": "8.18.8",
       "license": "GPL",
       "mode": "v11-cas-cross",
       "tarballs": [
@@ -51103,7 +51103,7 @@
       "v11TreeUri": "cas://v11/trees/librdkafka@2.16.0"
     }
   ],
-  "maxPinBumpedAt": "2026-11-27T01:15:58.816Z",
-  "liveUpstreamSyncedAt": "2026-11-27T01:15:58.733Z",
+  "maxPinBumpedAt": "2026-11-27T13:39:24.085Z",
+  "liveUpstreamSyncedAt": "2026-11-27T13:39:23.994Z",
   "tarballReplacementAt": "2026-11-26T09:25:11.700Z"
 }

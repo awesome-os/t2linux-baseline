@@ -1,7 +1,7 @@
 {
   "schema": "awesome-os.max-toolchain-lock.v1",
   "abiMagic": "0x33564742",
-  "generatedAt": "2026-11-27T01:16:13.524Z",
+  "generatedAt": "2026-11-27T13:39:44.819Z",
   "totalToolchains": 26,
   "resolvedCount": 26,
   "toolchains": [
@@ -313,8 +313,8 @@
       "maxVersion": "3.14.1",
       "maxStable": "3.14.1",
       "stableTag": "3.14.1",
-      "maxUpstream": "3.15.0-186.0.dev",
-      "upstreamLatestTag": "3.15.0-186.0.dev",
+      "maxUpstream": "3.15.0-187.0.dev",
+      "upstreamLatestTag": "3.15.0-187.0.dev",
       "source": "github-tags"
     }
   ]

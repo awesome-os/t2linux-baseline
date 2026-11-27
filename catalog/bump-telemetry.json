@@ -1,11 +1,21 @@
 {
   "schema": "awesome-os.gravity-bump-telemetry.v1",
   "abiMagic": "0x33564742",
-  "generatedAt": "2026-11-27T01:16:13.583Z",
+  "generatedAt": "2026-11-27T13:39:44.878Z",
   "dampingFactor": 0.65,
   "totalTracked": 68,
-  "bumpedCount": 0,
-  "bumpedLibraries": [],
+  "bumpedCount": 1,
+  "bumpedLibraries": [
+    {
+      "pkg": "vips",
+      "repo": "libvips/libvips",
+      "upstreamTag": "v8.18.8",
+      "upstreamVersion": "8.18.8",
+      "previousV11": "8.18.7",
+      "currentV11": "8.18.8",
+      "bumped": true
+    }
+  ],
   "totalUniversePackages": 5078,
   "maxVersionLockSummary": {
     "totalLadybirdDeps": 49,

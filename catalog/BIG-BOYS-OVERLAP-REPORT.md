@@ -103,7 +103,7 @@
 | `libsdl3` | 2/24 | ladybird, vcpkg-top100 | `3.4.20` |
 | `libsodium` | 2/24 | php-top-native, ruby-top-native | `1.0.22` |
 | `libusb` | 2/24 | vcpkg-top100, npm-top-native | `1.0.30` |
-| `libvips` | 2/24 | php-top-native, ruby-top-native | `8.18.7` |
+| `libvips` | 2/24 | php-top-native, ruby-top-native | `8.18.8` |
 | `luajit` | 2/24 | lo, vcpkg-top100 | `2.1 27f169c` |
 | `mariadb` | 2/24 | php-top-native, ruby-top-native | `3.4.11` |
 | `md4c` | 2/24 | lo, vcpkg-top100 | `0.6.0` |

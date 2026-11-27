@@ -1180,7 +1180,7 @@
         "php-top-native",
         "ruby-top-native"
       ],
-      "v11MaxVersion": "8.18.7"
+      "v11MaxVersion": "8.18.8"
     },
     {
       "lib": "luajit",
