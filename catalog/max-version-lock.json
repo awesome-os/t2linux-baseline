@@ -591,5 +591,14 @@
         "ladybird"
       ]
     }
-  ]
+  ],
+  "lockfileVersion": 3,
+  "migrationsApplied": [
+    "v0->v1",
+    "v1->v2",
+    "v2->v3"
+  ],
+  "provenanceChain": {
+    "commitAndTreeBound": true
+  }
 }

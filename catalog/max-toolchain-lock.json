@@ -379,5 +379,15 @@
       "maxUpstreamTree": "46df1c44768ebea641589979a933a9b2100d1122",
       "source": "github-tags"
     }
-  ]
+  ],
+  "casLayout": "v11",
+  "lockfileVersion": 3,
+  "migrationsApplied": [
+    "v0->v1",
+    "v1->v2",
+    "v2->v3"
+  ],
+  "provenanceChain": {
+    "commitAndTreeBound": true
+  }
 }
