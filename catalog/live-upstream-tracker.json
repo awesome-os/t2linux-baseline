@@ -1,8 +1,8 @@
 {
   "schema": "awesome-os.live-upstream-tracker.v1",
-  "checkedAt": "2026-11-27T13:39:24.000Z",
+  "checkedAt": "2026-11-27T15:13:19.758Z",
   "totalTracked": 68,
-  "bumpedCount": 1,
+  "bumpedCount": 0,
   "libraries": [
     {
       "pkg": "linux",
@@ -369,9 +369,9 @@
       "repo": "libvips/libvips",
       "upstreamTag": "v8.18.8",
       "upstreamVersion": "8.18.8",
-      "previousV11": "8.18.7",
+      "previousV11": "8.18.8",
       "currentV11": "8.18.8",
-      "bumped": true
+      "bumped": false
     },
     {
       "pkg": "vulkan-headers",
