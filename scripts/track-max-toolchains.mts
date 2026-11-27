@@ -32,8 +32,12 @@ interface ToolchainLockEntry {
   readonly maxVersion: string;
   readonly maxStable: string;
   readonly stableTag: string;
+  readonly stableCommit?: string;
+  readonly stableTree?: string;
   readonly maxUpstream: string;
   readonly upstreamLatestTag: string;
+  readonly maxUpstreamCommit?: string;
+  readonly maxUpstreamTree?: string;
   readonly source: ResolutionSource;
 }
 
@@ -316,6 +320,52 @@ async function fetchLatestToolchain(spec: ToolchainSpec): Promise<{
   return { maxStable, maxUpstream };
 }
 
+const HEX40_RE = /^[0-9a-f]{40}$/i;
+
+interface CommitTreeOids {
+  readonly commit: string;
+  readonly tree: string;
+}
+
+function fetchTagCommitAndTree(repo: string, tag: string): CommitTreeOids | null {
+  const encodedTag = encodeURIComponent(tag);
+  const out = runGhApi([
+    `repos/${repo}/commits/${encodedTag}`,
+    '--jq',
+    '{commit: .sha, tree: .commit.tree.sha}',
+  ]);
+  if (!out) return null;
+  try {
+    const parsed = JSON.parse(out) as { commit?: unknown; tree?: unknown };
+    const commit = typeof parsed.commit === 'string' ? parsed.commit.toLowerCase() : '';
+    const tree = typeof parsed.tree === 'string' ? parsed.tree.toLowerCase() : '';
+    if (!HEX40_RE.test(commit) || !HEX40_RE.test(tree)) return null;
+    return { commit, tree };
+  } catch {
+    return null;
+  }
+}
+
+function cachedOidsIfMatching(
+  cached: ToolchainLockEntry | undefined,
+  kind: 'stable' | 'upstream',
+  tag: string,
+): CommitTreeOids | null {
+  if (!cached) return null;
+  if (kind === 'stable') {
+    if (cached.stableTag !== tag) return null;
+    if (cached.stableCommit && cached.stableTree && HEX40_RE.test(cached.stableCommit) && HEX40_RE.test(cached.stableTree)) {
+      return { commit: cached.stableCommit.toLowerCase(), tree: cached.stableTree.toLowerCase() };
+    }
+    return null;
+  }
+  if (cached.upstreamLatestTag !== tag) return null;
+  if (cached.maxUpstreamCommit && cached.maxUpstreamTree && HEX40_RE.test(cached.maxUpstreamCommit) && HEX40_RE.test(cached.maxUpstreamTree)) {
+    return { commit: cached.maxUpstreamCommit.toLowerCase(), tree: cached.maxUpstreamTree.toLowerCase() };
+  }
+  return null;
+}
+
 async function main(): Promise<void> {
   const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
   const outPath = join(repoRoot, 'catalog', 'max-toolchain-lock.json');
@@ -334,9 +384,19 @@ async function main(): Promise<void> {
 
   const resolved: ToolchainLockEntry[] = [];
   for (const spec of TOOLCHAINS) {
+    const cached = cachedMap.get(spec.name.toLowerCase());
     const live = await fetchLatestToolchain(spec);
     if (live) {
       const { maxStable, maxUpstream } = live;
+      const isGithubBacked = spec.customProvider !== 'dockerhub-alpine';
+      const stableOids = isGithubBacked
+        ? (fetchTagCommitAndTree(spec.repo, maxStable.tag) ?? cachedOidsIfMatching(cached, 'stable', maxStable.tag))
+        : null;
+      const upstreamOids =
+        isGithubBacked && maxUpstream.tag !== maxStable.tag
+          ? (fetchTagCommitAndTree(spec.repo, maxUpstream.tag) ?? cachedOidsIfMatching(cached, 'upstream', maxUpstream.tag))
+          : null;
+
       resolved.push({
         name: spec.name,
         ecosystemGroup: spec.ecosystemGroup,
@@ -345,21 +405,25 @@ async function main(): Promise<void> {
         maxVersion: maxStable.version,
         maxStable: maxStable.version,
         stableTag: maxStable.tag,
+        ...(stableOids ? { stableCommit: stableOids.commit, stableTree: stableOids.tree } : {}),
         maxUpstream: maxUpstream.version,
         upstreamLatestTag: maxUpstream.tag,
+        ...(upstreamOids ? { maxUpstreamCommit: upstreamOids.commit, maxUpstreamTree: upstreamOids.tree } : {}),
         source: maxStable.source,
       });
+      const oidNote = stableOids ? ` (${stableOids.commit.slice(0, 7)}/${stableOids.tree.slice(0, 7)})` : '';
       const upNote = maxUpstream.version !== maxStable.version ? ` | upstream: ${maxUpstream.version} (${maxUpstream.tag})` : '';
-      console.log(`  ${spec.name.padEnd(22)} ${spec.repo.padEnd(32)} ${maxStable.version.padEnd(14)} [${maxStable.source}: ${maxStable.tag}]${upNote}`);
+      console.log(`  ${spec.name.padEnd(22)} ${spec.repo.padEnd(32)} ${maxStable.version.padEnd(14)} [${maxStable.source}: ${maxStable.tag}]${oidNote}${upNote}`);
       continue;
     }
 
-    const cached = cachedMap.get(spec.name.toLowerCase());
     if (cached) {
       const maxStable = cached.maxStable ?? cached.maxVersion;
       const stableTag = cached.stableTag ?? cached.upstreamTag;
       const maxUpstream = cached.maxUpstream ?? maxStable;
       const upstreamLatestTag = cached.upstreamLatestTag ?? stableTag;
+      const stableOids = cachedOidsIfMatching(cached, 'stable', stableTag);
+      const upstreamOids = upstreamLatestTag !== stableTag ? cachedOidsIfMatching(cached, 'upstream', upstreamLatestTag) : null;
       resolved.push({
         name: spec.name,
         ecosystemGroup: spec.ecosystemGroup,
@@ -368,8 +432,10 @@ async function main(): Promise<void> {
         maxVersion: maxStable,
         maxStable,
         stableTag,
+        ...(stableOids ? { stableCommit: stableOids.commit, stableTree: stableOids.tree } : {}),
         maxUpstream,
         upstreamLatestTag,
+        ...(upstreamOids ? { maxUpstreamCommit: upstreamOids.commit, maxUpstreamTree: upstreamOids.tree } : {}),
         source: 'cached-fallback',
       });
       console.log(`  [CACHED] ${spec.name.padEnd(14)} ${spec.repo.padEnd(32)} ${maxStable.padEnd(14)} [${stableTag}]`);

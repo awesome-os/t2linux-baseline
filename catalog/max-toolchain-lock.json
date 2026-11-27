@@ -1,7 +1,7 @@
 {
   "schema": "awesome-os.max-toolchain-lock.v1",
   "abiMagic": "0x33564742",
-  "generatedAt": "2026-11-27T15:13:34.843Z",
+  "generatedAt": "2026-11-27T15:20:33.333Z",
   "totalToolchains": 26,
   "resolvedCount": 26,
   "toolchains": [
@@ -13,8 +13,12 @@
       "maxVersion": "26.13.1",
       "maxStable": "26.13.1",
       "stableTag": "v26.13.1",
+      "stableCommit": "e9c277643b0249c50f6e6de5413be8a88ea11b6a",
+      "stableTree": "2e7c8500c8c2ff9377e36e6f3b03e1690e6dcc81",
       "maxUpstream": "27.0.0-alpha.0.2.0",
       "upstreamLatestTag": "v27.0.0-alpha.0.2.0",
+      "maxUpstreamCommit": "67d935706f7903245478d406eefce3e621085f6f",
+      "maxUpstreamTree": "484e5860817a0c44677b6d182d86c9a0f5db9485",
       "source": "github-tags"
     },
     {
@@ -25,6 +29,8 @@
       "maxVersion": "2.9.8",
       "maxStable": "2.9.8",
       "stableTag": "v2.9.8",
+      "stableCommit": "fe7ed012d92c642fd8e5607ac5a45d517538b5c5",
+      "stableTree": "ad29daf52a8c383f8f6d564979d2056c760471a5",
       "maxUpstream": "2.9.8",
       "upstreamLatestTag": "v2.9.8",
       "source": "github-release"
@@ -37,6 +43,8 @@
       "maxVersion": "1.4.5",
       "maxStable": "1.4.5",
       "stableTag": "bun-v1.4.5",
+      "stableCommit": "a7733435cf40429e3b35c36072769df2052b80f1",
+      "stableTree": "07b8065b8d89d64ac30b2bb326b3a18b43450efc",
       "maxUpstream": "1.4.5",
       "upstreamLatestTag": "bun-v1.4.5",
       "source": "github-release"
@@ -49,6 +57,8 @@
       "maxVersion": "12.24.0",
       "maxStable": "12.24.0",
       "stableTag": "v12.24.0",
+      "stableCommit": "2e2b00bcd6c175f4d16cc0106726dc3e2d3343ec",
+      "stableTree": "d06013d620ba44a71fbff934a71c9a2d78531d3f",
       "maxUpstream": "12.24.0",
       "upstreamLatestTag": "v12.24.0",
       "source": "github-tags"
@@ -61,8 +71,12 @@
       "maxVersion": "7.0.2",
       "maxStable": "7.0.2",
       "stableTag": "v7.0.2",
+      "stableCommit": "1e4744d68260a7cb91b62b12edc3f6a2187faaf1",
+      "stableTree": "c8b97a62cc1c891050b8cbc75034ae0c5ab38890",
       "maxUpstream": "7.1-beta",
       "upstreamLatestTag": "v7.1-beta",
+      "maxUpstreamCommit": "3e9236361fa97a9e6c685f4833ac457ae2d8c50a",
+      "maxUpstreamTree": "2a322d5d8eefb3b2f295c5ed6398de7237f6249a",
       "source": "github-release"
     },
     {
@@ -73,6 +87,8 @@
       "maxVersion": "0.28.2",
       "maxStable": "0.28.2",
       "stableTag": "v0.28.2",
+      "stableCommit": "609683d892977362a0f99026cb74b96263d728a9",
+      "stableTree": "a58e636987c5d8878037e68fb5e71c90329f0bab",
       "maxUpstream": "0.28.2",
       "upstreamLatestTag": "v0.28.2",
       "source": "github-release"
@@ -85,6 +101,8 @@
       "maxVersion": "8.4.0",
       "maxStable": "8.4.0",
       "stableTag": "v8.4.0",
+      "stableCommit": "841132ea38d02036bf436375357779af51a68ce5",
+      "stableTree": "7ceffbd8c8c3530582adb826e2677979f83dcec1",
       "maxUpstream": "8.4.0",
       "upstreamLatestTag": "v8.4.0",
       "source": "github-release"
@@ -97,6 +115,8 @@
       "maxVersion": "1.3.4",
       "maxStable": "1.3.4",
       "stableTag": "v1.3.4",
+      "stableCommit": "7b6091df36258c6c908243ec15549872275e4413",
+      "stableTree": "c7a33e7ab6d3823d8dff182eecc8c0c7d2907259",
       "maxUpstream": "1.3.4",
       "upstreamLatestTag": "v1.3.4",
       "source": "github-release"
@@ -109,6 +129,8 @@
       "maxVersion": "1.95.0",
       "maxStable": "1.95.0",
       "stableTag": "oxlint_v1.95.0",
+      "stableCommit": "846e62abbbf7c646844a4b8729210dbe2317f5c7",
+      "stableTree": "49db6b7a05dcf0bc987ef5984cb7502178d1f007",
       "maxUpstream": "1.95.0",
       "upstreamLatestTag": "oxlint_v1.95.0",
       "source": "github-release"
@@ -121,6 +143,8 @@
       "maxVersion": "2.6.9",
       "maxStable": "2.6.9",
       "stableTag": "@biomejs/biome@2.6.9",
+      "stableCommit": "cfef4254da12420b9c832ad4ba45e2f75f0f3f34",
+      "stableTree": "9e894642601eca42debafab0e8b55850b87c8274",
       "maxUpstream": "2.6.9",
       "upstreamLatestTag": "@biomejs/biome@2.6.9",
       "source": "github-release"
@@ -133,6 +157,8 @@
       "maxVersion": "1.100.0",
       "maxStable": "1.100.0",
       "stableTag": "1.100.0",
+      "stableCommit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "stableTree": "5fee22616e7678555f875adf96f8534d29917e6b",
       "maxUpstream": "1.100.0",
       "upstreamLatestTag": "1.100.0",
       "source": "github-release"
@@ -145,6 +171,8 @@
       "maxVersion": "0.15.2",
       "maxStable": "0.15.2",
       "stableTag": "0.15.2",
+      "stableCommit": "e4cbd752c8c05f131051f8c873cff7823177d7d3",
+      "stableTree": "f26bc68a7075d0e5f7a806d7f91c428b740c101f",
       "maxUpstream": "0.15.2",
       "upstreamLatestTag": "0.15.2",
       "source": "github-tags"
@@ -157,6 +185,8 @@
       "maxVersion": "1.27.4",
       "maxStable": "1.27.4",
       "stableTag": "go1.27.4",
+      "stableCommit": "7b2881024c95a11ddb86663a616340aa3a88b67f",
+      "stableTree": "4b45ea39d42b413ed0790b28882abb96fc2f47e9",
       "maxUpstream": "1.27.4",
       "upstreamLatestTag": "go1.27.4",
       "source": "github-tags"
@@ -169,8 +199,12 @@
       "maxVersion": "3.15.2",
       "maxStable": "3.15.2",
       "stableTag": "v3.15.2",
+      "stableCommit": "5e58eaad7c58df58dfa8ea549c87996e01dd1077",
+      "stableTree": "dd16465b91a6d7da5fb5ea3bc5be7558585b9b34",
       "maxUpstream": "3.16.0a2",
       "upstreamLatestTag": "v3.16.0a2",
+      "maxUpstreamCommit": "d1ff5e51e3fbb30bde31fcd7c2c8ef0b3b1b1cef",
+      "maxUpstreamTree": "eaaba751b6cfac457448592c473e3af097acfc77",
       "source": "github-tags"
     },
     {
@@ -181,6 +215,8 @@
       "maxVersion": "0.13.10",
       "maxStable": "0.13.10",
       "stableTag": "0.13.10",
+      "stableCommit": "e3e7c1eacb980339352a5ad69affcd3b6c206c92",
+      "stableTree": "3bec30cab6cb4e98875624a9c4b37c2c5a89eb2a",
       "maxUpstream": "0.13.10",
       "upstreamLatestTag": "0.13.10",
       "source": "github-release"
@@ -193,6 +229,8 @@
       "maxVersion": "4.5.1",
       "maxStable": "4.5.1",
       "stableTag": "v4.5.1",
+      "stableCommit": "2803b0fd98c2b0e000d36ef834cf5c2d4992e653",
+      "stableTree": "3470107eb23e915ae0fbac77b05de85c084fd341",
       "maxUpstream": "4.5.1",
       "upstreamLatestTag": "v4.5.1",
       "source": "github-release"
@@ -205,6 +243,8 @@
       "maxVersion": "1.13.2",
       "maxStable": "1.13.2",
       "stableTag": "v1.13.2",
+      "stableCommit": "3441b633c2fe2c494e958780ba0f4227b1327634",
+      "stableTree": "70dd1324a3997a3ce38bfe70a8291b2ef4a0bf65",
       "maxUpstream": "1.13.2",
       "upstreamLatestTag": "v1.13.2",
       "source": "github-release"
@@ -217,8 +257,12 @@
       "maxVersion": "1.12.1",
       "maxStable": "1.12.1",
       "stableTag": "1.12.1",
+      "stableCommit": "70598bb7825f0f804fb31ec2795de5e79e7692a0",
+      "stableTree": "12297c9f42b7b9232616c432b1fed98948d8a7f0",
       "maxUpstream": "1.13.0rc1",
       "upstreamLatestTag": "1.13.0rc1",
+      "maxUpstreamCommit": "8f62bd38bab67f1015ac8ff7ca5426e8bc089b46",
+      "maxUpstreamTree": "459ea373acbd7079b100695cb874fe9f24c5f8f6",
       "source": "github-release"
     },
     {
@@ -241,6 +285,8 @@
       "maxVersion": "8.6.0",
       "maxStable": "8.6.0",
       "stableTag": "php-8.6.0",
+      "stableCommit": "8aaada3f9605d81a38b8240f93c7389dfbc77ef9",
+      "stableTree": "c2e55d228dea7518910f64dfe19494309425ea01",
       "maxUpstream": "8.6.0",
       "upstreamLatestTag": "php-8.6.0",
       "source": "github-release"
@@ -253,6 +299,8 @@
       "maxVersion": "2.11.3",
       "maxStable": "2.11.3",
       "stableTag": "2.11.3",
+      "stableCommit": "e4a580d4d41edb0eb5a470f441c9780ba49df75f",
+      "stableTree": "6e729a38e6bda642b613e12cff5f572c9efcba80",
       "maxUpstream": "2.11.3",
       "upstreamLatestTag": "2.11.3",
       "source": "github-release"
@@ -265,8 +313,12 @@
       "maxVersion": "4.0.10",
       "maxStable": "4.0.10",
       "stableTag": "v4.0.10",
+      "stableCommit": "a704b7cd95a42cc0cf5f307137bf3aac0285b915",
+      "stableTree": "54a31a1ce642decc324ba0233852c5e2b78ad3de",
       "maxUpstream": "4.1.0-preview1",
       "upstreamLatestTag": "v4.1.0-preview1",
+      "maxUpstreamCommit": "2d08b5f42f2cbed4a4e6ecf8d62987a4f21f98c1",
+      "maxUpstreamTree": "8db9f5bee371bb1a6e84df55166f6c51421fbd3b",
       "source": "github-release"
     },
     {
@@ -277,6 +329,8 @@
       "maxVersion": "2.10.1",
       "maxStable": "2.10.1",
       "stableTag": "2.10.1",
+      "stableCommit": "cbb1e8440159c55b9c56e5359eb8e12d5a1e742d",
+      "stableTree": "eb87a80098a74049fcecd5cb0987dda20b17f7cc",
       "maxUpstream": "2.10.1",
       "upstreamLatestTag": "2.10.1",
       "source": "github-release"
@@ -289,6 +343,8 @@
       "maxVersion": "3.1.66",
       "maxStable": "3.1.66",
       "stableTag": "v3.1.66",
+      "stableCommit": "d8fce746d38e168e6929b1289940339403293679",
+      "stableTree": "5f3587aa717afd0628d6efa874d6ea198e69a243",
       "maxUpstream": "3.1.66",
       "upstreamLatestTag": "v3.1.66",
       "source": "github-release"
@@ -301,6 +357,8 @@
       "maxVersion": "11.0.100",
       "maxStable": "11.0.100",
       "stableTag": "v11.0.100",
+      "stableCommit": "b8600c8854f5d1ac1442d717211d968f69a53acd",
+      "stableTree": "b73484b5bf68bdbe8113058d9bf194abf7475f6f",
       "maxUpstream": "11.0.100",
       "upstreamLatestTag": "v11.0.100",
       "source": "github-tags"
@@ -313,8 +371,12 @@
       "maxVersion": "3.14.1",
       "maxStable": "3.14.1",
       "stableTag": "3.14.1",
+      "stableCommit": "c8a0db5978a68d4037f7e5294ffc79867935c8c2",
+      "stableTree": "3278aa96bb64df2a0bbd1b655f276087115cbca2",
       "maxUpstream": "3.15.0-187.0.dev",
       "upstreamLatestTag": "3.15.0-187.0.dev",
+      "maxUpstreamCommit": "874f9ac6090b8c49e35f54764db4ed1adfa97ffa",
+      "maxUpstreamTree": "46df1c44768ebea641589979a933a9b2100d1122",
       "source": "github-tags"
     }
   ]
