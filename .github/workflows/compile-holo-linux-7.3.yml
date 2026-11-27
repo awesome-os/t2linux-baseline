@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Restore ccache kernel objects
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: ~/.cache/ccache
           key: holo-linux-ccache-${{ hashFiles('kernel/awesome-os-7.3.config') }}-${{ github.run_id }}
@@ -62,7 +62,7 @@ jobs:
 
       - name: Save ccache kernel objects (always)
         if: always()
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: ~/.cache/ccache
           key: holo-linux-ccache-${{ hashFiles('kernel/awesome-os-7.3.config') }}-${{ github.run_id }}
