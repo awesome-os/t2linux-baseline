@@ -8,7 +8,7 @@
 
 ```bash
 # Install holo-pm + holo-compiler + base v11 CAS substrate (Linux x86_64 / aarch64)
-curl -fsSL https://awesome-os.com/install.sh | sh
+curl -fsSL https://awesome-os.github.io/installer/install.sh | sh
 
 # Verify unified compiler & v11 CAS store
 holo-pm --version
