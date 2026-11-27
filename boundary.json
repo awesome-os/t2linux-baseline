@@ -1,0 +1,30 @@
+{
+  "schema": "holo-boundary.v1",
+  "plane": 1,
+  "publicEntrypoints": [
+    "kernel/holo-kbuild.mts",
+    "src/t2_mininit.c"
+  ],
+  "includePaths": [
+    "kernel",
+    "scripts",
+    "src",
+    "t2-trunk"
+  ],
+  "excludeDirs": [
+    ".git",
+    "node_modules",
+    "build",
+    "dist",
+    "target",
+    ".awesome-oci",
+    ".holo-ci-runtime"
+  ],
+  "forbiddenImports": [
+    "WidevineCdm",
+    "optimization_guide_internal",
+    "GoogleUpdate"
+  ],
+  "maxParentTraversals": 4,
+  "scanSourceHttpIpc": false
+}
