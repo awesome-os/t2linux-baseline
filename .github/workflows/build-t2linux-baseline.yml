@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout awesome-os/t2linux-baseline
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install real compilers, T2 SDE deps, and QEMU
         run: |
