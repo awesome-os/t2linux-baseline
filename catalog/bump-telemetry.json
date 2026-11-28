@@ -1,11 +1,21 @@
 {
   "schema": "awesome-os.gravity-bump-telemetry.v1",
   "abiMagic": "0x33564742",
-  "generatedAt": "2026-11-27T15:13:34.890Z",
+  "generatedAt": "2026-11-28T12:50:38.307Z",
   "dampingFactor": 0.65,
   "totalTracked": 68,
-  "bumpedCount": 0,
-  "bumpedLibraries": [],
+  "bumpedCount": 1,
+  "bumpedLibraries": [
+    {
+      "pkg": "limine",
+      "repo": "limine-bootloader/limine",
+      "upstreamTag": "v12.11.2",
+      "upstreamVersion": "12.11.2",
+      "previousV11": "12.11.1",
+      "currentV11": "12.11.2",
+      "bumped": true
+    }
+  ],
   "totalUniversePackages": 5078,
   "maxVersionLockSummary": {
     "totalLadybirdDeps": 49,

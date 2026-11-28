@@ -1,7 +1,7 @@
 {
   "schema": "awesome-os.max-toolchain-lock.v1",
   "abiMagic": "0x33564742",
-  "generatedAt": "2026-11-27T15:20:33.333Z",
+  "generatedAt": "2026-11-28T12:50:38.254Z",
   "totalToolchains": 26,
   "resolvedCount": 26,
   "toolchains": [
@@ -153,14 +153,14 @@
       "name": "rust",
       "ecosystemGroup": "systems-native",
       "repo": "rust-lang/rust",
-      "upstreamTag": "1.100.0",
-      "maxVersion": "1.100.0",
-      "maxStable": "1.100.0",
-      "stableTag": "1.100.0",
-      "stableCommit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
-      "stableTree": "5fee22616e7678555f875adf96f8534d29917e6b",
-      "maxUpstream": "1.100.0",
-      "upstreamLatestTag": "1.100.0",
+      "upstreamTag": "1.100.1",
+      "maxVersion": "1.100.1",
+      "maxStable": "1.100.1",
+      "stableTag": "1.100.1",
+      "stableCommit": "20ddd01716a87c0fcf06ae4752d85a4abc15bcdf",
+      "stableTree": "f4c2dc9f03f43e95df719b849e7f20cc51aaf63b",
+      "maxUpstream": "1.100.1",
+      "upstreamLatestTag": "1.100.1",
       "source": "github-release"
     },
     {
@@ -373,21 +373,11 @@
       "stableTag": "3.14.1",
       "stableCommit": "c8a0db5978a68d4037f7e5294ffc79867935c8c2",
       "stableTree": "3278aa96bb64df2a0bbd1b655f276087115cbca2",
-      "maxUpstream": "3.15.0-187.0.dev",
-      "upstreamLatestTag": "3.15.0-187.0.dev",
-      "maxUpstreamCommit": "874f9ac6090b8c49e35f54764db4ed1adfa97ffa",
-      "maxUpstreamTree": "46df1c44768ebea641589979a933a9b2100d1122",
+      "maxUpstream": "3.15.0-188.0.dev",
+      "upstreamLatestTag": "3.15.0-188.0.dev",
+      "maxUpstreamCommit": "492ba21f76eee47e306e701b4fc93815f0284e8a",
+      "maxUpstreamTree": "50d791646ccb9df41c4863aad91cbd25b0ffb621",
       "source": "github-tags"
     }
-  ],
-  "casLayout": "v11",
-  "lockfileVersion": 3,
-  "migrationsApplied": [
-    "v0->v1",
-    "v1->v2",
-    "v2->v3"
-  ],
-  "provenanceChain": {
-    "commitAndTreeBound": true
-  }
+  ]
 }

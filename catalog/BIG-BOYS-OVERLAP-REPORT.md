@@ -1,5 +1,3 @@
-<!-- DOC-STATIC-CORPUS -->
-
 # Big Boys Native Library Overlap — Chromium × Firefox × Ladybird × Electron × NW.js × Node.js × Deno × Bun × just-js/lo × PHP × Ruby on `v11` CAS
 
 > Cross-runtime DevOps audit against `catalog/v11-package-universe.json` (5,078 packages) + `catalog/max-version-lock.json` + Awesome-OS sovereign runtimes (`libv8_monolith`, `libuv`).

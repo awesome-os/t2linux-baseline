@@ -27760,7 +27760,7 @@
     {
       "name": "limine",
       "category": "boot",
-      "version": "12.11.1",
+      "version": "12.11.2",
       "license": "BSD",
       "mode": "v11-cas-cross",
       "tarballs": [
@@ -51103,7 +51103,7 @@
       "v11TreeUri": "cas://v11/trees/librdkafka@2.16.0"
     }
   ],
-  "maxPinBumpedAt": "2026-11-27T15:13:19.826Z",
-  "liveUpstreamSyncedAt": "2026-11-27T15:13:19.753Z",
+  "maxPinBumpedAt": "2026-11-28T12:50:14.568Z",
+  "liveUpstreamSyncedAt": "2026-11-28T12:50:14.487Z",
   "tarballReplacementAt": "2026-11-26T09:25:11.700Z"
 }

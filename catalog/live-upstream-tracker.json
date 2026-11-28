@@ -1,8 +1,8 @@
 {
   "schema": "awesome-os.live-upstream-tracker.v1",
-  "checkedAt": "2026-11-27T15:13:19.758Z",
+  "checkedAt": "2026-11-28T12:50:14.492Z",
   "totalTracked": 68,
-  "bumpedCount": 0,
+  "bumpedCount": 1,
   "libraries": [
     {
       "pkg": "linux",
@@ -16,11 +16,11 @@
     {
       "pkg": "limine",
       "repo": "limine-bootloader/limine",
-      "upstreamTag": "v12.11.1",
-      "upstreamVersion": "12.11.1",
+      "upstreamTag": "v12.11.2",
+      "upstreamVersion": "12.11.2",
       "previousV11": "12.11.1",
-      "currentV11": "12.11.1",
-      "bumped": false
+      "currentV11": "12.11.2",
+      "bumped": true
     },
     {
       "pkg": "libuv",
